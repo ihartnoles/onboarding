@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>FAU Student Onboarding</title>
+  <meta name="keywords" content="FAU Student Onboarding">
+  <meta name="description" content="FAU Student Onboarding">
+  <meta class="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Onboarding</title>
+  <%#= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%#= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
+  <!-- Font -->
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Arimo:400,700,400italic,700italic'>
+
+  <!-- Plagins CSS -->
+  <%= stylesheet_link_tag "css/buttons/buttons.css" %>
+  <%= stylesheet_link_tag "css/buttons/social-icons.css" %>
+  <%= stylesheet_link_tag "css/font-awesome.min.css" %>
+  <%= stylesheet_link_tag "css/bootstrap.min.css" %>
+  <%= stylesheet_link_tag "css/jslider.css" %>
+  <%= stylesheet_link_tag "css/settings.css" %>
+  <%= stylesheet_link_tag "css/jquery.fancybox.css" %>
+  <%= stylesheet_link_tag "css/animate.css" %>
+  <%= stylesheet_link_tag "css/video-js.min.css" %>
+  <%= stylesheet_link_tag "css/morris.css" %>
+  <%= stylesheet_link_tag "css/royalslider/royalslider.css" %>
+  <%= stylesheet_link_tag "css/royalslider/skins/minimal-white/rs-minimal-white.css" %>
+  <%= stylesheet_link_tag "css/layerslider/layerslider.css" %>
+  <%= stylesheet_link_tag "css/ladda.min.css" %>
+  <%= stylesheet_link_tag "css/datepicker.css" %>
+  <%= stylesheet_link_tag "css/jquery.scrollbar.css" %>
+  
+  <!-- Theme CSS -->
+  <%= stylesheet_link_tag "css/style.css" %>
+
+  <!-- Responsive CSS -->
+  <%= stylesheet_link_tag "css/responsive.css" %>
+  
+  <!-- Custom CSS -->
+  <%= stylesheet_link_tag "css/customizer/pages.css" %>
+  <%= stylesheet_link_tag "css/customizer/shop-pages-customizer.css" %>
+
+  <!-- IE Styles-->
+  <%= stylesheet_link_tag "css/ie/ie.css" %>
+  
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" %></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" %></script>
+	<link rel='stylesheet' href="css/ie/ie8.css" %>
+  <![endif]-->
+
+  <%= csrf_meta_tags %>
+</head>
+
+<body class="fixed-header">
+
+<%= yield %>
+
+
+
+</body>
+</html>
