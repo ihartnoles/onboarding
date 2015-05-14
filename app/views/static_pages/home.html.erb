@@ -1,12 +1,11 @@
-<%#= @title %>
-
+<% if params[:lightemup] %>
 <%#= debug params %>
 <%= debug session %>
-
-<hr>
-<%#= session.inspect %>
-
 Hello, <%= session[:cas_user] %>!
+<%#= session.inspect %>
+<hr>
+<% end %>
+
 
 <div class="page-box">
 <div class="page-box-content">
