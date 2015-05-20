@@ -1,11 +1,10 @@
 <% if params[:lightemup] %>
 <%#= debug params %>
-<%= debug session %>
+ 
 Hello, <%= session[:cas_user] %>!
 <%#= session.inspect %>
 <hr>
 <% end %>
-
 
 <div class="page-box">
 <div class="page-box-content">
@@ -21,7 +20,10 @@ Hello, <%= session[:cas_user] %>!
   <!-- <header class="page-header"> -->
     <div class="container">
       <article class="content col-sm-9">	
-	      <h4 class="title">Welcome to FAU John Doe! Let's get started!</h4>
+	      <h4 class="title">
+	      	<%#= session.inspect %>
+
+	      	Welcome to FAU <%= @displayname %>! Let's get started!</h4>
 
 	      <p>We want your transition to college life to be as smooth as possible. Below is a checklist of things to keep in mind and tasks you will need to complete prior to your arrival on campus.</p><br>
 	   </article>
@@ -472,6 +474,19 @@ Hello, <%= session[:cas_user] %>!
 						A sample class schedule for your major.
 						It takes three (3) to five (5) business days to process your submitted OARS form. After three to five business days, log back into OARS to review your advisor's comments. If your holds are cleared and your course selections are in sync with your advisors, you can log into MyFAU to register for classes. That's all there is to it!
 				</p>	
+
+				<strong>
+					
+					 <% @oars.each do |o| %>
+						 <% if !o.nil? %>
+								You have taken OARS for <%= o["semester_desc"] %>.  Your status is: <%= o["status_desc"] %><br>
+						 <% else %>
+						 		Your OARS information is incomplete.  You have not satisfied this requirement. You will need to take the OARS assessment.
+						 <% end %>
+					 <% end %>
+
+				</strong>
+
 			  </div>			
 			</div>
 		  </li>
@@ -504,6 +519,20 @@ Hello, <%= session[:cas_user] %>!
 				<p>
 					The University’s New Student Orientation program is designed to provide a clear and concise introduction to the university community. The program shares important information with students and their families regarding academic and student services. New Student Orientation is offered over the summer for students enrolling in the Summer or Fall semester and November through January for students enrolling in the Spring semester.
 				</p>	
+
+					<p>
+					<strong>
+						Your Orienation status is:<br>
+						<% @orientation.each do |o| %>
+							<% if o["attended"] == 'Yes' %>
+							     You have attended an orientation session on <%= o["sessiondate"] %>. You have completed this requirement!
+							<% else %>
+								You have NOT attended an orientation session yet. You must attend orientation and complete orientation.
+							<% end %>
+						<% end %>
+					</strong>
+					</p>
+
 			  </div>			
 			</div>
 		  </li>

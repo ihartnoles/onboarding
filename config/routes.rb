@@ -3,10 +3,17 @@ Onboarding::Application.routes.draw do
   root 'static_pages#login'
 
   #static actions
-  get '/home',            to: 'static_pages#home'
-  get '/unauthorized',    to: 'static_pages#unauthorized'
-  get '/login',           to: 'static_pages#login'
-  get '/do_manual_login', to: 'static_pages#do_manual_login'
+  get    '/home',             to: 'static_pages#home'
+  get    '/unauthorized',     to: 'static_pages#unauthorized'  
+  get    '/login',            to: 'login#login'
+  match  '/do_manual_login',  to: 'login#do_manual_login', via: 'post'
+  get    '/do_manual_login',  to: 'login#do_manual_login'
+
+  # get  '/login',            to: 'static_pages#login'
+  # get  '/logins',           to: 'static_pages#do_manual_login'
+  # post '/logins',           to: 'static_pages#do_manual_login'
+  
+  # get '/do_manual_login', to: 'static_pages#do_manual_login'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
