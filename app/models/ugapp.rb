@@ -19,7 +19,7 @@ class Ugapp < ActiveRecord::Base
 	def self.get_fullname(email,password)
 		fullname = connection.exec_query("select concat(concat(firstname,' '),lastname) as fullname FROM APPLICANT WHERE emailaddress=#{connection.quote(email)} AND shapassword=#{connection.quote(password)}")
 
-		return fullname.to_s    	
+		return fullname	
 	end
 
 end

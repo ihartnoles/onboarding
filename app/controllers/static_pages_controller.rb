@@ -60,7 +60,7 @@ class StaticPagesController < ApplicationController
          @displayname = session[:cas_user]
       else
          #@displayname = hash[session[:fullname].to_sym]
-         session[:fullname].map do |fn|
+         session[:fullname].each do |fn|
            @displayname = "#{fn['fullname']}"
          end
       end

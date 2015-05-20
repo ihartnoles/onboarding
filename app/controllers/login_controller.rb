@@ -28,8 +28,8 @@ class LoginController < ApplicationController
         @message = 'i found yo ass'
 
        
-        #session[:fullname] = Ugapp.get_fullname(params[:email], base64_passwd)
-        session[:displayname] = Ugapp.get_fullname(params[:email], base64_passwd)
+        session[:fullname] = Ugapp.get_fullname(params[:email], base64_passwd)
+        #session[:displayname] = Ugapp.get_fullname(params[:email], base64_passwd)
 
         redirect_to home_path
       else
