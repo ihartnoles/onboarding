@@ -31,7 +31,12 @@ class LoginController < ApplicationController
         session[:fullname] = Ugapp.get_fullname(params[:email], base64_passwd)
         #session[:displayname] = Ugapp.get_fullname(params[:email], base64_passwd)
 
-        redirect_to home_path
+        puts YAML::dump(session[:fullname])
+
+
+        # session.delete(:cas_user)
+
+        redirect_to gatewayed_home_path
       else
         @message = 'nopity nope nope'
         #redirect_to unauthorized_path

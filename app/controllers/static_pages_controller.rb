@@ -1,7 +1,20 @@
 class StaticPagesController < ApplicationController
+      
+      #before_filter :get_session_info
 
-	  before_filter CASClient::Frameworks::Rails::GatewayFilter, :only => [:login, :do_manual_login, :home ]
-  	before_filter CASClient::Frameworks::Rails::Filter, :except => [:login, :do_manual_login, :home ]
+      before_filter CASClient::Frameworks::Rails::GatewayFilter, :only => [:login, :do_manual_login, :gatewayed_home]
+      before_filter CASClient::Frameworks::Rails::Filter, :except => [:login, :do_manual_login, :gatewayed_home]
+ 	 
+
+      #puts YAML::dump(@cas_user)
+
+      # if @lexluthor = 'true'
+      #   before_filter CASClient::Frameworks::Rails::GatewayFilter, :only => [:login, :do_manual_login, :home]
+      #   before_filter CASClient::Frameworks::Rails::Filter, :except => [:login, :do_manual_login, :home ]       
+      # else
+      #   before_filter CASClient::Frameworks::Rails::GatewayFilter, :only => [:login, :do_manual_login]
+      #   before_filter CASClient::Frameworks::Rails::Filter, :except => [:login, :do_manual_login]
+      # end 
 
   	
   	# def login
@@ -50,19 +63,42 @@ class StaticPagesController < ApplicationController
 
    #  end
 
+  def gatewayed_home
+
+      @fullname = Faudw.fullname('Z23292493')
+
+      @orientation = Faudw.orientation_status('Z23292493')
+
+      @oars= Faudw.oars_status('Z23292493')
+
+
+        if !session[:fullname].nil?
+         session[:fullname].each do |fn|
+           @displayname = "#{fn['fullname']}"
+         end
+        else
+          redirect_to unauthorized_path
+        end
+  end
+
 	def home		
 		# @title      = 'Home'
   		# @description = 'What would you like to do?'		
+
+      # puts YAML::dump(session.inspect)
 
     	session[:usertype]  = nil
       
       if !session[:cas_user].nil?
          @displayname = session[:cas_user]
-      else
-         #@displayname = hash[session[:fullname].to_sym]
-         session[:fullname].each do |fn|
-           @displayname = "#{fn['fullname']}"
-         end
+      # else
+      #   if !session[:fullname].nil?
+      #    session[:fullname].each do |fn|
+      #      @displayname = "#{fn['fullname']}"
+      #    end
+      #   else
+      #     @displayname = 'TAMAS'
+      #   end
       end
 
       #Z23001699
@@ -119,4 +155,28 @@ class StaticPagesController < ApplicationController
 
 		render layout: false
 	end 
+
+  # protected
+
+  # def get_session_info
+  #    #puts YAML::dump(session.inspect)
+  #    session[:booyah] = "begin"
+  #    puts YAML::dump(session[:booyah])
+  #    puts YAML::dump(session[:cas_user].nil?)
+  #    puts YAML::dump(session[:cas_user].blank?)
+  #    puts YAML::dump(request.env['HTTP_REFERER'])
+
+  #    @lexluthor ='bananas'
+
+  #   if request.env['HTTP_REFERER'] == 'http://10.16.9.208:3000/login'
+  #        # @lexluthor = 'true'
+  #       CASClient::Frameworks::Rails::GatewayFilter, :only => [:login, :do_manual_login]
+  #       #CASClient::Frameworks::Rails::Filter, :except => [:login, :do_manual_login]
+  #   else
+  #        # @lexluthor = 'false'
+  #       CASClient::Frameworks::Rails::GatewayFilter, :only => [:login, :do_manual_login, :home]
+  #       #CASClient::Frameworks::Rails::Filter, :except => [:login, :do_manual_login, :home]
+  #   end 
+     
+  # end
 end

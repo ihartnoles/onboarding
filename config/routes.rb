@@ -5,6 +5,7 @@ Onboarding::Application.routes.draw do
   #static actions
   get    '/home',             to: 'static_pages#home'
   get    '/unauthorized',     to: 'static_pages#unauthorized'  
+  get    '/gatewayed_home',   to: 'static_pages#gatewayed_home'
   get    '/login',            to: 'login#login'
   match  '/do_manual_login',  to: 'login#do_manual_login', via: 'post'
   get    '/do_manual_login',  to: 'login#do_manual_login'
