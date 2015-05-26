@@ -137,7 +137,7 @@ class StaticPagesController < ApplicationController
       @aleks_complete = 0
       @oars_complete = 1
       @learning_comm_complete = 0
-      @orientation_complete = 1
+      @orientation_complete = 0
       @reg_complete = 0
       @emergency_complete = 0
       @fau_alert_complete = 0
