@@ -101,12 +101,45 @@ class StaticPagesController < ApplicationController
       #   end
       end
 
-      #Z23001699
-      @fullname = Faudw.fullname('Z23292493')
 
-      @orientation = Faudw.orientation_status('Z23292493')
+      #disable module flags
+      @deposit_available = 1
+      @account_available = 1
+      @communication_available = 1
+      @immunization_available = 1
+      @finaid_available = 1
+      @housing_fee_available = 0
+      @residency_available = 0
+      @housing_meal_plans_available = 0
+      @aleks_available = 0
+      @oars_available = 0
+      @learning_comm_available = 0
+      @orientation_available = 0
+      @reg_available = 0
+      @emergency_available = 0
+      @fau_alert_available = 0
+      @owlcard_available = 0
+      @bookadvance_available = 1
+      @tuition_available = 0
+      @vehicle_reg_available = 0
 
-      @oars= Faudw.oars_status('Z23292493')
+      #Z23001699 ;  Z23292493
+      @fullname = Faudw.fullname('Z23001699')
+
+
+      puts YAML::dump('begin fullname')
+      puts YAML::dump(@fullname)
+
+      @orientation = Faudw.orientation_status('Z23001699')
+
+      puts YAML::dump('begin orientation')
+      puts YAML::dump(@orientation)
+
+
+      @oars= Faudw.oars_status('Z23001699')
+
+      puts YAML::dump('begin oars')
+      puts YAML::dump(@oars)
 
     	# if !User.find_by_username(session[:cas_user]).blank?
 	    # 	session[:usertype]  = User.find_by_username(session[:cas_user]).usertype_id

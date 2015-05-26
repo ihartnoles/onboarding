@@ -22,11 +22,6 @@ Hello, <%= session[:cas_user] %>!
       <article class="content col-sm-9">	
 	      <h4 class="title">
 
-	      	<hr>
-	      	<%#= @lexluthor %>
-	      	<%= request.env['HTTP_REFERER'] %>
-	      	<hr>
-	      	
 	      	Welcome to FAU <%= @displayname %>! Let's get started!</h4>
 
 	      <p>We want your transition to college life to be as smooth as possible. Below is a checklist of things to keep in mind and tasks you will need to complete prior to your arrival on campus.</p><br>
@@ -130,7 +125,12 @@ Hello, <%= session[:cas_user] %>!
 		  </li>
 		  
 		  <li class="panel">
-			<a href="#step-2" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse" id="deposittitle">
+		  	<% if @deposit_available == 1 %>
+				<a href="#step-2" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse" id="deposittitle">
+			<% else %>
+				<a href="#step-2" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="" id="deposittitle">
+			<% end %>
+
 			  <div class="number">Step 2</div>
 			  <h6>Pay Deposit</h6>
 			</a>
@@ -214,7 +214,13 @@ Hello, <%= session[:cas_user] %>!
 		  </li>
 		  
 		  <li class="panel">
-			<a href="#step-3" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse" id="accounttitle">
+		  	
+		  	<% if @account_available == 1 %>
+				<a href="#step-3" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse" id="accounttitle">
+			<% else %>
+				<a href="#step-3" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="" id="accounttitle">
+			<% end %>
+
 			  <div class="number">Step 3</div>
 			  <h6>Create Account</h6>
 			</a>
@@ -286,7 +292,13 @@ Hello, <%= session[:cas_user] %>!
 		  </li>
 		  
 		  <li class="panel">
-			<a id="communicationhref" href="#step-4" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+
+		  	<% if @communication_available == 1 %>
+				<a id="communicationhref" href="#step-4" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+			<% else %>
+				<a id="communicationhref" href="#step-4" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
+			<% end %>
+
 			  <div class="number">Step 4</div>
 			  <h6>Communication Preference</h6>
 			</a>
@@ -315,7 +327,12 @@ Hello, <%= session[:cas_user] %>!
 		  </li>
 		  
 		  <li class="panel">
+		  <% if @immunization_available == 1 %>
 			<a href="#step-5" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		  <% else %>
+		  	<a href="#step-5" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
+		  <% end %>
+
 			  <div class="number">Step 5</div>
 			  <h6>Immunization Holds</h6>
 			</a>
@@ -351,7 +368,12 @@ Hello, <%= session[:cas_user] %>!
 		  </li>
 		  
 		  <li class="panel">
-			<a href="#step-6" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		  	<% if @finaid_available == 1 %>
+			   <a href="#step-6" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+			<% else %>
+               <a href="#step-6" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
+			<% end %>
+			
 			  <div class="number">Step 6</div>
 			  <h6>Financial Aid Checklist</h6>
 			</a>
@@ -379,7 +401,13 @@ Hello, <%= session[:cas_user] %>!
 		  </li>
 
 		  <li class="panel">
+
+		  <% if @residency_available == 1 %>
 			<a href="#step-7" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		  <% else %>
+		  	<a href="#step-7" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
+		  <% end %>
+
 			  <div class="number">Step 7</div>
 			  <h6>Residency Validation</h6>
 			</a>
@@ -413,7 +441,13 @@ Hello, <%= session[:cas_user] %>!
 		  </li>
 		  
 		  <li class="panel">
-			<a href="#step-8" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+
+		  	 <% if @housing_fee_available == 1 %>
+				<a href="#step-8" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+			<% else %>
+				<a href="#step-8" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
+			<% end %>
+
 			  <div class="number">Step 8</div>
 			  <h6>Housing Fee</h6>
 			</a>
@@ -434,7 +468,12 @@ Hello, <%= session[:cas_user] %>!
 		  </li>
 
 		  <li class="panel">
-			<a href="#step-9" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		  	<% if @housing_meal_plans_available == 1 %>
+				<a href="#step-9" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+			<% else %>
+				<a href="#step-9" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
+			<% end %>
+
 			  <div class="number">Step 9</div>
 			  <h6>Housing & Meal Plans</h6>
 			</a>
@@ -448,7 +487,13 @@ Hello, <%= session[:cas_user] %>!
 		  </li>
 
 		  <li class="panel">
+
+		  <% if @aleks_available == 1 %>
 			<a href="#step-10" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		  <% else %>
+		  	<a href="#step-10" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
+		  <% end %>
+
 			  <div class="number">Step 10</div>
 			  <h6>Math Placement Exam - ALEKS</h6>
 			</a>
@@ -464,7 +509,13 @@ Hello, <%= session[:cas_user] %>!
 		  </li>
 
 		   <li class="panel">
-			<a href="#step-11" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		   	<% if @oars_available == 1 %>
+				<a href="#step-11" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+			<% else %>
+				<a href="#step-11" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
+			<% end %>
+
+
 			  <div class="number">Step 11</div>
 			  <h6>Online Advising & Resource System - OARS</h6>
 			</a>
@@ -496,7 +547,13 @@ Hello, <%= session[:cas_user] %>!
 		  </li>
 
 		  <li class="panel">
+		  
+		  <% if @learning_comm_available == 1 %>
 			<a href="#step-12" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		  <% else %>
+		    <a href="#step-12" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
+		  <% end %>
+
 			  <div class="number">Step 12</div>
 			  <h6>Learning Communities</h6>
 			</a>
@@ -512,7 +569,13 @@ Hello, <%= session[:cas_user] %>!
 		  </li>
 
 		   <li class="panel">
-			<a href="#step-13" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+
+		   	<% if @learning_comm_available == 1 %>
+				<a href="#step-13" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+			<% else %>
+				<a href="#step-13" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
+			<% end %>
+
 			  <div class="number">Step 13</div>
 			  <h6>Orientation</h6>
 			</a>
@@ -542,7 +605,13 @@ Hello, <%= session[:cas_user] %>!
 		  </li>
 
 		   <li class="panel">
-			<a href="#step-14" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		   	
+		   	<% if @reg_available == 1 %>		   	
+		   		<a href="#step-14" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		   	<% else %>
+		   		<a href="#step-14" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
+		   	<% end %>
+
 			  <div class="number">Step 14</div>
 			  <h6>Registration</h6>
 			</a>
@@ -556,7 +625,12 @@ Hello, <%= session[:cas_user] %>!
 		  </li>
 
 		  <li class="panel">
+		  <% if @emergency_available == 1 %>
 			<a href="#step-15" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		  <% else %>
+		    <a href="#step-15" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
+		  <% end %>
+
 			  <div class="number">Step 15</div>
 			  <h6>Emergency Contacts</h6>
 			</a>
@@ -570,7 +644,12 @@ Hello, <%= session[:cas_user] %>!
 		  </li>
 
 		   <li class="panel">
+		   <% if @fau_alert_available == 1 %>
 			<a href="#step-16" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		   <% else %>
+		    <a href="#step-16" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
+		   <% end %>
+
 			  <div class="number">Step 16</div>
 			  <h6>FAU Alert Information</h6>
 			</a>
@@ -585,7 +664,12 @@ Hello, <%= session[:cas_user] %>!
 		  </li>
 
 		   <li class="panel">
-			<a href="#step-17" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		    <% if @owlcard_available == 1 %>
+				<a href="#step-17" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+			<% else %>
+				<a href="#step-17" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
+			<% end %>
+
 			  <div class="number">Step 17</div>
 			  <h6>Owl Card</h6>
 			</a>
@@ -601,7 +685,13 @@ Hello, <%= session[:cas_user] %>!
 		  </li>
 
 		  <li class="panel">
+
+		  <% if @bookadvance_available == 1 %>
 			<a href="#step-18" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		  <% else %>
+		    <a href="#step-18" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
+		  <% end %>
+
 			  <div class="number">Step 18</div>
 			  <h6>Book Advance Program</h6>
 			</a>
@@ -615,7 +705,13 @@ Hello, <%= session[:cas_user] %>!
 		  </li>
 
 		  <li class="panel">
-			<a href="#step-19" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		  	
+		  	<% if @tuition_available == 1 %>
+				<a href="#step-19" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+			<% else %>
+				<a href="#step-19" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
+			<% end %>
+
 			  <div class="number">Step 19</div>
 			  <h6>Tuition Payment</h6>
 			</a>
@@ -657,7 +753,12 @@ Hello, <%= session[:cas_user] %>!
 		  </li>
 
 		  <li class="panel">
-			<a href="#step-20" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		  	<% if @vehicle_reg_available == 1 %>
+				<a href="#step-20" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+			<% else %>
+				<a href="#step-20" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
+			<% end %>
+
 			  <div class="number">Step 20</div>
 			  <h6>Vechicle Registration</h6>
 			</a>

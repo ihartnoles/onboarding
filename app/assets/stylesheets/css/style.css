@@ -8387,6 +8387,14 @@ a.big-icon:hover {
   color: #ffffff;
 }
 
+
+#checkoutsteps .disabled.step-title.collapsed {
+  background: #CDD2D5;
+  border-color: #f2f2f2;
+  color: #ffffff;
+}
+
+
 #checkoutsteps a.step-title.collapsed:hover {
   background: #C10841;
   border-color: #f2f2f2;
