@@ -373,7 +373,7 @@ Hello, <%= session[:cas_user] %>!
 			<% else %>
                <a href="#step-6" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 			<% end %>
-			
+
 			  <div class="number">Step 6</div>
 			  <h6>Financial Aid Checklist</h6>
 			</a>
@@ -532,13 +532,7 @@ Hello, <%= session[:cas_user] %>!
 
 				<strong>
 					
-					 <% @oars.each do |o| %>
-						 <% if !o.nil? %>
-								You have taken OARS for <%= o["semester_desc"] %>.  Your status is: <%= o["status_desc"] %><br>
-						 <% else %>
-						 		Your OARS information is incomplete.  You have not satisfied this requirement. You will need to take the OARS assessment.
-						 <% end %>
-					 <% end %>
+					<%= oars_status(@znum) %>
 
 				</strong>
 
@@ -570,7 +564,7 @@ Hello, <%= session[:cas_user] %>!
 
 		   <li class="panel">
 
-		   	<% if @learning_comm_available == 1 %>
+		   	<% if @orientation_available == 1 %>
 				<a href="#step-13" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
 			<% else %>
 				<a href="#step-13" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
@@ -589,14 +583,7 @@ Hello, <%= session[:cas_user] %>!
 
 					<p>
 					<strong>
-						Your Orienation status is:<br>
-						<% @orientation.each do |o| %>
-							<% if o["attended"] == 'Yes' %>
-							     You have attended an orientation session on <%= o["sessiondate"] %>. You have completed this requirement!
-							<% else %>
-								You have NOT attended an orientation session yet. You must attend orientation and complete orientation.
-							<% end %>
-						<% end %>
+						<%= orientation_status(@znum)%>
 					</strong>
 					</p>
 

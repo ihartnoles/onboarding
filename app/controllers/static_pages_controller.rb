@@ -112,9 +112,9 @@ class StaticPagesController < ApplicationController
       @residency_available = 0
       @housing_meal_plans_available = 0
       @aleks_available = 0
-      @oars_available = 0
+      @oars_available = 1
       @learning_comm_available = 0
-      @orientation_available = 0
+      @orientation_available = 1
       @reg_available = 0
       @emergency_available = 0
       @fau_alert_available = 0
@@ -124,22 +124,30 @@ class StaticPagesController < ApplicationController
       @vehicle_reg_available = 0
 
       #Z23001699 ;  Z23292493
-      @fullname = Faudw.fullname('Z23001699')
 
 
-      puts YAML::dump('begin fullname')
-      puts YAML::dump(@fullname)
+      @znum = 'Z23001699'
 
-      @orientation = Faudw.orientation_status('Z23001699')
+      #@fullname = Faudw.fullname('Z23001699')
 
-      puts YAML::dump('begin orientation')
-      puts YAML::dump(@orientation)
+      #@fullname = view_context.get_fullname(@znum)
 
 
-      @oars= Faudw.oars_status('Z23001699')
+      # puts YAML::dump('begin fullname')
+      # puts YAML::dump(@fullname)
 
-      puts YAML::dump('begin oars')
-      puts YAML::dump(@oars)
+      #@orientation = Faudw.orientation_status('Z23001699')
+
+      # puts YAML::dump('begin orientation')
+      # puts YAML::dump(@orientation)
+
+
+      # @oars= Faudw.oars_status('Z23001699')
+
+      # puts YAML::dump('begin oars')
+      # puts YAML::dump(@oars)
+
+
 
     	# if !User.find_by_username(session[:cas_user]).blank?
 	    # 	session[:usertype]  = User.find_by_username(session[:cas_user]).usertype_id
