@@ -102,7 +102,8 @@ class StaticPagesController < ApplicationController
       end
 
 
-      #disable module flags
+      #module flags
+      @welcome_available = 1
       @deposit_available = 1
       @account_available = 1
       @communication_available = 1
@@ -122,6 +123,28 @@ class StaticPagesController < ApplicationController
       @bookadvance_available = 1
       @tuition_available = 0
       @vehicle_reg_available = 0
+
+      #module completion flags
+      @welcome_complete = 1
+      @deposit_complete = 1
+      @account_complete = 0
+      @communication_complete = 0
+      @immunization_complete = 1
+      @finaid_complete = 1
+      @housing_fee_complete = 0
+      @residency_complete = 0
+      @housing_meal_plans_complete = 0
+      @aleks_complete = 0
+      @oars_complete = 1
+      @learning_comm_complete = 0
+      @orientation_complete = 1
+      @reg_complete = 0
+      @emergency_complete = 0
+      @fau_alert_complete = 0
+      @owlcard_complete = 0
+      @bookadvance_complete = 1
+      @tuition_complete = 0
+      @vehicle_reg_complete = 0
 
       #Z23001699 ;  Z23292493
 

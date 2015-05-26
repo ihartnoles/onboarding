@@ -34,7 +34,7 @@ Hello, <%= session[:cas_user] %>!
 		<ul id="checkoutsteps" class="clearfix panel-group">
 		  <li class="panel">
 			<a href="#step-1" class="step-title" data-parent="#checkoutsteps" data-toggle="collapse" id="welcometitle">
-			  <div class="number">Step 1</div>
+			  <div class="number"><!-- Step 1 --> <%= get_statusicon(@welcome_available, @welcome_complete) %></div>
 			  <h6>Welcome</h6>
 			</a>
 			
@@ -131,7 +131,7 @@ Hello, <%= session[:cas_user] %>!
 				<a href="#step-2" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="" id="deposittitle">
 			<% end %>
 
-			  <div class="number">Step 2</div>
+			  <div class="number"><!-- Step 2 --><%= get_statusicon(@deposit_available, @deposit_complete) %> </div>
 			  <h6>Pay Deposit</h6>
 			</a>
 			
@@ -221,7 +221,7 @@ Hello, <%= session[:cas_user] %>!
 				<a href="#step-3" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="" id="accounttitle">
 			<% end %>
 
-			  <div class="number">Step 3</div>
+			  <div class="number"><!-- Step 3 --> <%= get_statusicon(@account_available, @account_complete) %></div>
 			  <h6>Create Account</h6>
 			</a>
 			
@@ -299,7 +299,7 @@ Hello, <%= session[:cas_user] %>!
 				<a id="communicationhref" href="#step-4" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 			<% end %>
 
-			  <div class="number">Step 4</div>
+			  <div class="number"><!-- Step 4 --> <%= get_statusicon(@communication_available, @communication_complete) %> </div>
 			  <h6>Communication Preference</h6>
 			</a>
 			
@@ -333,7 +333,7 @@ Hello, <%= session[:cas_user] %>!
 		  	<a href="#step-5" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 		  <% end %>
 
-			  <div class="number">Step 5</div>
+			  <div class="number"><!-- Step 5 --> <%= get_statusicon(@immunization_available, @immunization_complete) %></div>
 			  <h6>Immunization Holds</h6>
 			</a>
 			
@@ -374,7 +374,7 @@ Hello, <%= session[:cas_user] %>!
                <a href="#step-6" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 			<% end %>
 
-			  <div class="number">Step 6</div>
+			  <div class="number"><!-- Step 6 --> <%= get_statusicon(@finaid_available, @finaid_complete) %> </div>
 			  <h6>Financial Aid Checklist</h6>
 			</a>
 			
@@ -408,7 +408,7 @@ Hello, <%= session[:cas_user] %>!
 		  	<a href="#step-7" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 		  <% end %>
 
-			  <div class="number">Step 7</div>
+			  <div class="number"><!-- Step 7 --> <%= get_statusicon(@residency_available, @residency_complete) %> </div>
 			  <h6>Residency Validation</h6>
 			</a>
 			
@@ -448,7 +448,7 @@ Hello, <%= session[:cas_user] %>!
 				<a href="#step-8" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 			<% end %>
 
-			  <div class="number">Step 8</div>
+			  <div class="number"><!-- Step 8 --> <%= get_statusicon(@housing_fee_available, @housing_fee_complete) %> </div>
 			  <h6>Housing Fee</h6>
 			</a>
 			
@@ -474,7 +474,7 @@ Hello, <%= session[:cas_user] %>!
 				<a href="#step-9" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 			<% end %>
 
-			  <div class="number">Step 9</div>
+			  <div class="number"><!-- Step 9 --> <%= get_statusicon(@housing_meal_plans_available, @housing_meal_plans_complete) %></div>
 			  <h6>Housing & Meal Plans</h6>
 			</a>
 			
@@ -494,7 +494,7 @@ Hello, <%= session[:cas_user] %>!
 		  	<a href="#step-10" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 		  <% end %>
 
-			  <div class="number">Step 10</div>
+			  <div class="number"><!-- Step 10 --> <%= get_statusicon(@aleks_available, @aleks_complete) %></div>
 			  <h6>Math Placement Exam - ALEKS</h6>
 			</a>
 			
@@ -516,7 +516,7 @@ Hello, <%= session[:cas_user] %>!
 			<% end %>
 
 
-			  <div class="number">Step 11</div>
+			  <div class="number"><!-- Step 11 --> <%= get_statusicon(@oars_available, @oars_complete) %></div>
 			  <h6>Online Advising & Resource System - OARS</h6>
 			</a>
 			
@@ -548,7 +548,7 @@ Hello, <%= session[:cas_user] %>!
 		    <a href="#step-12" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 		  <% end %>
 
-			  <div class="number">Step 12</div>
+			  <div class="number"><!-- Step 12 --> <%= get_statusicon(@learning_comm_available, @learning_comm_complete) %></div>
 			  <h6>Learning Communities</h6>
 			</a>
 			
@@ -570,7 +570,7 @@ Hello, <%= session[:cas_user] %>!
 				<a href="#step-13" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 			<% end %>
 
-			  <div class="number">Step 13</div>
+			  <div class="number"><!-- Step 13 -->  <%= get_statusicon(@orientation_available, @orientation_complete) %></div>
 			  <h6>Orientation</h6>
 			</a>
 			
@@ -599,7 +599,7 @@ Hello, <%= session[:cas_user] %>!
 		   		<a href="#step-14" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 		   	<% end %>
 
-			  <div class="number">Step 14</div>
+			  <div class="number"><!-- Step 14 --> <%= get_statusicon(@reg_available, @reg_complete) %></div>
 			  <h6>Registration</h6>
 			</a>
 			
@@ -618,7 +618,7 @@ Hello, <%= session[:cas_user] %>!
 		    <a href="#step-15" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 		  <% end %>
 
-			  <div class="number">Step 15</div>
+			  <div class="number"><!-- Step 15 --> <%= get_statusicon(@emergency_available, @emergency_complete) %></div>
 			  <h6>Emergency Contacts</h6>
 			</a>
 			
@@ -637,7 +637,7 @@ Hello, <%= session[:cas_user] %>!
 		    <a href="#step-16" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 		   <% end %>
 
-			  <div class="number">Step 16</div>
+			  <div class="number"><!-- Step 16 -->  <%= get_statusicon(@fau_alert_available, @fau_alert_complete) %></div>
 			  <h6>FAU Alert Information</h6>
 			</a>
 			
@@ -657,7 +657,7 @@ Hello, <%= session[:cas_user] %>!
 				<a href="#step-17" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 			<% end %>
 
-			  <div class="number">Step 17</div>
+			  <div class="number"><!-- Step 17 -->  <%= get_statusicon(@owlcard_available, @owlcard_complete) %></div>
 			  <h6>Owl Card</h6>
 			</a>
 			
@@ -679,7 +679,7 @@ Hello, <%= session[:cas_user] %>!
 		    <a href="#step-18" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 		  <% end %>
 
-			  <div class="number">Step 18</div>
+			  <div class="number"><!-- Step 18 --> <%= get_statusicon(@bookadvance_available, @bookadvance_complete) %> </div>
 			  <h6>Book Advance Program</h6>
 			</a>
 			
@@ -699,7 +699,7 @@ Hello, <%= session[:cas_user] %>!
 				<a href="#step-19" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 			<% end %>
 
-			  <div class="number">Step 19</div>
+			  <div class="number"><!-- Step 19 --> <%= get_statusicon(@tuition_available, @tuition_complete) %></div>
 			  <h6>Tuition Payment</h6>
 			</a>
 			
@@ -741,12 +741,12 @@ Hello, <%= session[:cas_user] %>!
 
 		  <li class="panel">
 		  	<% if @vehicle_reg_available == 1 %>
-				<a href="#step-20" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+				<a href="#step-20" class="collapsed step-title" data-parent="#checkoutsteps" data-togregle="collapse">
 			<% else %>
 				<a href="#step-20" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 			<% end %>
 
-			  <div class="number">Step 20</div>
+			  <div class="number"><!-- Step 20 -->  <%= get_statusicon(@vehicle_reg_available, @vehicle_reg_complete) %></div>
 			  <h6>Vechicle Registration</h6>
 			</a>
 			

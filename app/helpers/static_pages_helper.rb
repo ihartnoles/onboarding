@@ -53,4 +53,17 @@ module StaticPagesHelper
   	 	 end
   	 end
 
+  	 def get_statusicon(available,completed)
+  	 	case 
+  	 		when available == 0 && completed == 0
+  	 			return "unavailable <i class='fa fa-ban'></i>".html_safe
+  	 		when available == 1 && completed == 0
+  	 			return "incomplete  <i class='fa fa-times'></i>".html_safe
+  	 		when available == 1 && completed == 1  	 			
+  	 			return "completed <i class='fa fa-check'></i>".html_safe
+  	 	else
+  	 		return "N/A <i class='fa fa-ban'></i>".html_safe
+  	 	end
+  	 end
+
 end
