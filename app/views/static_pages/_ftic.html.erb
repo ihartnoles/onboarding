@@ -83,43 +83,7 @@ Hello, <%= session[:cas_user] %>!
 					
 					<br><button type="button" class="btn btn-continue btn-danger" id="welcomeBut">Continue</button>
 					
-
-					<!-- <div class="register-radio">
-					  <label class="radio"><input type="radio" name="register"> Checkout as Guest</label>
-					  <label class="radio"><input type="radio" name="register"> Register</label>
-					</div>
-					<p>Register and save time!<br> Register with us for future convenience:</p>
-					<ul>
-					  <li>Fast and easy check out</li>
-					  <li>Easy access to your order history and status</li>
-					</ul>
-					<div class="buttons-box clearfix">
-					  <button type="button" class="btn btn-continue btn-danger">Continue</button>
-					</div> -->
-
-				  <!-- </div> -->
-				  
-				  <!-- <div class="col-sm-6 col-md-6">
-					<h3 class="title">Login</h3>
-					<p>If you have an account with us, please log in.</p>
-					<form class="checkout-login">
-					  <label>Email Adress: <span class="required">*</span></label>
-					  <input class="form-control" type="email">	
-				
-					  <label>Password: <span class="required">*</span></label>
-					  <input class="last form-control" type="password">
-				
-					  <label class="checkbox">
-						<input type="checkbox"> Remember password
-					  </label>
-					</form>
-					<div class="clearfix"></div>
-					<div class="buttons-box clearfix">
-					  <button type="button" class="btn btn-danger">Login</button>
-					  <a href="#" class="forgot">Forgot Your Password?</a>
-					  <span class="required"><b>*</b> Required Field</span>
-					</div>
-				-->
+					
 			  </div>
 			</div>
 		  </li>
@@ -234,59 +198,7 @@ Hello, <%= session[:cas_user] %>!
 				  		 <div class="buttons-box text-right">
 						  <button type="button" class="btn btn-danger" id="accountBut">Continue</button>						 
 						</div>
-				<!-- <form class="row no-margin">
-				  <div class="col-sm-6 col-md-6">
-					<label>First Name: <span class="required">*</span></label>
-					<input class="form-control" type="text">
-				  </div>
-				  <div class="col-sm-6 col-md-6">
-					<label>Last Name: <span class="required">*</span></label>
-					<input class="form-control" type="text">
-				  </div>
-				  
-				  <div class="clearfix"></div>
-				  
-				  <div class="col-sm-6 col-md-6">
-					<label>Company:</label>
-					<input class="form-control" type="text">
-				  </div>
-				  <div class="col-sm-6 col-md-6">
-					<label>Telephone: <span class="required">*</span></label>
-					<input class="form-control" type="text">
-				  </div>
-				  
-				  <div class="clearfix"></div>
-				  
-				  <div class="col-sm-6 col-md-6">
-					<label>Address: <span class="required">*</span></label>
-					<input class="form-control" type="text">
-				  </div>
-				  <div class="col-sm-6 col-md-6">
-					<label>City</label>
-					<input class="form-control" type="text">
-				  </div>
-				  
-				  <div class="clearfix"></div>
-				  
-				  <div class="col-sm-6 col-md-6">
-					<label>Zip/Postal Code: <span class="required">*</span></label>
-					<input class="form-control" type="text">
-				  </div>
-				  <div class="col-sm-6 col-md-6">
-					<label>Country</label>
-					<select class="form-control">
-					  <option>Country 1</option>
-					  <option>Country 2</option>
-					  <option>Country 3</option>
-					  <option>Country 4</option>
-					  <option>Country 5</option>
-					</select>
-				  </div>
-
-				  <div class="clearfix"></div>
-				  -->
-				  
-				</form> 
+				
 			  </div>
 			</div>
 		  </li>
@@ -307,20 +219,98 @@ Hello, <%= session[:cas_user] %>!
 			  <div class="step-content">
 			  	<h3 class="title">How do you want to be contacted?</h3>
 			  
-				  		 <p>Lorem ipsum Fugiat magna velit consectetur qui in veniam cillum exercitation Ut occaecat Duis mollit. Lorem ipsum Dolore dolor Excepteur sunt amet officia officia sunt aliquip id occaecat officia.</p>
-				
-				<br>
+				  		 <p>Stay up to date with FAU news, updates and the latest information about the entire Florida Atlantic community.</p>
+
+				  		 <p>Please select all that apply below</p>
 			
-						<form>
+			
+						<!-- <form>
 						  <div>
 							<label class="radio"><input type="radio" name="register"> Email</label>
 							<label class="radio"><input type="radio" name="register"> Text</label>
 						  </div>
-						</form>
+						</form> -->
+
+
+						  <div class="col-sm-6 col-md-6">
+						  	<label class="checkbox">
+								<input type="checkbox" name="communicationpref" value="email"> Email
+						  	</label>
+
+						  	<label class="checkbox">
+								<input type="checkbox" name="communicationpref" value="mail"> Mail
+						  	</label>
+
+						  	<label class="checkbox">
+								<input type="checkbox" name="communicationpref" id="mobileText" value="text"> Mobile/Text Messages
+						  	</label>
+						  </div>
+
+						  
+
+							<div class="col-sm-12 col-md-12 box register" id="mobileForm" style="display:none">
+								<form class="form-box register-form form-validator">
+								  <h3 class="title">Mobile Phone Information</h3>
+								  <p>Please enter the mobile number where we can contact you.</p>
+								  
+								  <!-- 
+								  <div class="form-group">
+									<label>Full name: <span class="required">*</span></label>
+					                <input type="text" class="form-control" name="fullName" data-bv-trigger="keyup" required data-bv-notempty-message="The full name cannot be empty">
+					              </div> 
+					              `-->
+
+								  <div class="form-group">
+									<label>Mobile number: <span class="required">*</span></label>
+									<input type="tel" class="form-control" name="mobilenumber"
+									  data-bv-trigger="blur"
+									  data-bv-message="The mobile number is not valid"
+									  required data-bv-notempty-message="The mobile number is required and cannot be empty"
+									  pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$" data-bv-regexp-message="The mobile number can only consist of alphabetical, number, dot and underscore">
+								  </div>
+									
+								  <!-- <div class="form-group">
+									<label>Password: <span class="required">*</span></label>
+					                <input class="form-control" name="password" type="password" required>
+					              </div>
+								  
+								  <div class="form-group">
+									<label>Email: <span class="required">*</span></label>
+									<input class="form-control" name="email" type="email" required data-bv-emailaddress-message="The input is not a valid email address">
+					              </div>
+
+								  <div class="form-group">
+									<label class="checkbox">
+									  <input type="checkbox"> Sign Up for Newsletter
+									</label>
+								  </div> -->
+
+								  <div class="buttons-box clearfix">
+									<button class="btn btn-default">Create my account</button>
+									<span class="required"><b>*</b> Required Field</span>
+								  </div>
+								</form><!-- .form-box -->
+							  </div>
+
+
+						  <div class="clearfix"></div>					  
+				  			
+				  		  <div class="buttons-box text-right">
+							  <!-- <button type="button" class="btn btn-danger" id="communicationSave">Save</button>	  -->
+							 <!--  <button type="submit" class="btn btn-danger" id="communicationSave">Save Preference</button> -->
+
+							  <button type="button" class="btn btn-danger" id="communicationBut">Continue</button>		
+						   </div>
+					
+
+						</form> 
+
 				
+						<!-- 
 						<div class="buttons-box text-right">
-						  <button type="button" class="btn btn-danger" id="communicationBut">Continue</button>						 
-						</div>
+						  <button type="button" class="btn btn-danger" id="communicationBut">Continue</button>		 
+						</div> 
+					     -->
 					
 			  </div>
 			</div>
@@ -906,10 +896,22 @@ Hello, <%= session[:cas_user] %>!
 	 	'hideOnOverlayClick': true
 	 	
 	 });
+
+
+	 // $("#btnForm").fancybox({
+	 // 	'autoScale': true,
+	 // 	'autoDimensions': true,
+	 // 	'hideOnOverlayClick': true
+	 	
+	 // });
 	
-	/* test disable a certain panle function */ 
-	  //disable the communicationhref
-	  //$('#communicationhref').click(function(){ return false });
+	
+	$("#mobileText, #mobilePhone").click(function() {
+	  //alert('Ohhhh KAY!!!!');
+	  $("#mobileForm").toggle()
+	});
+
+
 
 	/* BEGIN: title click functions */
 	$("#welcometitle").click(function() {
