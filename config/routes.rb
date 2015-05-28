@@ -1,8 +1,12 @@
 Onboarding::Application.routes.draw do
 
-  root 'static_pages#login'
+  #root 'static_pages#login'
+  root 'static_pages#main'
+
+  resources :logins
 
   #static actions
+  get    '/main',             to: 'static_pages#main'
   get    '/home',             to: 'static_pages#home'
   get    '/unauthorized',     to: 'static_pages#unauthorized'  
   get    '/gatewayed_home',   to: 'static_pages#gatewayed_home'
