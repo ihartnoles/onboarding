@@ -98,7 +98,7 @@
   </div><!-- .container -->
 </section><!-- #main -->
 
-<%= request.inspect %>
+<%#= request.inspect %>
 
 <%#= render 'static_pages/footer' %>
 
@@ -149,7 +149,7 @@
 
 
 <%= javascript_tag do %>
-  
+
   $("#btnNetID").click(function() {
     window.location.replace("http://<%= request.server_name %>:<%= request.port %>/home");
   });
