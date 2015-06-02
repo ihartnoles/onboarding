@@ -40,28 +40,39 @@
    <section id="main" class="login-register">
   <header class="page-header">
     <div class="container">
-      <h3 class="title">FAU Student Onboarding Portal - Please Choose your Login Method</h3>
+      <h3 class="title">FAU Student Onboarding Portal <br> Please Choose your Login Method</h3>
     </div>  
   </header>
   <div class="container">
     <div class="row">
       <div class="content col-sm-12 col-md-12">
     <div class="row filter-elements hidden">
-      <div class="col-xs-12 col-sm-6 col-md-6 box login">
-      <div class="info-box">
-        <h3 class="title">Method 1: <br> Login with FAU NetID</h3>
+      <div class="col-sm-6  box login">
+      <div class="info-box col-sm-6 col-md-6">
+        
+        <header class="page-header">
+            <div class="container">
+        <h3 class="title col-sm-6 col-md-6">Method 1:<br> Login with your FAU NetID</h3>
+            </div>
+        </header>
+
         <p class="descriptions">If you have been assigned an FAU NetID you should login with this method.</p>
         <button id="btnNetID" class="btn btn-danger filter-buttons">Login with NETID</button>
       </div>
       </div>
 
-      <div class="col-xs-12 col-sm-6 col-md-6 box login">
+      <div class="col-sm-6 col-md-6 box login">
      
 
          <%= form_for @login, :url => do_manual_login_path, :method => "post", :html => {:class => 'form-box login-form form-validator bv-form'}  do |f| %>
-      
-            <h3 class="title">Method 2: <br> Login with Admissions Credentials</h3>
+          
+          <header class="page-header">
+            <div class="container">
+            <h3 class="title col-sm-6 col-md-6">Method 2: <br> Login with your Admissions Credentials</h3>
+            </div>
+          </header>
                   <p>If you do NOT have an FAU NetID yet you can login with the same credentials you set up when applying to FAU</p>
+            
 
             <div class="form-group has-feedback">
               <label>Email Address: <span class="required">*</span></label>

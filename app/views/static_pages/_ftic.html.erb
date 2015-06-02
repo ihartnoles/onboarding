@@ -193,8 +193,12 @@ Hello, <%= session[:cas_user] %>!
 			  <div class="step-content">
 			  	<h3 class="title">Claiming Your Account</h3>
 			  	
-				  		 <p>Lorem ipsum Fugiat magna velit consectetur qui in veniam cillum exercitation Ut occaecat Duis mollit. Lorem ipsum Dolore dolor Excepteur sunt amet officia officia sunt aliquip id occaecat officia.</p>
-				  		
+				  		 <p>The FAUNet ID is the account name you will use to login to many of the systems you will utilize in your daily life at Florida Atlantic University. It is a part of your official FAU e-mail address (e.g., FAUNetID@fau.edu). All students, faculty and staff are automatically granted a FAUNet ID and may claim their account by logging into the MyFAU portal. While many online services provided by the University require a separate password, OIT is working to synchronize these passwords while striving to improve the security of the system.</p>
+
+				  		<div class="buttons-box clearfix">
+							<button class="btn btn-default" id="claimAccountBut">Claim Account</button>
+						</div>
+
 				  		 <div class="buttons-box text-right">
 						  <button type="button" class="btn btn-danger" id="accountBut">Continue</button>						 
 						</div>
@@ -908,10 +912,19 @@ Hello, <%= session[:cas_user] %>!
 	
 	$("#mobileText, #mobilePhone").click(function() {
 	  //alert('Ohhhh KAY!!!!');
-	  $("#mobileForm").toggle()
+	  $("#mobileForm").toggle();
 	});
 
 
+
+	$('#claimAccountBut').click(function(event) {
+	    event.preventDefault();
+	    //window.open($(this).attr(""), "popupWindow", "width=600,height=600,scrollbars=yes");
+
+	    window.open("http://boc22oimt2vhn.fau.edu:14000/SelfService", "PopupWindow", "width=600,height=600,scrollbars=yes,resizable=no");
+	});
+
+	 
 
 	/* BEGIN: title click functions */
 	$("#welcometitle").click(function() {
