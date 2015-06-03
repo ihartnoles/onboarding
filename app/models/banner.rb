@@ -20,6 +20,11 @@ class Banner < ActiveRecord::Base
 	end
 
 
+	def self.immunization_status(id)
+		get = connection.exec_query("SELECT IMM_HOLD_FLG from BANINST1.AWS_ONBOARDING_FINAID WHERE Z_NUMBER=#{connection.quote(id)}")
+	end
+
+
 	# def self.oars_status(id)
 	# 	get = connection.exec_query("SELECT fname, lname, semester_desc, oars_version, status_desc FROM DWPROD.OARS_STUDENTS WHERE ID=#{connection.quote(id)}")
 	# end

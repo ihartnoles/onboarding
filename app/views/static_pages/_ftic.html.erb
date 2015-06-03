@@ -341,8 +341,15 @@ Hello, <%= session[:cas_user] %>!
 
 		  		<p>Pursuant to Florida Board of Governors Regulation 6.001(9), prior to registration, each student accepted for admission at Florida Atlantic University must submit a signed FAU Immunization Form.&nbsp; Florida Atlantic University requires documented proof of immunizations to Measles and Rubella.&nbsp; In addition, pursuant to Florida Board of Governors Regulations 6.007, effective July 1, 2008, all new matriculating students must also provide documentation of vaccinations against Meningococcal Meningitis and Hepatitis B or provide a signed waiver for each declined vaccination.&nbsp;</p>
 
+		  		<p>
+		  			<strong>		  				
+		  				<%= get_immunization_status(@znum) %><br>
+		  			</strong>
+		  		</p>
+		  		
+
 		  		<div class="buttons-box text-right">
-				  <button type="button" class="btn btn-danger" id="immunizationBut">Continue</button>						 
+				  <button type="button" class="btn btn-danger" id="immunizationBut">Continue</button> 
 				</div>
 					
 				<!--<form>

@@ -108,6 +108,32 @@ module StaticPagesHelper
   	 end
 
 
+     def get_immunization_status(znum)
+      output = Banner.immunization_status(znum)
+
+      tmp = ''
+
+      if output.count > 0
+        output.each do |o| 
+
+          # puts YAML::dump('begin immunization status')
+          # puts YAML::dump(o)
+
+         if o['imm_hold_flg'] == 'N' 
+           tmp =  "Your immunization records are up to date!  Good job!"
+         else
+           tmp <<  "You have an immunization hold! You need to make sure your immunization records are up to date."
+         end
+         
+         return tmp
+
+        end
+      else
+        return "Immunization status pending"
+      end 
+     end
+
+
 
 
   	 def get_fullname(znum)
