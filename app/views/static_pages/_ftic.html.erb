@@ -379,7 +379,7 @@ Hello, <%= session[:cas_user] %>!
 
 					  		<p>Lorem ipsum Fugiat magna velit consectetur qui in veniam cillum exercitation Ut occaecat Duis mollit. Lorem ipsum Dolore dolor Excepteur sunt amet officia officia sunt aliquip id occaecat officia.</p>
 
-					  		<p>
+					  		<!-- <p>
 					  			<ul>								
 									<li><a href="##">FAFSA Doc #1</a></li>
 									<li><a href="##">FAFSA Doc #2</a></li>
@@ -387,7 +387,14 @@ Hello, <%= session[:cas_user] %>!
 									<li><a href="##">FAFSA Doc #4</a></li>
 									<li><a href="##">FAFSA Doc #5</a></li>																						
 								</ul>
-					  		</p>
+					  		</p> -->
+
+					  	<p>
+						  	<ul>
+						  		<%= fin_aid_docs(@znum) %><br>
+						  	</ul>
+					  	</p>
+
 								
 				<button type="button" class="btn btn-danger">Continue</button>
 			  </div>
@@ -497,7 +504,15 @@ Hello, <%= session[:cas_user] %>!
 		  		<h3 class="title">ALEKS</h3>
 		  		<p>
 				ALEKS is a mandatory math placement exam for incoming students. ALEKS is a powerful artificial-intelligence based mechanism to assess math proficiency and skill level. For the first attempt students may take the exam over the internet from any computer. Any subsequent attemps must be taken at FAU's Office of Testing &amp; Evaluation at either the Boca Raton Campus or the Davie Campus. For more information regarding the ALEKS Math Placement Exam please visit <a href="http://www.fau.edu/mathplacement" target="_blank">http://www.fau.edu/mathplacement</a>.
-				</p>			
+				</p>		
+
+
+				<strong>
+					
+					<%= aleks_status(@znum) %>
+
+				</strong>
+
 			  </div>			
 			</div>
 		  </li>
@@ -601,6 +616,13 @@ Hello, <%= session[:cas_user] %>!
 			  <div class="step-content">			  		
 		  		<h3 class="title">Register for Classes</h3>
 				<p>Lorem ipsum Ad ullamco elit reprehenderit veniam aute minim dolore ullamco incididunt ea do. Lorem ipsum Reprehenderit do consectetur dolore do fugiat proident incididunt consequat minim ullamco. Lorem ipsum Proident laboris dolore in aliqua ut magna minim irure ut proident. Lorem ipsum Anim dolore incididunt aliquip do irure aute reprehenderit reprehenderit enim ut. Lorem ipsum Reprehenderit commodo anim laboris ex cupidatat dolor deserunt dolore exercitation Ut et culpa.</p>
+
+				<p>
+					<strong>
+						<%= registered_hours(@znum)%>
+					</strong>
+				</p>
+
 			  </div>			
 			</div>
 		  </li>
@@ -730,18 +752,21 @@ Hello, <%= session[:cas_user] %>!
                 		If you have any questions, please email <a href="mailto:webcontroller@fau.edu">webcontroller@fau.edu</a> or call tuition and billing services (561)297-6101.
                   </p>
               
+				</div>			
 			</div>
 		  </li>
 
+		 
 		  <li class="panel">
+		  	
 		  	<% if @vehicle_reg_available == 1 %>
-				<a href="#step-20" class="collapsed step-title" data-parent="#checkoutsteps" data-togregle="collapse">
+				<a href="#step-20" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
 			<% else %>
 				<a href="#step-20" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 			<% end %>
 
-			  <div class="number"><!-- Step 20 -->  <%= get_statusicon(@vehicle_reg_available, @vehicle_reg_complete) %></div>
-			  <h6>Vechicle Registration</h6>
+			  <div class="number"><!-- Step 19 --> <%= get_statusicon(@tuition_available, @tuition_complete) %></div>
+			  <h6>Register Your Vehicle</h6>
 			</a>
 			
 			<div id="step-20" class="collapse">				   
@@ -752,9 +777,7 @@ Hello, <%= session[:cas_user] %>!
                  	Students are eligible to register for their parking permits 24 hours after they have registered for their classes. To register for a permit: 
                   </p>
                   
-                                 
-                  
-                  <p>All payments will need to be made online, by mail or by using the drop box at the Boca Raton campus.</p>
+                   <p>All payments will need to be made online, by mail or by using the drop box at the Boca Raton campus.</p>
 
                   <p>It is important to note you have the following options to pay your bill:</p>
 
@@ -766,9 +789,8 @@ Hello, <%= session[:cas_user] %>!
                   	<li>Fill out the information correctly.</li>
                   	<li>Print out the confirmation page and follow the instructions carefully.</li>
                   </ol>
-                  <br>
-                
               
+				</div>			
 			</div>
 		  </li>
 

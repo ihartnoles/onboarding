@@ -21,17 +21,83 @@ module StaticPagesHelper
   	end
 
 
+     def aleks_status(znum)
+      output = Banner.aleks_status(znum)
+
+      if output.count > 0
+        output.each do |o| 
+
+         if o['aleks_taken'] == 'Y' 
+           tmp =  "You have taken ALEKS!"
+         else
+           tmp =  "You have NOT taken ALEKS yet. You must complete this requirement."
+         end
+
+         return tmp
+
+           end
+      else
+        return "ALEKS status pending"
+      end 
+     end
+
+
+     def fin_aid_docs(znum)
+      output = Banner.fin_aid_docs(znum)
+
+      tmp = ''
+
+      if output.count > 0
+        output.each do |o| 
+             if !o.nil?
+               tmp <<  "<li>#{o['rtvtreq_long_desc']}</li>"
+             else
+               tmp =  "<li>You DO NOT have FAFSA information on file.</li>"
+             end        
+        end
+
+           return tmp.html_safe
+
+      else
+        return "OARS status pending"
+      end 
+     end
+
+
+     def registered_hours(znum)
+      output = Banner.registered_hours(znum)
+
+      if output.count > 0
+        output.each do |o| 
+
+         if !o.nil?
+           tmp =  "You are currently registered for #{o['sfrstcr_credit_hr']} credit hours."
+         else
+           tmp =  "You have NOT registered for any classes yet."
+         end
+         
+
+         return tmp
+
+           end
+      else
+        return "Registration status pending"
+      end 
+     end
+
+
   	 def oars_status(znum)
   	 	output = Faudw.oars_status(znum)
 
   	 	if output.count > 0
   	 		output.each do |o| 
 
-	    	 if !o.nil?
-	    	 	 tmp =  "You have taken OARS for #{o['semester_desc']}.  Your status is: #{o['status_desc']}"
-	    	 else
-	    	 	 tmp =  "You have NOT attended an orientation session yet. You must attend orientation and complete orientation."
-	    	 end
+         if !o.nil?
+           tmp =  "You have taken OARS for #{o['semester_desc']}.  Your status is: #{o['status_desc']}"
+         else
+           tmp =  "You have NOT attended an orientation session yet. You must attend orientation and complete orientation."
+         end
+	    	 
 
 	    	 return tmp
 
@@ -40,6 +106,7 @@ module StaticPagesHelper
   	 		return "OARS status pending"
   	 	end 
   	 end
+
 
 
 

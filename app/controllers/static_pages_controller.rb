@@ -22,11 +22,11 @@ class StaticPagesController < ApplicationController
 
   def gatewayed_home
 
-      @fullname = Faudw.fullname('Z23292493')
+      @fullname = Faudw.fullname('Z23122293')
 
-      @orientation = Faudw.orientation_status('Z23292493')
+      @orientation = Faudw.orientation_status('Z23122293')
 
-      @oars= Faudw.oars_status('Z23292493')
+      @oars= Faudw.oars_status('Z23122293')
 
 
         if !session[:fullname].nil?
@@ -58,6 +58,7 @@ class StaticPagesController < ApplicationController
       #   end
       end
 
+      @znum = 'Z23122293'
 
       #module flags
       @welcome_available = 1
@@ -66,20 +67,20 @@ class StaticPagesController < ApplicationController
       @communication_available = 1
       @immunization_available = 1
       @finaid_available = 1
-      @housing_fee_available = 0
-      @residency_available = 0
-      @housing_meal_plans_available = 0
-      @aleks_available = 0
+      @housing_fee_available = 1
+      @residency_available = 1
+      @housing_meal_plans_available = 1
+      @aleks_available = 1
       @oars_available = 1
-      @learning_comm_available = 0
+      @learning_comm_available = 1
       @orientation_available = 1
-      @reg_available = 0
-      @emergency_available = 0
-      @fau_alert_available = 0
-      @owlcard_available = 0
+      @reg_available = 1
+      @emergency_available = 1
+      @fau_alert_available = 1
+      @owlcard_available = 1
       @bookadvance_available = 1
-      @tuition_available = 0
-      @vehicle_reg_available = 0
+      @tuition_available = 1
+      @vehicle_reg_available = 1
 
       #module completion flags
       @welcome_complete = 1
@@ -104,9 +105,6 @@ class StaticPagesController < ApplicationController
       @vehicle_reg_complete = 0
 
       #Z23001699 ;  Z23292493
-
-
-      @znum = 'Z23001699'
 
       #@fullname = Faudw.fullname('Z23001699')
 
