@@ -402,8 +402,13 @@ Hello, <%= session[:cas_user] %>!
 					  	<!-- <p>
 						  	<ul> -->
 						  		<table class="table table-striped text-left order-details">
-						  			<th class="product-name">FAFSA Document</th><th class="product-total">Status</th>
-						  			<%= fin_aid_docs(@znum) %>
+						  			<thead>
+						  				<tr>
+						  					<th class="product-name">FAFSA Document</th><th class="product-total">Status</th>
+						  				</tr>
+						  			</thead>
+
+						  				<%= fin_aid_docs(@znum) %>
 						  		</table>
 						  		<br>
 						  <!-- 	</ul>
