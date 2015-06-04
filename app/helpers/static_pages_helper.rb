@@ -46,13 +46,24 @@ module StaticPagesHelper
       output = Banner.fin_aid_docs(znum)
 
       tmp = ''
+      doc_status = ''
 
       if output.count > 0
         output.each do |o| 
              if !o.nil?
-               tmp <<  "<li>#{o['rtvtreq_long_desc']}</li>"
+
+               case o['rrrareq_sat_ind']
+                 when 'Y'
+                    doc_status = "received"
+                 when 'N'
+                    doc_status = "not received"
+                 else
+                    doc_status = "undetermined"
+                end
+
+               tmp <<  "<tr><td>#{o['rtvtreq_long_desc']}</td><td>#{doc_status}</td></tr>"
              else
-               tmp =  "<li>You DO NOT have FAFSA information on file.</li>"
+               tmp =  "<td>You DO NOT have FAFSA information on file.</td>"
              end        
         end
 
@@ -134,16 +145,62 @@ module StaticPagesHelper
      end
 
 
+     def get_residency_status(znum)
+       output = Banner.residency_status(znum)
+
+       # if !output.nil?
+       #  return output
+       # else
+       #  return 'unknown'
+       # end
+        if output.count > 0
+        output.each do |o| 
+
+         if o['sgbstdn_resd_code'].include?('T') || o['sgbstdn_resd_code'].include?('F') || o['sgbstdn_resd_code'].include?('R') || o['sgbstdn_resd_code'].include?('O')
+           tmp =  "Your residency status is classified as IN-STATE."
+         else
+           tmp =  "Your residency status is classified as out of state."
+         end
+         
+
+         return tmp
+
+           end
+      else
+        return "Residency status pending"
+      end 
+
+
+     end
+
 
 
   	 def get_fullname(znum)
   	 	 output = Faudw.fullname(znum)
 
-  	 	 if !output.nil?
-  	 	 	return output
-  	 	 else
-  	 	 	return 'unknown'
-  	 	 end
+  	 	 # if !output.nil?
+  	 	 # 	return output
+  	 	 # else
+  	 	 # 	return 'unknown'
+  	 	 # end
+        if output.count > 0
+        output.each do |o| 
+
+         if !o.nil?
+           tmp =  "#{o['fname']} #{o['lname']}"
+         else
+           tmp =  ""
+         end
+         
+
+         return tmp
+
+           end
+      else
+        return "OARS status pending"
+      end 
+
+
   	 end
 
   	 def get_statusicon(available,completed)

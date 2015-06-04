@@ -22,7 +22,7 @@ Hello, <%= session[:cas_user] %>!
       <article class="content col-sm-9">	
 	      <h4 class="title">
 
-	      	Welcome to FAU <%= @displayname %>! Let's get started!</h4>
+	      	Welcome to FAU <%= get_fullname(@znum) %>! Let's get started!</h4>
 
 	      <p>We want your transition to college life to be as smooth as possible. Below is a checklist of things to keep in mind and tasks you will need to complete prior to your arrival on campus.</p><br>
 	   </article>
@@ -399,11 +399,15 @@ Hello, <%= session[:cas_user] %>!
 								</ul>
 					  		</p> -->
 
-					  	<p>
-						  	<ul>
-						  		<%= fin_aid_docs(@znum) %><br>
-						  	</ul>
-					  	</p>
+					  	<!-- <p>
+						  	<ul> -->
+						  		<table class="table table-striped text-left order-details">
+						  			<th class="product-name">FAFSA Document</th><th class="product-total">Status</th>
+						  			<%= fin_aid_docs(@znum) %>
+						  		</table>
+						  		<br>
+						  <!-- 	</ul>
+					  	</p> -->
 
 								
 				<button type="button" class="btn btn-danger">Continue</button>
@@ -434,6 +438,11 @@ Hello, <%= session[:cas_user] %>!
                      <br>All applicants must complete the Residency Classification for Tuition Purposes section of the application and submit the required documentation, regardless of the duration of their presence in Florida. A Florida resident for tuition purposes is defined as an individual who has resided in the state for 12 consecutive months while not enrolled in an institution of higher learning, prior to the beginning of classes, and who has established legal ties in Florida according to Florida Statute 1009.21.<br> 
                      <br>Florida Legislature has recently implemented significant changes to Florida Statute 1009.21. For updated information, please visit <a title="Florida Legislature" href="http://www.flsenate.gov/data/session/2009/Senate/bills/amendments/pdf/sb1696c2588994.pdf" target="_blank">here</a>. Florida residency content can be found beginning on page 10.</p>
 
+                    <p>
+                    	<strong>
+                    		<%= get_residency_status(@znum) %><br>
+                    	</strong>
+                    <p>
 					
 				<!--<form>
 				  <div>
