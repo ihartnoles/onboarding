@@ -12,6 +12,10 @@ class Banner < ActiveRecord::Base
 			get = connection.exec_query("SELECT aleks_taken FROM BANINST1.AWS_ONBOARDING_MAIN WHERE Z_NUMBER=#{connection.quote(id)}")
 		end
 
+		def self.tuition_deposit_status(id)
+			get = connection.exec_query("SELECT sarchkl_admr_code, sarchkl_receive_date FROM BANINST1.AWS_ONBOARDING_MAIN WHERE Z_NUMBER=#{connection.quote(id)}")
+		end
+
 	#END: QUERIES TO BANINST1.AWS_ONBOARDING_MAIN
 	
 

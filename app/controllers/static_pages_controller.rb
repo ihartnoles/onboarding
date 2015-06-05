@@ -83,8 +83,21 @@ class StaticPagesController < ApplicationController
       @vehicle_reg_available = 1
 
       #module completion flags
+
+      tution_status = Banner.tuition_deposit_status(@znum).map
+
+      puts YAML::dump(tution_status)
+
       @welcome_complete = 1
-      @deposit_complete = 1
+
+      tution_status.each do |o|
+        if o['sarchkl_admr_code'] == 'TUTD' && !o['sarchkl_receive_date'].nil?
+          @deposit_complete = 1
+        else
+          @deposit_complete = 0
+        end 
+      end
+
       @account_complete = 0
       @communication_complete = 0
       @immunization_complete = 1

@@ -63,7 +63,7 @@ module StaticPagesHelper
 
                tmp <<  "<tr><td>#{o['rtvtreq_long_desc']}</td><td>#{doc_status}</td></tr>"
              else
-               tmp =  "<td>You DO NOT have FAFSA information on file.</td>"
+               tmp =  "<tr><td>You DO NOT have FAFSA information on file.</td></tr>"
              end        
         end
 
@@ -161,16 +161,12 @@ module StaticPagesHelper
          else
            tmp =  "Your residency status is classified as out of state."
          end
-         
-
-         return tmp
-
+        
+           return tmp
            end
-      else
-        return "Residency status pending"
-      end 
-
-
+        else
+          return "Residency status pending"
+        end 
      end
 
 
@@ -194,14 +190,33 @@ module StaticPagesHelper
          
 
          return tmp
+         end
 
-           end
       else
         return "OARS status pending"
       end 
+    end
 
+     def get_tuition_deposit_status(znum)
+      output = Banner.tuition_deposit_status(znum)
 
-  	 end
+      if output.count > 0
+        output.each do |o| 
+
+         if o['sarchkl_admr_code'] == 'TUTD' && !o['sarchkl_receive_date'].nil?
+           tmp =  "Your tuition deposit was paid on #{o['sarchkl_receive_date'].strftime('%x')}."
+         else
+           tmp =  "Your tuition deposit has NOT been paid yet! Please visit ? for instructions on how to proceed."
+         end
+         
+
+         return tmp
+
+         end
+      else
+        return "Tuition deposit status is pending."
+      end 
+     end
 
   	 def get_statusicon(available,completed)
   	 	case 

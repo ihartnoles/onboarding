@@ -34,7 +34,9 @@ Hello, <%= session[:cas_user] %>!
 		<ul id="checkoutsteps" class="clearfix panel-group">
 		  <li class="panel">
 			<a href="#step-1" class="step-title" data-parent="#checkoutsteps" data-toggle="collapse" id="welcometitle">
-			  <div class="number"><!-- Step 1 --> <%= get_statusicon(@welcome_available, @welcome_complete) %></div>
+			  <div class="number"><!-- Step 1 --> <%#= get_statusicon(@welcome_available, @welcome_complete) %>
+			  		information <i class='fa fa-info'></i>
+			  </div>
 			  <h6>Welcome</h6>
 			</a>
 			
@@ -107,7 +109,17 @@ Hello, <%= session[:cas_user] %>!
 				 		 
 				 		<p>All admitted freshmen must confirm their intention to enroll and secure their space in the class with a $200.00 <strong>non-refundable</strong> deposit. The $200 is applied to your tuition and fees for the semester in which you are admitted to FAU. It will be forfeited if you pay the deposit and choose not to enroll at FAU for that term, or if you submit a change of entry request for a different term. Your space will be released to another applicant if the deposit is not received by<span style="text-decoration: underline;"> May 1 or within two weeks of admission if admitted after May 1 <sup>st</sup></span>.
                          <br><br>The deposit is applied to your account when you enroll and will be used toward your tuition and fees. It will be forfeited if you do not enroll.</p>
-				 
+				 		
+
+				 		<div class="alert alert-border alert-danger text-center fade in alert-dismissable">
+							<button data-dismiss="alert" class="close" type="button">×</button>
+							<p>
+								<strong>
+									<%= get_tuition_deposit_status(@znum) %>
+								</strong>
+							</p>					
+		   			    </div>
+
                          <div class="buttons-box text-right">
 						  <button type="button" class="btn btn-danger" id="depositBut">Continue</button>						 
 						</div>
@@ -195,9 +207,14 @@ Hello, <%= session[:cas_user] %>!
 			  	
 				  		 <p>The FAUNet ID is the account name you will use to login to many of the systems you will utilize in your daily life at Florida Atlantic University. It is a part of your official FAU e-mail address (e.g., FAUNetID@fau.edu). All students, faculty and staff are automatically granted a FAUNet ID and may claim their account by logging into the MyFAU portal. While many online services provided by the University require a separate password, OIT is working to synchronize these passwords while striving to improve the security of the system.</p>
 
+				  		 <p>
+				  		 	<a href="#" id="claimAccountBut">Start claiming your account</a>
+				  		 </p>
+				  		<!-- 
 				  		<div class="buttons-box clearfix">
 							<button class="btn btn-default" id="claimAccountBut">Claim Account</button>
-						</div>
+						</div> 
+					    -->
 
 				  		 <div class="buttons-box text-right">
 						  <button type="button" class="btn btn-danger" id="accountBut">Continue</button>						 
@@ -339,17 +356,29 @@ Hello, <%= session[:cas_user] %>!
 			  		
 		  		<h3 class="title">Immunization Policy</h3>
 
-		  		<p>Pursuant to Florida Board of Governors Regulation 6.001(9), prior to registration, each student accepted for admission at Florida Atlantic University must submit a signed FAU Immunization Form.&nbsp; Florida Atlantic University requires documented proof of immunizations to Measles and Rubella.&nbsp; In addition, pursuant to Florida Board of Governors Regulations 6.007, effective July 1, 2008, all new matriculating students must also provide documentation of vaccinations against Meningococcal Meningitis and Hepatitis B or provide a signed waiver for each declined vaccination.&nbsp;</p>
+		  		<p>Pursuant to Florida Board of Governors Regulation 6.001(9), prior to registration, each student accepted for admission at Florida Atlantic University must submit a signed FAU Immunization Form.&nbsp; Florida Atlantic University requires documented proof of immunizations to Measles and Rubella.&nbsp; In addition, pursuant to Florida Board of Governors Regulations 6.007, effective July 1, 2008, all new matriculating students must also provide documentation of vaccinations against Meningococcal Meningitis and Hepatitis B or provide a signed waiver for each declined vaccination. &nbsp;<a href="http://www.fau.edu/shs/additional/immunization.php" target="_blank">[More Information]</a></p>
 
-		  		<p>
+		  		<!-- <p>
+		  			
 		  			<strong>		  				
-		  				<%= get_immunization_status(@znum) %><br>
+		  				<div class="alert alert-info">
+				 			<%= get_immunization_status(@znum) %><br>
+						</div>
 		  			</strong>
-		  		</p>
+		  		</p> -->
 
-		  		<p>
-					<a href="http://www.fau.edu/shs/additional/immunization.php" target="_blank">[More Information]</a>
-		  		</p>
+
+		  		<div class="alert alert-border alert-danger text-center fade in alert-dismissable">
+					
+					<button data-dismiss="alert" class="close" type="button">×</button>
+					<p>
+						<strong>
+							<%= get_immunization_status(@znum) %>
+						</strong>
+					</p>					
+   			    </div>
+
+		  		
 
 		  		<div class="buttons-box text-right">
 				  <button type="button" class="btn btn-danger" id="immunizationBut">Continue</button> 
@@ -443,11 +472,14 @@ Hello, <%= session[:cas_user] %>!
                      <br>All applicants must complete the Residency Classification for Tuition Purposes section of the application and submit the required documentation, regardless of the duration of their presence in Florida. A Florida resident for tuition purposes is defined as an individual who has resided in the state for 12 consecutive months while not enrolled in an institution of higher learning, prior to the beginning of classes, and who has established legal ties in Florida according to Florida Statute 1009.21.<br> 
                      <br>Florida Legislature has recently implemented significant changes to Florida Statute 1009.21. For updated information, please visit <a title="Florida Legislature" href="http://www.flsenate.gov/data/session/2009/Senate/bills/amendments/pdf/sb1696c2588994.pdf" target="_blank">here</a>. Florida residency content can be found beginning on page 10.</p>
 
-                    <p>
-                    	<strong>
-                    		<%= get_residency_status(@znum) %><br>
-                    	</strong>
-                    <p>
+                    <div class="alert alert-border alert-danger text-center fade in alert-dismissable">
+						<button data-dismiss="alert" class="close" type="button">×</button>
+	                    <p>
+	                    	<strong>
+	                    		<%= get_residency_status(@znum) %><br>
+	                    	</strong>
+	                    <p>
+                    </div>
 					
 				<!--<form>
 				  <div>
@@ -531,11 +563,12 @@ Hello, <%= session[:cas_user] %>!
 				</p>		
 
 
-				<strong>
-					
-					<%= aleks_status(@znum) %>
-
-				</strong>
+				 <div class="alert alert-border alert-danger text-center fade in alert-dismissable">
+						<button data-dismiss="alert" class="close" type="button">×</button>
+						<strong>
+							<%= aleks_status(@znum) %>
+						</strong>
+				 </div>
 
 			  </div>			
 			</div>
@@ -563,12 +596,13 @@ Hello, <%= session[:cas_user] %>!
 						It takes three (3) to five (5) business days to process your submitted OARS form. After three to five business days, log back into OARS to review your advisor's comments. If your holds are cleared and your course selections are in sync with your advisors, you can log into MyFAU to register for classes. That's all there is to it!
 				</p>	
 
-				<strong>
-					
-					<%= oars_status(@znum) %>
 
-				</strong>
-
+				 <div class="alert alert-border alert-danger text-center fade in alert-dismissable">
+						<button data-dismiss="alert" class="close" type="button">×</button>
+						<strong>					
+							<%= oars_status(@znum) %>
+						</strong>
+				 </div>
 
 		  		<p>
 					<a href="http://www.fau.edu/uas/oars.php" target="_blank">[More Information]</a>
@@ -586,7 +620,9 @@ Hello, <%= session[:cas_user] %>!
 		    <a href="#step-12" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 		  <% end %>
 
-			  <div class="number"><!-- Step 12 --> <%= get_statusicon(@learning_comm_available, @learning_comm_complete) %></div>
+			  <div class="number"><!-- Step 12 --> <%#= get_statusicon(@learning_comm_available, @learning_comm_complete) %>
+			  	information <i class='fa fa-info'></i>
+			  </div>
 			  <h6>Learning Communities</h6>
 			</a>
 			
@@ -639,11 +675,14 @@ Hello, <%= session[:cas_user] %>!
 					The University’s New Student Orientation program is designed to provide a clear and concise introduction to the university community. The program shares important information with students and their families regarding academic and student services. New Student Orientation is offered over the summer for students enrolling in the Summer or Fall semester and November through January for students enrolling in the Spring semester.
 				</p>	
 
-					<p>
-					<strong>
-						<%= orientation_status(@znum)%>
-					</strong>
-					</p>
+				<div class="alert alert-border alert-danger text-center fade in alert-dismissable">
+						<button data-dismiss="alert" class="close" type="button">×</button>
+						<p>
+						<strong>
+							<%= orientation_status(@znum)%>
+						</strong>
+						</p>
+				</div>
 
 				<p>
 					<a href="http://www.fau.edu/orientation/" target="_blank">[More Information]</a>
@@ -670,11 +709,14 @@ Hello, <%= session[:cas_user] %>!
 		  		<h3 class="title">Register for Classes</h3>
 				<p>Lorem ipsum Ad ullamco elit reprehenderit veniam aute minim dolore ullamco incididunt ea do. Lorem ipsum Reprehenderit do consectetur dolore do fugiat proident incididunt consequat minim ullamco. Lorem ipsum Proident laboris dolore in aliqua ut magna minim irure ut proident. Lorem ipsum Anim dolore incididunt aliquip do irure aute reprehenderit reprehenderit enim ut. Lorem ipsum Reprehenderit commodo anim laboris ex cupidatat dolor deserunt dolore exercitation Ut et culpa.</p>
 
-				<p>
-					<strong>
-						<%= registered_hours(@znum)%>
-					</strong>
-				</p>
+				<div class="alert alert-border alert-danger text-center fade in alert-dismissable">
+						<button data-dismiss="alert" class="close" type="button">×</button>
+						<p>
+							<strong>
+								<%= registered_hours(@znum)%>
+							</strong>
+						</p>
+				</div>
 
 				
 				<p>
@@ -731,7 +773,9 @@ Hello, <%= session[:cas_user] %>!
 				<a href="#step-17" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 			<% end %>
 
-			  <div class="number"><!-- Step 17 -->  <%= get_statusicon(@owlcard_available, @owlcard_complete) %></div>
+			  <div class="number"><!-- Step 17 -->  <%#= get_statusicon(@owlcard_available, @owlcard_complete) %>
+			  	information <i class='fa fa-info'></i>
+			  </div>
 			  <h6>Owl Card</h6>
 			</a>
 			
@@ -762,7 +806,7 @@ Hello, <%= session[:cas_user] %>!
 		    <a href="#step-18" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 		  <% end %>
 
-			  <div class="number"><!-- Step 18 --> <%= get_statusicon(@bookadvance_available, @bookadvance_complete) %> </div>
+			  <div class="number"><!-- Step 18 --> <%#= get_statusicon(@bookadvance_available, @bookadvance_complete) %> information <i class='fa fa-info'></i></div>
 			  <h6>Book Advance Program</h6>
 			</a>
 			
@@ -854,7 +898,9 @@ Hello, <%= session[:cas_user] %>!
 				<a href="#step-20" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 			<% end %>
 
-			  <div class="number"><!-- Step 19 --> <%= get_statusicon(@tuition_available, @tuition_complete) %></div>
+			  <div class="number"><!-- Step 19 --> <%#= get_statusicon(@tuition_available, @tuition_complete) %>
+			  	information <i class='fa fa-info'></i>
+			  </div>
 			  <h6>Register Your Vehicle</h6>
 			</a>
 			
