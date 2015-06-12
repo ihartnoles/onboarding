@@ -109,7 +109,12 @@
   </div><!-- .container -->
 </section><!-- #main -->
 
-<%#= request.inspect %>
+
+<%= request.server_name %>
+
+<hr>
+
+<%= request.inspect %>
 
 <%#= render 'static_pages/footer' %>
 
@@ -161,8 +166,14 @@
 
 <%= javascript_tag do %>
 
-  $("#btnNetID").click(function() {
-    window.location.replace("http://<%= request.server_name %>:<%= request.port %>/home");
+  $("#btnNetID").click(function() {    
+   
+  <% if request.server_name.include?('10.16.9.208') %>
+     window.location.replace("http://<%= request.server_name %>:<%= request.port %>/home");
+  <% else %>
+     window.location.replace("https://<%= request.server_name %>/home");      
+  <% end %>
+   
   });
 
 <% end %>

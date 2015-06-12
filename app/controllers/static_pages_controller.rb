@@ -84,13 +84,15 @@ class StaticPagesController < ApplicationController
 
       #module completion flags
 
-      tution_status = Banner.tuition_deposit_status(@znum).map
+      tuition_status = Banner.tuition_deposit_status(@znum)
 
-      puts YAML::dump(tution_status)
+      #Banner.tuition_deposit_status('Z23122293')
+
+      puts YAML::dump(tuition_status)
 
       @welcome_complete = 1
 
-      tution_status.each do |o|
+      tuition_status.each do |o|
         if o['sarchkl_admr_code'] == 'TUTD' && !o['sarchkl_receive_date'].nil?
           @deposit_complete = 1
         else

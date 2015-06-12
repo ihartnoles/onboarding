@@ -24,6 +24,8 @@ class LoginController < ApplicationController
 
       authenticated = Ugapp.find_user(params[:email], base64_passwd)
 
+      #Ugapp.find_user('ihartstein.test1@gmail.com', Base64.strict_encode64(Digest::SHA1.digest('12341234')))
+
       if authenticated
         @message = 'i found yo ass'
 
