@@ -1,0 +1,204 @@
+
+
+
+
+<div class="container col-sm-10 col-md-10">
+  <div class="col-sm-10 col-md-10 bottom-padding">
+
+      <h1>Onboarding FTIC Queue</h1>
+
+      <div class="table-responsive">
+      <table class="table table-condensed table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Znumber</th>
+            <th>Netid</th>
+            <th>Welcome</th>
+            <th>Deposit</th>
+            <th>Account</th>
+            <th>Communication</th>
+            <th>Immunization</th>
+            <th>Finaid</th>
+            <th>Housingfee</th>
+            <th>Residency</th>
+            <th>Housingmealplan</th>
+            <th>Aleks</th>
+            <th>Oars</th>
+            <th>Learning comm</th>
+            <th>Orientation</th>
+            <th>Registration</th>
+            <th>Emergency</th>
+            <th>Faualert</th>
+            <th>Owlcard</th>
+            <th>Bookadvance</th>
+            <th>Tution</th>
+            <th>Vehiclereg</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @modules_availables.each do |modules_available| %>
+            <tr>
+              <td><%= modules_available.znumber %></td>
+              <td><%= modules_available.netid %></td>
+              <td>
+                <% if modules_available.welcome == 1 %>
+                  <%= image_tag('/assets/Check_16x16.png')  %>
+                <% else %>
+                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                <% end %>
+               
+              </td>
+              <td>
+                <% if modules_available.deposit == 1 %>
+                  <%= image_tag('/assets/Check_16x16.png')  %>
+                <% else %>
+                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                <% end %>
+              </td>
+              <td>
+                <% if modules_available.account == 1 %>
+                  <%= image_tag('/assets/Check_16x16.png')  %>
+                <% else %>
+                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                <% end %>
+              </td>
+              <td>
+                <%#= modules_available.communication %>
+                <% if modules_available.communication == 1 %>
+                  <%= image_tag('/assets/Check_16x16.png')  %>
+                <% else %>
+                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                <% end %>
+              </td>
+              <td>
+                <%#= modules_available.immunization %>
+                <% if modules_available.immunization == 1 %>
+                  <%= image_tag('/assets/Check_16x16.png')  %>
+                <% else %>
+                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                <% end %>
+              </td>
+              <td>
+                <% if modules_available.finaid == 1 %>
+                  <%= image_tag('/assets/Check_16x16.png')  %>
+                <% else %>
+                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                <% end %>
+              </td>
+              <td>
+                <% if modules_available.housingfee == 1 %>
+                  <%= image_tag('/assets/Check_16x16.png')  %>
+                <% else %>
+                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                <% end %>
+              </td>
+              <td>
+                <% if modules_available.residency == 1 %>
+                  <%= image_tag('/assets/Check_16x16.png')  %>
+                <% else %>
+                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                <% end %>
+              </td>
+              <td>
+                <% if modules_available.housingmealplan == 1 %>
+                  <%= image_tag('/assets/Check_16x16.png')  %>
+                <% else %>
+                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                <% end %>
+              </td>
+              <td>
+                <% if modules_available.aleks == 1 %>
+                  <%= image_tag('/assets/Check_16x16.png')  %>
+                <% else %>
+                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                <% end %>
+              </td>
+              <td>
+                <% if modules_available.oars == 1 %>
+                  <%= image_tag('/assets/Check_16x16.png')  %>
+                <% else %>
+                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                <% end %>
+              </td>
+              <td>
+                <% if modules_available.learning_comm == 1 %>
+                  <%= image_tag('/assets/Check_16x16.png')  %>
+                <% else %>
+                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                <% end %>
+              </td>
+              <td>
+               <% if modules_available.orientation == 1 %>
+                  <%= image_tag('/assets/Check_16x16.png')  %>
+                <% else %>
+                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                <% end %>
+              </td>
+              <td>
+                <% if modules_available.registration == 1 %>
+                  <%= image_tag('/assets/Check_16x16.png')  %>
+                <% else %>
+                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                <% end %>
+              </td>
+              <td>
+                <% if modules_available.emergency == 1 %>
+                  <%= image_tag('/assets/Check_16x16.png')  %>
+                <% else %>
+                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                <% end %>
+              </td>
+              <td>
+                <% if modules_available.faualert == 1 %>
+                  <%= image_tag('/assets/Check_16x16.png')  %>
+                <% else %>
+                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                <% end %>
+              </td>
+              <td>
+                <% if modules_available.owlcard == 1 %>
+                  <%= image_tag('/assets/Check_16x16.png')  %>
+                <% else %>
+                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                <% end %>
+              </td>
+              <td>
+                <% if modules_available.bookadvance == 1 %>
+                  <%= image_tag('/assets/Check_16x16.png')  %>
+                <% else %>
+                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                <% end %>
+              </td>
+              <td>
+                <% if modules_available.tution == 1 %>
+                  <%= image_tag('/assets/Check_16x16.png')  %>
+                <% else %>
+                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                <% end %>
+              </td>
+              <td>
+                <% if modules_available.vehiclereg == 1 %>
+                  <%= image_tag('/assets/Check_16x16.png')  %>
+                <% else %>
+                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                <% end %>
+              </td>
+              <td><%= link_to 'Show', modules_available %></td>
+              <td><%= link_to 'Edit', edit_modules_available_path(modules_available) %></td>
+             <!--  <td><%#= link_to 'Destroy', modules_available, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <br>
+
+      <%#= link_to 'New Modules available', new_modules_available_path %>
+
+      </div>
+  </div>
+</div>

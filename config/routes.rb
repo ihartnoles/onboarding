@@ -1,5 +1,7 @@
 Onboarding::Application.routes.draw do
 
+  resources :modules_availables
+
   #root 'static_pages#login'
   root 'static_pages#main'
 

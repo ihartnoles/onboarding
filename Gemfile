@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+# gem 'rails', '4.0.4'
 gem 'rails', '4.0.4'
 
+#gem 'newrelic_rpm'
 
 #DB adapters
 gem 'ruby-oci8', '~> 2.1.7'

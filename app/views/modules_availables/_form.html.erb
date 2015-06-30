@@ -1,0 +1,79 @@
+
+   <%= form_for(@modules_available,  :html => { :class => "form-box register-form contact-form"}) do |f| %>
+
+        <% if @modules_available.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@modules_available.errors.count, "error") %> prohibited this modules_available from being saved:</h2>
+
+            <ul>
+            <% @modules_available.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <h3 class="title">Availability Settings</h3>
+        <div id="success"></div>
+         <%= f.label :znumber  %>
+         <%= f.text_field :znumber , :class=>'form-control', :disabled => true %>
+         <%= f.label :netid , "NetID"%>    
+         <%= f.text_field :netid , :class=>'form-control', :disabled => true %>
+         <%= f.label :welcome, "Welcome" %><br> 
+         <%= f.radio_button :welcome, 1 %> Unlock Welcome Module&nbsp;<%= f.radio_button :welcome, 0 %> Lock Welcome Module<hr><br>         
+         <%= f.label :deposit, "Pay Deposit" %><br>
+         <%= f.radio_button :deposit, 1 %> Unlock Deposit Module &nbsp;<%= f.radio_button :deposit, 0 %> Lock Deposit Module<hr><br>
+         <%= f.label :account , "Create Account"  %><br>  
+         <%= f.radio_button :account, 1 %> Unlock Account Claiming Module &nbsp;<%= f.radio_button :account, 0 %> Lock Account Claiming Module <hr><br>
+         <%= f.label :communication, "Communication Preference"  %><br>    
+         <%= f.radio_button :communication, 1 %> Unlock Communication Preference Module &nbsp;<%= f.radio_button :communication, 0 %> Lock Communication Preference Module <hr><br>
+         <%= f.label :immunization, "Immunization Hold"  %><br>  
+         <%= f.radio_button :immunization, 1 %> Unlock Immunization Holds Module &nbsp; <%= f.radio_button :immunization, 0 %> Lock Immunization Holds Module<hr><br>
+         <%= f.label :finaid, "Financial Aid Checklist"  %><br>    
+         <%= f.radio_button :finaid, 1 %> Unlock Financial Aid Checklist Module &nbsp;<%= f.radio_button :finaid, 0 %> Lock Financial Aid Checklist Module<hr><br>
+         <%= f.label :housingfee, "Housing Fee"  %><br>    
+         <%= f.radio_button :housingfee, 1 %> Unlock Housing Fee Module &nbsp;<%= f.radio_button :housingfee, 0 %> Lock Housing Fee Module<hr><br>
+         <%= f.label :residency, "Residency Validation"  %><br>    
+         <%= f.radio_button :residency, 1 %> Unlock Residency Validation Module &nbsp;<%= f.radio_button :residency, 0 %> Lock Residency Validation Module<hr><br>
+         <%= f.label :housingmealplan, "Housing and Meal Plans" %><br>  
+         <%= f.radio_button :housingmealplan, 1 %> Unlock Housing & Meal Plans Module &nbsp;<%= f.radio_button :housingmealplan, 0 %> Lock Housing & Meal Plans Module<hr><br>
+         <%= f.label :aleks, "Math Placement Exam - ALEKS"  %><br>
+         <%= f.radio_button :aleks, 1 %> Unlock ALEKS Module &nbsp;<%= f.radio_button :aleks, 0 %> Lock ALEKS Module<hr><br>
+         <%= f.label :oars, "Online Advising & Resource System - OARS"  %><br>   
+         <%= f.radio_button :oars, 1 %> Unlock OARS Module &nbsp;<%= f.radio_button :oars, 0 %> Lock OARS Module<hr><br>
+         <%= f.label :learning_comm, "Learning Communities"  %><br>    
+         <%= f.radio_button :learning_comm, 1 %> Unlock Learning Communities Module &nbsp;<%= f.radio_button :learning_comm, 0 %> Lock Learning Communities Module<hr><br>
+         <%= f.label :orientation, "Orientation"  %><br>    
+         <%= f.radio_button :orientation, 1 %> Unlock Orientation Module &nbsp;<%= f.radio_button :orientation, 0 %> Lock Orientation Module<hr><br>
+         <%= f.label :registration, "Registration"  %><br>
+         <%= f.radio_button :registration, 1 %> Unlock Registration Module &nbsp;<%= f.radio_button :registration, 0 %> Lock Registration Module<hr><br>
+         <%= f.label :emergency, "Emergency Contacts"  %><br> 
+         <%= f.radio_button :emergency, 1 %> Unlock Emergency Contacts Module &nbsp;<%= f.radio_button :emergency, 0 %> Lock Emergency Contacts Module<hr><br>
+         <%= f.label :faualert  %><br> 
+         <%= f.radio_button :faualert, 1 %> Unlock FAU Alert Information Module &nbsp;<%= f.radio_button :faualert, 0 %> Lock FAU Alert Information Module<hr><br>
+         <%= f.label :owlcard, "Owl Card"  %><br>      
+         <%= f.radio_button :faualert, 1 %> Unlock Owl Card Module &nbsp;<%= f.radio_button :faualert, 0 %> Lock Owl Card Module<hr><br>
+         <%= f.label :bookadvance, "Book Advance Program"  %><br>     
+         <%= f.radio_button :bookadvance, 1 %> Unlock Book Advance Program Module &nbsp;<%= f.radio_button :bookadvance, 0 %> Lock Book Advance Program Module<hr><br>
+         <%= f.label :tution, "Tuition Payment"  %><br>      
+         <%= f.radio_button :tution, 1 %> Unlock Tuition Payment Module &nbsp;<%= f.radio_button :tution, 0 %> Lock Tuition Payment Module<hr><br>
+         <%= f.label :vehiclereg, "Register Your Vehicle"  %><br>     
+         <%= f.radio_button :vehiclereg, 1 %> Unlock Register Your Vehicle Module &nbsp;<%= f.radio_button :vehiclereg, 0 %> Lock Register Your Vehicle Module<hr>
+
+           
+        <div class="clearfix"></div>
+        
+
+        <div class="buttons-box clearfix">
+          <%= f.submit  'Save' , :class => 'btn btn-default'  %>
+        </div>
+      </form>
+  
+
+<% end %>
+  
+  </div>
+</div>
+
+
+

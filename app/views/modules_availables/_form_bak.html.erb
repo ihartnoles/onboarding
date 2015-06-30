@@ -1,0 +1,105 @@
+<%= form_for(@modules_available) do |f| %>
+  <% if @modules_available.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@modules_available.errors.count, "error") %> prohibited this modules_available from being saved:</h2>
+
+      <ul>
+      <% @modules_available.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :znumber %><br>
+    <%= f.text_field :znumber %>
+  </div>
+  <div class="field">
+    <%= f.label :netid %><br>
+    <%= f.text_field :netid %>
+  </div>
+  <div class="field">
+    <%= f.label :welcome %><br>
+    <%= f.number_field :welcome %>
+  </div>
+  <div class="field">
+    <%= f.label :deposit %><br>
+    <%= f.number_field :deposit %>
+  </div>
+  <div class="field">
+    <%= f.label :account %><br>
+    <%= f.number_field :account %>
+  </div>
+  <div class="field">
+    <%= f.label :communication %><br>
+    <%= f.number_field :communication %>
+  </div>
+  <div class="field">
+    <%= f.label :immunization %><br>
+    <%= f.number_field :immunization %>
+  </div>
+  <div class="field">
+    <%= f.label :finaid %><br>
+    <%= f.number_field :finaid %>
+  </div>
+  <div class="field">
+    <%= f.label :housingfee %><br>
+    <%= f.number_field :housingfee %>
+  </div>
+  <div class="field">
+    <%= f.label :residency %><br>
+    <%= f.number_field :residency %>
+  </div>
+  <div class="field">
+    <%= f.label :housingmealplan %><br>
+    <%= f.number_field :housingmealplan %>
+  </div>
+  <div class="field">
+    <%= f.label :aleks %><br>
+    <%= f.number_field :aleks %>
+  </div>
+  <div class="field">
+    <%= f.label :oars %><br>
+    <%= f.number_field :oars %>
+  </div>
+  <div class="field">
+    <%= f.label :learning_comm %><br>
+    <%= f.number_field :learning_comm %>
+  </div>
+  <div class="field">
+    <%= f.label :orientation %><br>
+    <%= f.number_field :orientation %>
+  </div>
+  <div class="field">
+    <%= f.label :registration %><br>
+    <%= f.number_field :registration %>
+  </div>
+  <div class="field">
+    <%= f.label :emergency %><br>
+    <%= f.number_field :emergency %>
+  </div>
+  <div class="field">
+    <%= f.label :faualert %><br>
+    <%= f.number_field :faualert %>
+  </div>
+  <div class="field">
+    <%= f.label :owlcard %><br>
+    <%= f.number_field :owlcard %>
+  </div>
+  <div class="field">
+    <%= f.label :bookadvance %><br>
+    <%= f.number_field :bookadvance %>
+  </div>
+  <div class="field">
+    <%= f.label :tution %><br>
+    <%= f.number_field :tution %>
+  </div>
+  <div class="field">
+    <%= f.label :vehiclereg %><br>
+    <%= f.number_field :vehiclereg %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

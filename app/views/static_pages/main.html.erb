@@ -168,7 +168,7 @@
 
   $("#btnNetID").click(function() {    
    
-  <% if request.server_name.include?('10.16.9.208') %>
+  <% if request.server_name.include?('10.16.9.208') || request.server_name.include?('10.16.9.129') || request.server_name.include?('localhost')  %>
      window.location.replace("http://<%= request.server_name %>:<%= request.port %>/home");
   <% else %>
      window.location.replace("https://<%= request.server_name %>/home");      

@@ -42,7 +42,7 @@ class StaticPagesController < ApplicationController
 		# @title      = 'Home'
   		# @description = 'What would you like to do?'		
 
-      # puts YAML::dump(session.inspect)
+      puts YAML::dump(session.inspect)
 
     	session[:usertype]  = nil
       
@@ -60,27 +60,55 @@ class StaticPagesController < ApplicationController
 
       @znum = 'Z23122293'
 
+
+      availability = ModulesAvailable.where(:znumber => @znum)
+
+      availability.each do |a|
+        @welcome_available = a.welcome
+        @deposit_available = a.deposit
+        @account_available = a.account
+        @communication_available = a.communication
+        @immunization_available = a.immunization
+        @finaid_available = a.finaid
+        @housing_fee_available = a.housingfee
+        @residency_available = a.residency
+        @housing_meal_plans_available = a.housingmealplan
+        @aleks_available = a.aleks
+        @oars_available = a.oars
+        @learning_comm_available = a.learning_comm
+        @orientation_available = a.orientation
+        @reg_available = a.registration
+        @emergency_available = a.emergency
+        @fau_alert_available = a.faualert
+        @owlcard_available = a.owlcard
+        @bookadvance_available = a.bookadvance
+        @tuition_available = a.tution
+        @vehicle_reg_available = a.vehiclereg
+      end
+
+
+
       #module flags
-      @welcome_available = 1
-      @deposit_available = 1
-      @account_available = 1
-      @communication_available = 1
-      @immunization_available = 1
-      @finaid_available = 1
-      @housing_fee_available = 1
-      @residency_available = 1
-      @housing_meal_plans_available = 1
-      @aleks_available = 1
-      @oars_available = 1
-      @learning_comm_available = 1
-      @orientation_available = 1
-      @reg_available = 1
-      @emergency_available = 1
-      @fau_alert_available = 1
-      @owlcard_available = 1
-      @bookadvance_available = 1
-      @tuition_available = 1
-      @vehicle_reg_available = 1
+      # @welcome_available = 1
+      # @deposit_available = 1
+      # @account_available = 1
+      # @communication_available = 1
+      # @immunization_available = 1
+      # @finaid_available = 1
+      # @housing_fee_available = 1
+      # @residency_available = 1
+      # @housing_meal_plans_available = 1
+      # @aleks_available = 1
+      # @oars_available = 1
+      # @learning_comm_available = 1
+      # @orientation_available = 1
+      # @reg_available = 1
+      # @emergency_available = 1
+      # @fau_alert_available = 1
+      # @owlcard_available = 1
+      # @bookadvance_available = 1
+      # @tuition_available = 1
+      # @vehicle_reg_available = 1
 
       #module completion flags
 
@@ -88,7 +116,7 @@ class StaticPagesController < ApplicationController
 
       #Banner.tuition_deposit_status('Z23122293')
 
-      puts YAML::dump(tuition_status)
+      #puts YAML::dump(tuition_status)
 
       @welcome_complete = 1
 
