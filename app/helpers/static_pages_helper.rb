@@ -78,19 +78,33 @@ module StaticPagesHelper
      def registered_hours(znum)
       output = Banner.registered_hours(znum)
 
+      tmp = ''
+
       if output.count > 0
         output.each do |o| 
 
-         if !o.nil?
-           tmp =  "You are currently registered for #{o['sfrstcr_credit_hr']} credit hours."
+        this_term  = o['sfrstcr_term_code']
+
+         case this_term[4..5]
+           when '01'
+              term_value = "Spring"
+           when '08'
+              term_value = "Fall"
+           else
+              term_value = "Summer"
+          end
+
+
+         if !o.nil? 
+           tmp <<  "<tr><td>#{o['sfrstcr_credit_hr']}</td><td>#{term_value} #{this_term[0..3]}</td></tr>"
          else
-           tmp =  "You have NOT registered for any classes yet."
-         end
-         
+           tmp =  "<tr><td colspan='2'>You are NOT registered for 12 credit hours.</td></tr>"
+         end       
 
-         return tmp
+        end
 
-           end
+          return tmp.html_safe
+
       else
         return "Registration status pending"
       end 
@@ -131,9 +145,9 @@ module StaticPagesHelper
           # puts YAML::dump(o)
 
          if o['imm_hold_flg'] == 'N' 
-           tmp =  "Your immunization records are up to date!  Good job!"
+           tmp <<  "You have an immunization hold! You need to make sure your immunization records are up to date."           
          else
-           tmp <<  "You have an immunization hold! You need to make sure your immunization records are up to date."
+           tmp =  "Your immunization records are up to date!  Good job!"
          end
          
          return tmp
@@ -220,9 +234,9 @@ module StaticPagesHelper
 
   	 def get_statusicon(available,completed)
   	 	case 
-  	 		when available == 0 && completed == 0
+  	 		when available == 0 && ( completed == 0 || completed.nil?)
   	 			return "unavailable <i class='fa fa-ban'></i>".html_safe
-  	 		when available == 1 && completed == 0
+  	 		when available == 1 && ( completed == 0 || completed.nil?)
   	 			return "incomplete  <i class='fa fa-times'></i>".html_safe
   	 		when available == 1 && completed == 1  	 			
   	 			return "completed <i class='fa fa-check'></i>".html_safe

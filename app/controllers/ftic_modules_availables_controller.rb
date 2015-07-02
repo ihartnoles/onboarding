@@ -1,10 +1,10 @@
-class ModulesAvailablesController < ApplicationController
-  before_action :set_modules_available, only: [:show, :edit, :update, :destroy]
+class FticModulesAvailablesController < ApplicationController
+  before_action :set_ftic_modules_available, only: [:show, :edit, :update, :destroy]
 
   # GET /modules_availables
   # GET /modules_availables.json
   def index
-    @modules_availables = ModulesAvailable.all
+    @modules_availables = FticModulesAvailable.all
   end
 
   # GET /modules_availables/1
@@ -14,7 +14,7 @@ class ModulesAvailablesController < ApplicationController
 
   # GET /modules_availables/new
   def new
-    @modules_available = ModulesAvailable.new
+    @modules_available = FticModulesAvailable.new
   end
 
   # GET /modules_availables/1/edit
@@ -24,7 +24,7 @@ class ModulesAvailablesController < ApplicationController
   # POST /modules_availables
   # POST /modules_availables.json
   def create
-    @modules_available = ModulesAvailable.new(modules_available_params)
+    @modules_available = FticModulesAvailable.new(ftic_modules_available_params)
 
     respond_to do |format|
       if @modules_available.save
@@ -41,8 +41,8 @@ class ModulesAvailablesController < ApplicationController
   # PATCH/PUT /modules_availables/1.json
   def update
     respond_to do |format|
-      if @modules_available.update(modules_available_params)
-        format.html { redirect_to @modules_available, notice: 'Modules available was successfully updated.' }
+      if @modules_available.update(ftic_modules_available_params)
+        format.html { redirect_to ftic_modules_availables_path, notice: 'Record updated!' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -63,12 +63,12 @@ class ModulesAvailablesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_modules_available
-      @modules_available = ModulesAvailable.find(params[:id])
+    def set_ftic_modules_available
+      @modules_available = FticModulesAvailable.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def modules_available_params
-      params.require(:modules_available).permit(:znumber, :netid, :welcome, :deposit, :account, :communication, :immunization, :finaid, :housingfee, :residency, :housingmealplan, :aleks, :oars, :learning_comm, :orientation, :registration, :emergency, :faualert, :owlcard, :bookadvance, :tution, :vehiclereg)
+    def ftic_modules_available_params
+      params.require(:ftic_modules_available).permit(:znumber, :netid, :welcome, :deposit, :account, :communication, :immunization, :finaid, :housingfee, :residency, :housingmealplan, :aleks, :oars, :learning_comm, :orientation, :registration, :emergency, :faualert, :owlcard, :bookadvance, :tution, :vehiclereg)
     end
 end

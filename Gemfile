@@ -7,8 +7,11 @@ gem 'rails', '4.0.4'
 #gem 'newrelic_rpm'
 
 #DB adapters
-gem 'ruby-oci8', '~> 2.1.7'
+#gem 'ruby-oci8', '~> 2.1.7'
+gem 'ruby-oci8', '~> 2.1.0'
+
 gem 'activerecord-oracle_enhanced-adapter', github: 'rsim/oracle-enhanced', branch: 'rails4'
+#gem 'activerecord-oracle_enhanced-adapter', :git => 'git://github.com/rsim/oracle-enhanced.git'
 gem 'activerecord-sqlserver-adapter'
 gem 'tiny_tds'
 

@@ -8,6 +8,11 @@ class Banner < ActiveRecord::Base
 
 	#BEGIN: QUERIES TO BANINST1.AWS_ONBOARDING_MAIN
 
+		def self.find_newstudents
+		 	get = connection.exec_query("select distinct Z_NUMBER, L_NAME, F_NAME, GOBTPAC_EXTERNAL_USER from BANINST1.AWS_ONBOARDING_MAIN where rownum <= 5")
+		end
+
+
 		def self.aleks_status(id)
 			get = connection.exec_query("SELECT aleks_taken FROM BANINST1.AWS_ONBOARDING_MAIN WHERE Z_NUMBER=#{connection.quote(id)}")
 		end
@@ -22,7 +27,7 @@ class Banner < ActiveRecord::Base
 	#BEGIN: QUERIES TO BANINST1.AWS_ONBOARDING_COURSE_REG
 
 		def self.registered_hours(id)
-			get = connection.exec_query("SELECT sfrstcr_credit_hr from BANINST1.AWS_ONBOARDING_COURSE_REG WHERE Z_NUMBER=#{connection.quote(id)}")
+			get = connection.exec_query("SELECT Z_NUMBER, SFRSTCR_TERM_CODE, SUM(sfrstcr_credit_hr) as sfrstcr_credit_hr from BANINST1.AWS_ONBOARDING_COURSE_REG WHERE Z_NUMBER=#{connection.quote(id)} AND sfrstcr_credit_hr >0 GROUP BY  Z_NUMBER, SFRSTCR_TERM_CODE, sfrstcr_credit_hr")
 		end
 
 	#END:QUERIES TO BANINST1.AWS_ONBOARDING_COURSE_REG

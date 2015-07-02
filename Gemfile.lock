@@ -126,7 +126,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   rails (= 4.0.4)
-  ruby-oci8 (~> 2.1.7)
+  ruby-oci8 (~> 2.1.0)
   rubycas-client
   sass-rails (~> 4.0.2)
   sdoc
