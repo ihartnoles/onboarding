@@ -9,7 +9,7 @@ class Banner < ActiveRecord::Base
 	#BEGIN: QUERIES TO BANINST1.AWS_ONBOARDING_MAIN
 
 		def self.find_newstudents
-		 	get = connection.exec_query("select distinct Z_NUMBER, L_NAME, F_NAME, GOBTPAC_EXTERNAL_USER from BANINST1.AWS_ONBOARDING_MAIN where rownum <= 5")
+		 	get = connection.exec_query("select distinct Z_NUMBER, L_NAME, F_NAME, GOBTPAC_EXTERNAL_USER from BANINST1.AWS_ONBOARDING_MAIN where rownum <= 10")
 		end
 
 
