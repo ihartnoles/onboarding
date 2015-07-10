@@ -70,7 +70,8 @@ module StaticPagesHelper
            return tmp.html_safe
 
       else
-        return "OARS status pending"
+         tmp =  "<tr><td>You DO NOT have FAFSA information on file.</td></tr>"
+       return tmp.html_safe
       end 
      end
 

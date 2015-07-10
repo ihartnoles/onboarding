@@ -151,14 +151,30 @@ class StaticPagesController < ApplicationController
         end 
       end
 
+
+      #begin finaidflags
+      finaidflags = []
+
       finaid_status.each do |o|
+        
         if o['rrrareq_sat_ind'] == 'N' || o['rrrareq_sat_ind'].nil?
-          @finaid_complete = 0
+          #@finaid_complete = 0
+          finaidflags.push('0')
         else
-          @finaid_complete = 1
-        end 
+          #@finaid_complete = 1
+          finaidflags.push('1')
+        end
       end
 
+     
+      if  finaidflags.include? '0'
+        @finaid_complete = 0
+      elsif finaidflags.empty?
+         @finaid_complete = 0
+      else
+        @finaid_complete = 1
+      end 
+      #end finaidflags
 
       @housing_fee_complete = 0
       
@@ -266,6 +282,7 @@ class StaticPagesController < ApplicationController
 	# 	@description = 'Reporting Options'
 	# end 
 
+ 
 	def unauthorized
 		@title = 'Unauthorized'
 		@description = ''

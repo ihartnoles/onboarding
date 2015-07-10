@@ -7,6 +7,7 @@ gem 'rails', '4.0.4'
 #gem 'newrelic_rpm'
 
 gem 'whenever', :require => false
+gem 'jquery-datatables-rails', '~> 3.3.0'
 
 #DB adapters
 #gem 'ruby-oci8', '~> 2.1.7'
