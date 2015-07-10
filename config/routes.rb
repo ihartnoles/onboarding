@@ -1,11 +1,12 @@
 Onboarding::Application.routes.draw do
 
-  resources :ftic_modules_availables
+  resources :ftic_modules_availables , :path => "fticadmin"
 
   #root 'static_pages#login'
   root 'static_pages#main'
 
   resources :logins
+
 
   #static actions
   get    '/main',             to: 'static_pages#main'
@@ -15,7 +16,9 @@ Onboarding::Application.routes.draw do
   get    '/login',            to: 'login#login'
   match  '/do_manual_login',  to: 'login#do_manual_login', via: 'post'
   get    '/do_manual_login',  to: 'login#do_manual_login'
-  get    '/fticsync/',       to: 'static_pages#fticsync'
+  get    '/fticsync/',        to: 'static_pages#fticsync'
+
+
 
   # get  '/login',            to: 'static_pages#login'
   # get  '/logins',           to: 'static_pages#do_manual_login'
