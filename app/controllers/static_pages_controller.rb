@@ -61,6 +61,9 @@ class StaticPagesController < ApplicationController
       if params[:znum] 
         #this is to allow impersonation
         @znum = params[:znum]
+
+        record_activity("Proxy Login")
+
       else
         @znum = 'Z23122293'
       end
@@ -289,6 +292,18 @@ class StaticPagesController < ApplicationController
 
 		render layout: false
 	end 
+
+  def record_activity(note)
+    @activity = ActivityLog.new
+    @activity.netid = session[:cas_user]
+    @activity.note = note
+    @activity.browser = request.env['HTTP_USER_AGENT']
+    @activity.ip_address = request.env['REMOTE_ADDR']
+    @activity.controller = controller_name 
+    @activity.action = action_name 
+    @activity.params = params.inspect
+    @activity.save
+  end
 
   def fticsync
       @Bannerstuds = Banner.find_newstudents

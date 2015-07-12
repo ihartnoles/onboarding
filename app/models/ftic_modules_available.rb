@@ -34,7 +34,7 @@ class FticModulesAvailable < ActiveRecord::Base
          student.update_attributes(
           :netid => bs['gobtpac_external_user'],
           :znumber => bs['z_number']
-         )
+         ) 
         end
 
       end

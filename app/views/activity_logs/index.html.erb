@@ -1,0 +1,53 @@
+<div class="container col-sm-10 col-md-10">
+  <div class="col-sm-10 col-md-10 bottom-padding">
+  <div class="container">
+      <header class="page-header">
+        <div class="container">
+          <h3 class="title">Activity Log</h3>
+        </div>
+      </header>
+
+     
+    <div class="row">
+      <article class="col-sm-12 col-md-12 content">
+    <div class="my-account">
+      <div class="table-responsive">
+
+<table class="table table-striped table-condensed table-hover text-left my-orders-table">
+  <thead>
+    <tr>
+      <th>Netid</th>
+      <th>Browser</th>
+      <th>Ip address</th>
+      <th>Controller</th>
+      <th>Action</th>
+      <th>Params</th>
+      <th>Note</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @activity_logs.each do |activity_log| %>
+      <tr>
+        <td><%= activity_log.netid %></td>
+        <td><%= activity_log.browser %></td>
+        <td><%= activity_log.ip_address %></td>
+        <td><%= activity_log.controller %></td>
+        <td><%= activity_log.action %></td>
+        <td><%= activity_log.params %></td>
+        <td><%= activity_log.note %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+    
+      </article><!-- .content -->
+    
+   
+    </div>
+  </div>
+
+     
+  </div>
+</div>

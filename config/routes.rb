@@ -1,5 +1,8 @@
 Onboarding::Application.routes.draw do
 
+  resources :activity_logs
+  get       '/activity_log/:znum',  to: 'activity_logs#znumber'
+
   resources :ftic_modules_availables , :path => "fticadmin"
 
   #root 'static_pages#login'

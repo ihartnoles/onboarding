@@ -65,7 +65,8 @@
               <td><%= modules_available.netid %></td>
                <td>
                  <%= link_to 'Edit', edit_ftic_modules_available_path(modules_available) %> <br>
-                 <a href="/home?znum=<%= modules_available.znumber %>" target="_blank">Proxy</a>               
+                 <a href="/home?znum=<%= modules_available.znumber %>" target="_blank">Proxy</a><br>
+                 <a href="/activity_log/<%= modules_available.znumber %>" target="_blank">Log</a>                
               </td>
               <td>
                 <% if modules_available.welcome == 1 %>
