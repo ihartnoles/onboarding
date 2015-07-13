@@ -29,7 +29,7 @@
         </thead> -->
           <thead>
           <tr >
-            <th>Znumber</th>
+            <th>Z#</th>
             <th>Netid</th>
             <th>Actions</th>  
             <th>Welcome</th>
@@ -66,7 +66,7 @@
                <td>
                  <%= link_to 'Edit', edit_ftic_modules_available_path(modules_available) %> <br>
                  <a href="/home?znum=<%= modules_available.znumber %>" target="_blank">Proxy</a><br>
-                 <a href="/activity_log/<%= modules_available.znumber %>" target="_blank">Log</a>                
+                 <a href="/activity_log/<%= modules_available.znumber %>" target="_blank">Activity Log</a>                
               </td>
               <td>
                 <% if modules_available.welcome == 1 %>
@@ -237,6 +237,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
    $('#ftictable').dataTable( {
+    "scrollX": true,
     "aoColumns": [
       null,
       null,

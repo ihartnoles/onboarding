@@ -18,11 +18,10 @@
     <tr>
       <th>Netid</th>
       <th>Browser</th>
-      <th>Ip address</th>
-      <th>Controller</th>
-      <th>Action</th>
+      <th>IP</th>
       <th>Params</th>
       <th>Note</th>
+      <th>Timestamp</th>
     </tr>
   </thead>
 
@@ -31,11 +30,10 @@
       <tr>
         <td><%= activity_log.netid %></td>
         <td><%= activity_log.browser %></td>
-        <td><%= activity_log.ip_address %></td>
-        <td><%= activity_log.controller %></td>
-        <td><%= activity_log.action %></td>
+        <td><%= activity_log.ip_address %></td>        
         <td><%= activity_log.params %></td>
         <td><%= activity_log.note %></td>
+        <td><%= activity_log.created_at %></td>
       </tr>
     <% end %>
   </tbody>
