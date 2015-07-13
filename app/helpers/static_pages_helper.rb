@@ -172,9 +172,9 @@ module StaticPagesHelper
         output.each do |o| 
 
          if o['sgbstdn_resd_code'].include?('T') || o['sgbstdn_resd_code'].include?('F') || o['sgbstdn_resd_code'].include?('R') || o['sgbstdn_resd_code'].include?('O')
-           tmp =  "Your residency status is classified as IN-STATE."
+           tmp =  "Your residency status is classified as a RESIDENT. Because of this classification you will save $518.55 per credit hour!"
          else
-           tmp =  "Your residency status is classified as out of state."
+           tmp =  "Your residency status is classified as a NON-RESIDENT. Because of this classification You will pay $518.55 more per credit hour than residents!"
          end
         
            return tmp
@@ -221,11 +221,11 @@ module StaticPagesHelper
          if o['sarchkl_admr_code'] == 'TUTD' && !o['sarchkl_receive_date'].nil?
            tmp =  "Your tuition deposit was paid on #{o['sarchkl_receive_date'].strftime('%x')}."
          else
-           tmp =  "Your tuition deposit has NOT been paid yet! Please visit ? for instructions on how to proceed."
+           tmp =  "Your tuition deposit has NOT been paid yet! <a href='http://www.fau.edu/admissions/tuitiondeposit.php' target='_blank'>[More Information]</a>."
          end
          
 
-         return tmp
+         return tmp.html_safe
 
          end
       else

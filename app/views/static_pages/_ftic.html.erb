@@ -156,7 +156,7 @@ Hello, <%= session[:cas_user] %>!
 				  		<p>The non-refundable admissions tuition deposit is for admitted freshman students only.</p>
 				 		 
 				 		<p>All admitted freshmen must confirm their intention to enroll and secure their space in the class with a $200.00 <strong>non-refundable</strong> deposit. The $200 is applied to your tuition and fees for the semester in which you are admitted to FAU. It will be forfeited if you pay the deposit and choose not to enroll at FAU for that term, or if you submit a change of entry request for a different term. Your space will be released to another applicant if the deposit is not received by<span style="text-decoration: underline;"> May 1 or within two weeks of admission if admitted after May 1 <sup>st</sup></span>.
-                         <br><br>The deposit is applied to your account when you enroll and will be used toward your tuition and fees. It will be forfeited if you do not enroll. <a title="FAU Admissions Deposit" href="http://www.fau.edu/finaid" target="_blank">[More Information]</a></p>
+                         <br><br>The deposit is applied to your account when you enroll and will be used toward your tuition and fees. It will be forfeited if you do not enroll. <a title="FAU Admissions Deposit" href="http://www.fau.edu/admissions/tuitiondeposit.php" target="_blank">[More Information]</a></p>
 				 		
 
 				 		<div class="alert alert-border alert-danger text-center fade in alert-dismissable">
@@ -535,7 +535,76 @@ Hello, <%= session[:cas_user] %>!
 	                    	</strong>
 	                    <p>
                     </div>
-					
+
+                    <div class="alert alert-border alert-info text-center fade in alert-dismissable">
+                    	<button data-dismiss="alert" class="close" type="button">×</button>
+                    	<div class="table-responsive">
+                    	<h3 class="title">Resident vs Non-Resident Tuition Comparison</h3>
+                    	<table class="table table-striped text-left order-details">
+                    		<thead>                    		
+                    		<tr>
+                    			<th>Fees Per Credit Hour</th>
+                    			<th>Undergrad - Resident</th>
+                    			<th>Undergrad - Non-Resident</th>
+                    		</tr>
+                    		</thead>
+                    		<tbody>
+                    			<tr>
+        							<td>Tuition</td>
+        							<td>$105.07</td>
+        							<td>$105.07</td>
+        						</tr>
+        						<tr>
+        							<td>Non Resident fee</td>
+        							<td class="text-primary">$0.00</td>
+        							<td class="text-danger">$493.86</td>
+        						</tr>
+        						<tr>
+        							<td>Tuition Differential</td>
+        							<td>$40.13</td>
+        							<td>$40.13</td>
+        						</tr>
+        						<tr>
+        							<td>Capital Improvement Fee</td>
+        							<td>$6.76</td>
+        							<td>$6.76</td>
+        						</tr>
+        						<tr>
+        							<td>Financial Aid Fee</td>
+        							<td class="text-primary">$5.16</td>
+        							<td class="text-danger">$29.85</td>
+        						</tr>
+        						<tr>
+        							<td>Activity and Service Fee</td>
+        							<td>$12.32</td>
+        							<td>$12.32</td>
+        						</tr>
+        						<tr>
+        							<td>Athletic Fee</td>
+        							<td>$17.27</td>
+        							<td>$17.27</td>
+        						</tr>
+        						<tr>
+        							<td>Health Fee</td>
+        							<td>$9.42</td>
+        							<td>$9.42</td>
+        						</tr>
+        						<tr>
+        							<td>Technology Fee</td>
+        							<td>$5.16</td>
+        							<td>$5.16</td>
+        						</tr>
+        						<tfoot>
+	        						<tr>
+	        							<th>Total</th>
+	        							<th>$201.29</th>
+	        							<th>$719.84</th>
+	        						</tr>
+        						</tfoot>
+                    		</tbody>
+                    	</table>
+                    </div>
+					</div>
 				<!--<form>
 				  <div>
 					<label class="radio"><input type="radio" name="register"> Checkout as Guest</label>
