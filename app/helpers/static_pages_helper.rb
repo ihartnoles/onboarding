@@ -172,12 +172,12 @@ module StaticPagesHelper
         output.each do |o| 
 
          if o['sgbstdn_resd_code'].include?('T') || o['sgbstdn_resd_code'].include?('F') || o['sgbstdn_resd_code'].include?('R') || o['sgbstdn_resd_code'].include?('O')
-           tmp =  "Your residency status is classified as a RESIDENT. Because of this classification you will save $518.55 per credit hour!"
+           tmp =  "You are classified as a RESIDENT. <br> Because of this classification you will save $518.55 per credit hour! <br> That's a savings of over $6000 for a 12 hour course load!"
          else
-           tmp =  "Your residency status is classified as a NON-RESIDENT. Because of this classification You will pay $518.55 more per credit hour than residents!"
+           tmp =  "You are classified as a NON-RESIDENT. <br>  Because of this classification You will pay $518.55 more per credit hour than residents!"
          end
         
-           return tmp
+           return tmp.html_safe
            end
         else
           return "Residency status pending"
