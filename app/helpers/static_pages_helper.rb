@@ -33,7 +33,7 @@ module StaticPagesHelper
            tmp =  "You have NOT taken ALEKS yet. <br> You must complete this requirement. <a title='FAU Aleks' href='https://www.fau.edu/uas/pdf/ALEKS.pdf' target='_blank'>[More Information]</a>"
          end
 
-         return tmp
+         return tmp.html_safe
 
            end
       else
