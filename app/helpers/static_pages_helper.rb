@@ -9,7 +9,7 @@ module StaticPagesHelper
 	    	 if o['attended'] == 'Yes'
 	    	 	 tmp =  "You have attended an orientation session on #{o['sessiondate']}. You have completed this requirement!"
 	    	 else
-	    	 	 tmp =  "You have NOT attended an orientation session yet. You must attend orientation and complete orientation."
+	    	 	 tmp =  "You have NOT attended an orientation session yet. You must attend orientation and complete orientation. "
 	    	 end
 
 	    	 return tmp
@@ -28,9 +28,9 @@ module StaticPagesHelper
         output.each do |o| 
 
          if o['aleks_taken'] == 'Y' 
-           tmp =  "You have taken ALEKS!"
+           tmp =  "You have taken ALEKS! Congrats!"
          else
-           tmp =  "You have NOT taken ALEKS yet. You must complete this requirement."
+           tmp =  "You have NOT taken ALEKS yet. <br> You must complete this requirement. <a title='FAU Aleks' href='https://www.fau.edu/uas/pdf/ALEKS.pdf' target='_blank'>[More Information]</a>"
          end
 
          return tmp
@@ -119,13 +119,13 @@ module StaticPagesHelper
   	 		output.each do |o| 
 
          if !o.nil?
-           tmp =  "You have taken OARS for #{o['semester_desc']}.  Your status is: #{o['status_desc']}"
+           tmp =  "You have taken OARS for #{o['semester_desc']}! Great work!"
          else
-           tmp =  "You have NOT attended an orientation session yet. You must attend orientation and complete orientation."
+           tmp =  "You have NOT completed OARS. <a title='OARS information' href='http://www.fau.edu/uas/oars_welcome.php' target='_blank'>[More Information]</a>"
          end
 	    	 
 
-	    	 return tmp
+	    	 return tmp.html_safe
 
       	   end
   	 	else
@@ -146,12 +146,12 @@ module StaticPagesHelper
           # puts YAML::dump(o)
 
          if o['imm_hold_flg'] == 'N' 
-           tmp <<  "You have an immunization hold! You need to make sure your immunization records are up to date."           
+           tmp <<  "You have an immunization hold! <br> You need to make sure your immunization records are up to date. <a title='FAU Immunizations' href='http://myhealth.fau.edu/Account/Logon?ReturnUrl=%2f' target='_blank'>[More Information]</a>"           
          else
            tmp =  "Your immunization records are up to date!  Good job!"
          end
          
-         return tmp
+         return tmp.html_safe
 
         end
       else
