@@ -13,8 +13,7 @@ module StaticPagesHelper
 	    	 end
 
 	    	 return tmp
-
-      	   end
+      end
       	 else
       	 	return "Orienation status pending"
       	 end        

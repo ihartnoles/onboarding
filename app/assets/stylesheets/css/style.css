@@ -5271,7 +5271,7 @@ blockquote small {
   bottom: 0px;
   content: "";
   display: block;
-  height: 1px;
+  height: 0;
   left: 0;
   margin: 0 0 -1px;
   position: absolute;
@@ -6138,7 +6138,7 @@ blockquote small {
   bottom: 0px;
   content: "";
   display: block;
-  height: 1px;
+  height: 0;
   left: 15px;
   margin: 0 0 -1px;
   position: absolute;
@@ -6161,7 +6161,7 @@ blockquote small {
   bottom: 0;
   content: "";
   display: block;
-  height: 1px;
+  height: 0;
   left: 0;
   margin: 0 0 -1px;
   position: absolute;
@@ -8370,7 +8370,8 @@ a.big-icon:hover {
   margin: 0 0 11px;
 }
 #checkoutsteps .step-title {
-  background: #C10841;
+  /*background: #C10841;*/
+  background: #037AC5;
   border: 1px solid #e1e1e1;
   color: #ffffff;
   display: block;
@@ -8387,28 +8388,42 @@ a.big-icon:hover {
   color: #ffffff;
 }
 
-
 #checkoutsteps .disabled.step-title.collapsed {
   background: #CDD2D5;
   border-color: #f2f2f2;
   color: #ffffff;
 }
 
+#checkoutsteps .incomplete.step-title.collapsed {
+  background: #C10841;
+  border-color: #f2f2f2;
+  color: #ffffff;
+}
+
+#checkoutsteps .complete.step-title.collapsed {
+  background: #738D00;
+  border-color: #f2f2f2;
+  color: #ffffff;
+}
+
 
 #checkoutsteps a.step-title.collapsed:hover {
-  background: #C10841;
+  /*background: #C10841;*/
+  background: #037AC5;
   border-color: #f2f2f2;
   color: #ffffff;
 }
 
 #checkoutsteps a.step-title:hover {
  
-  background: #C10841;
+ /* background: #C10841;*/
+ background: #037AC5;
 
 }
 
 #checkoutsteps a.step-title{
-  background: #C10841;  
+  /*background: #C10841;*/  
+  background: #037AC5;
 }
 
 #checkoutsteps a.step-title.collapsed{
@@ -8462,7 +8477,7 @@ a.big-icon:hover {
   bottom: 0px;
   content: "";
   display: block;
-  height: 1px;
+  height: 0px;
   left: 0;
   margin: 0 0 -1px;
   position: absolute;

@@ -139,11 +139,15 @@ Hello, <%= session[:cas_user] %>!
 		  </li>
 		  
 		  <li class="panel">
-		  	<% if @deposit_available == 1 %>
-				<a href="#step-2" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse" id="deposittitle">
+		  	
+		  	<% if  @deposit_available == 1 && @deposit_complete== 0 %>
+				<a href="#step-2" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse" id="deposittitle">
+			<% elsif  @deposit_available == 1 && @deposit_complete == 1 %>
+				<a href="#step-2" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse" id="deposittitle">
 			<% else %>
 				<a href="#step-2" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="" id="deposittitle">
 			<% end %>
+
 
 			  <div class="number"><!-- Step 2 --><%= get_statusicon(@deposit_available, @deposit_complete) %> </div>
 			  <h6>Pay Deposit</h6>
@@ -239,8 +243,10 @@ Hello, <%= session[:cas_user] %>!
 		  
 		  <li class="panel">
 		  	
-		  	<% if @account_available == 1 %>
-				<a href="#step-3" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse" id="accounttitle">
+		  	<% if  @account_available == 1 && @account_complete== 0 %>
+				<a href="#step-3" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse" id="accounttitle">
+			<% elsif  @account_available == 1 && @account_complete == 1 %>
+				<a href="#step-3" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse" id="accounttitle">
 			<% else %>
 				<a href="#step-3" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="" id="accounttitle">
 			<% end %>
@@ -274,8 +280,10 @@ Hello, <%= session[:cas_user] %>!
 		  
 		  <li class="panel">
 
-		  	<% if @communication_available == 1 %>
-				<a id="communicationhref" href="#step-4" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		  	<% if @communication_available == 1 && @communication_complete == 0 %>
+				<a id="communicationhref" href="#step-4" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
+			<% elsif  @communication_available == 1 && @communication_complete == 1 %>
+				<a id="communicationhref" href="#step-4" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
 			<% else %>
 				<a id="communicationhref" href="#step-4" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 			<% end %>
@@ -386,8 +394,10 @@ Hello, <%= session[:cas_user] %>!
 		  </li>
 		  
 		  <li class="panel">
-		  <% if @immunization_available == 1 %>
-			<a href="#step-5" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		  <% if @immunization_available == 1 && @immunization_complete == 0 %>
+			<a href="#step-5" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
+		  <% elsif @immunization_available == 1 && @immunization_complete == 1 %>
+		  	<a href="#step-5" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
 		  <% else %>
 		  	<a href="#step-5" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 		  <% end %>
@@ -449,8 +459,10 @@ Hello, <%= session[:cas_user] %>!
 		  </li>
 		  
 		  <li class="panel">
-		  	<% if @finaid_available == 1 %>
-			   <a href="#step-6" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		  	<% if @finaid_available == 1 && @finaid_complete == 0 %>
+			   <a href="#step-6" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
+			<% elsif @finaid_available == 1 && @finaid_complete == 1 %>
+			   <a href="#step-6" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="">
 			<% else %>
                <a href="#step-6" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 			<% end %>
@@ -502,8 +514,10 @@ Hello, <%= session[:cas_user] %>!
 
 		  <li class="panel">
 
-		  <% if @residency_available == 1 %>
-			<a href="#step-7" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		  <% if @residency_available == 1 && @residency_complete == 0 %>
+			<a href="#step-7" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
+		  <% elsif @residency_available == 1 && @residency_complete == 1 %>
+		  	<a href="#step-7" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
 		  <% else %>
 		  	<a href="#step-7" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 		  <% end %>
@@ -623,8 +637,10 @@ Hello, <%= session[:cas_user] %>!
 		  
 		  <li class="panel">
 
-		  	 <% if @housing_fee_available == 1 %>
-				<a href="#step-8" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		  	<% if @housing_fee_available == 1 && @housing_fee_complete ==0 %>
+				<a href="#step-8" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
+			<% elsif @housing_fee_available == 1 && @housing_fee_complete ==1 %>
+				<a href="#step-8" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
 			<% else %>
 				<a href="#step-8" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 			<% end %>
@@ -642,6 +658,10 @@ Hello, <%= session[:cas_user] %>!
 
 		  		<p>Lorem ipsum Ad ullamco elit reprehenderit veniam aute minim dolore ullamco incididunt ea do. Lorem ipsum Reprehenderit do consectetur dolore do fugiat proident incididunt consequat minim ullamco. Lorem ipsum Proident laboris dolore in aliqua ut magna minim irure ut proident. Lorem ipsum Anim dolore incididunt aliquip do irure aute reprehenderit reprehenderit enim ut. Lorem ipsum Reprehenderit commodo anim laboris ex cupidatat dolor deserunt dolore exercitation Ut et culpa.  <a title="FAU Housing" href="http://www.fau.edu/housing/" target="_blank">[More Information]</a> </p>
 
+		  		<p>
+		  			
+		  			 <a title="FAU Housing" href="https://housing.fau.edu/THDSS/security/login_student_posted.cfm?StudentID=<%=params[:znum]%>" target="_blank">[Sign up here]</a>
+		  		</p>
 			
 			  </div> 
 			
@@ -649,8 +669,10 @@ Hello, <%= session[:cas_user] %>!
 		  </li>
 
 		  <li class="panel">
-		  	<% if @housing_meal_plans_available == 1 %>
-				<a href="#step-9" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		  	<% if @housing_meal_plans_available == 1 && @housing_meal_plans_complete == 0 %>
+				<a href="#step-9" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
+			<% elsif @housing_meal_plans_available == 1 && @housing_meal_plans_complete == 1 %>
+				<a href="#step-9" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
 			<% else %>
 				<a href="#step-9" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 			<% end %>
@@ -669,8 +691,10 @@ Hello, <%= session[:cas_user] %>!
 
 		  <li class="panel">
 
-		  <% if @aleks_available == 1 %>
-			<a href="#step-10" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		  <% if @aleks_available == 1 && @aleks_complete == 0 %>
+			<a href="#step-10" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
+		  <% elsif @aleks_available == 1 && @aleks_complete == 1 %>
+		  	<a href="#step-10" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
 		  <% else %>
 		  	<a href="#step-10" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 		  <% end %>
@@ -695,13 +719,19 @@ Hello, <%= session[:cas_user] %>!
 						</strong>
 				 </div>
 
+				 <p>
+				 	
+				 	<a title="ALEKS information" href="https://secure.aleks.com/fau/?znumber=<%=params[:znum] %>myfau_username&=sbauer6" target="_blank">[Aleks Sign-up]</a>
+				 </p>
 			  </div>			
 			</div>
 		  </li>
 
 		   <li class="panel">
-		   	<% if @oars_available == 1 %>
-				<a href="#step-11" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		   	<% if @oars_available == 1 && @oars_complete == 0 %>
+				<a href="#step-11" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
+			<% elsif @oars_available == 1 && @oars_complete == 1 %>
+				<a href="#step-11" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
 			<% else %>
 				<a href="#step-11" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 			<% end %>
@@ -779,13 +809,15 @@ Hello, <%= session[:cas_user] %>!
 
 		   <li class="panel">
 
-		   	<% if @orientation_available == 1 %>
-				<a href="#step-13" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		   	<% if @orientation_available == 1 && @orientation_complete == 0 %>
+				<a href="#step-13" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
+			<% elsif  @orientation_available == 1 && @orientation_complete == 1 %>
+				<a href="#step-13" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
 			<% else %>
 				<a href="#step-13" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 			<% end %>
 
-			  <div class="number"><!-- Step 13 --><%= get_statusicon(@orientation_available, @orientation_complete) %></div>
+			  <div class="number"><!-- Step 13 -->A:<%= @orientation_available %> | C:<%= @orientation_complete %> <%= get_statusicon(@orientation_available, @orientation_complete) %></div>
 			  <h6>Orientation</h6>
 			</a>
 			
@@ -815,8 +847,10 @@ Hello, <%= session[:cas_user] %>!
 
 		   <li class="panel">
 		   	
-		   	<% if @reg_available == 1 %>		   	
-		   		<a href="#step-14" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		   	<% if @reg_available == 1 && @reg_complete == 0 %>		   	
+		   		<a href="#step-14" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
+		   	<% elsif  @reg_available == 1 && @reg_complete == 1 %>
+		   		<a href="#step-14" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
 		   	<% else %>
 		   		<a href="#step-14" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 		   	<% end %>
@@ -876,8 +910,10 @@ If you don't know the CRN, use the Class Search button to find them. When you ge
 		  </li>
 
 		  <li class="panel">
-		  <% if @emergency_available == 1 %>
-			<a href="#step-15" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		  <% if @emergency_available == 1 && @emergency_complete == 0 %>
+		  	<a href="#step-15" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
+		  <% elsif @emergency_available == 1 && @emergency_complete == 1 %>
+		  	<a href="#step-15" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
 		  <% else %>
 		    <a href="#step-15" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 		  <% end %>
@@ -895,8 +931,10 @@ If you don't know the CRN, use the Class Search button to find them. When you ge
 		  </li>
 
 		   <li class="panel">
-		   <% if @fau_alert_available == 1 %>
-			<a href="#step-16" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		   <% if @fau_alert_available == 1 && @fau_alert_complete == 0 %>
+			<a href="#step-16" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
+		   <% elsif @fau_alert_available == 1 && @fau_alert_complete == 1 %>
+		   	<a href="#step-16" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
 		   <% else %>
 		    <a href="#step-16" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 		   <% end %>
@@ -917,7 +955,7 @@ If you don't know the CRN, use the Class Search button to find them. When you ge
 		  </li>
 
 		   <li class="panel">
-		    <% if @owlcard_available == 1 %>
+		    <% if @owlcard_available == 1%>
 				<a href="#step-17" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
 			<% else %>
 				<a href="#step-17" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
@@ -988,8 +1026,10 @@ If you don't know the CRN, use the Class Search button to find them. When you ge
 
 		  <li class="panel">
 		  	
-		  	<% if @tuition_available == 1 %>
-				<a href="#step-19" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+		  	<% if @tuition_available == 1 && @tuition_complete == 0 %>
+				<a href="#step-19" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
+			<% elsif @tuition_available == 1 && @tuition_complete == 1 %>
+				<a href="#step-19" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
 			<% else %>
 				<a href="#step-19" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 			<% end %>
@@ -1076,6 +1116,19 @@ If you don't know the CRN, use the Class Search button to find them. When you ge
               	   	<a href="http://www.fau.edu/parking/allpermits.php" target="_blank">
               	   		[More Information]
               	   	</a>
+              	   </p>
+
+              	   <p>
+              	    	
+              	    <a href='https://fau.t2hosted.com/cmn/auth.aspx?personid=<%= params[:znum] %>' target='_blank'>
+              	   		[Register Here]
+              	   	</a> 
+              	   
+              	   	<!-- <button type="button" id="parkingbutton" class="btn btn-link">[Register Here]!</button> -->
+
+              	   	<div id="result">
+
+              	   	</div>
               	   </p>
 				</div>			
 			</div>
@@ -1354,7 +1407,15 @@ If you don't know the CRN, use the Class Search button to find them. When you ge
 	 	
 	 // });
 	
-	
+
+	$("#parkingbutton").click(function(){
+    $.post("https://fau.t2hosted.com/cmn/auth.aspx",
+	    {personid: "Z23173907"},
+	    function(data){
+	        $('#result').html(data);
+	    });
+	});
+
 	$("#mobileText, #mobilePhone").click(function() {
 	  //alert('Ohhhh KAY!!!!');
 	  $("#mobileForm").toggle();
