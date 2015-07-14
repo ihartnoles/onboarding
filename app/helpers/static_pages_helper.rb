@@ -6,13 +6,19 @@ module StaticPagesHelper
     	if output.count > 0
     	   output.each do |o| 
 
-	    	 if o['attended'] == 'Yes'
-	    	 	 tmp =  "You have attended an orientation session on #{o['sessiondate']}. You have completed this requirement!"
-	    	 else
-	    	 	 tmp =  "You have NOT attended an orientation session yet. You must attend orientation and complete orientation. "
-	    	 end
+         if !o.nil?
+  	    	 if o['attended'] == 'Yes'
+  	    	 	 tmp =  "You have attended an orientation session on #{o['sessiondate']}. You have completed this requirement!"
+  	    	 else
+  	    	 	 tmp =  "You have NOT attended an orientation session yet. You must attend orientation and complete orientation. "
+  	    	 end
 
-	    	 return tmp
+  	    	 return tmp
+         else
+
+          return "Orienation status pending"
+          
+         end
       end
       	 else
       	 	return "Orienation status pending"
@@ -162,21 +168,15 @@ module StaticPagesHelper
      def get_residency_status(znum)
        output = Banner.residency_status(znum)
 
-       # if !output.nil?
-       #  return output
-       # else
-       #  return 'unknown'
-       # end
+      
         if output.count > 0
-        output.each do |o| 
-
-         if o['sgbstdn_resd_code'].include?('T') || o['sgbstdn_resd_code'].include?('F') || o['sgbstdn_resd_code'].include?('R') || o['sgbstdn_resd_code'].include?('O')
-           tmp =  "You are classified as a RESIDENT. <br> Because of this classification you will save $518.55 per credit hour! <br> That's a savings of over $6000 for a 12 hour course load!"
-         else
-           tmp =  "You are classified as a NON-RESIDENT. <br>  Because of this classification You will pay $518.55 more per credit hour than residents!"
-         end
-        
-           return tmp.html_safe
+          output.each do |o| 
+             if o['sgbstdn_resd_code'].include?('T') || o['sgbstdn_resd_code'].include?('F') || o['sgbstdn_resd_code'].include?('R') || o['sgbstdn_resd_code'].include?('O')
+               tmp =  "You are classified as a RESIDENT. <br> Because of this classification you will save $518.55 per credit hour! <br> That's a savings of over $6000 for a 12 hour course load!"
+             else
+               tmp =  "You are classified as a NON-RESIDENT. <br>  Because of this classification You will pay $518.55 more per credit hour than residents!"
+             end
+             return tmp.html_safe
            end
         else
           return "Residency status pending"
@@ -235,7 +235,7 @@ module StaticPagesHelper
   	 def get_statusicon(available,completed)
   	 	case 
   	 		when available == 0 && ( completed == 0 || completed.nil?)
-  	 			return "unavailable <i class='fa fa-ban'></i>".html_safe
+  	 			return "locked <i class='fa fa-ban'></i>".html_safe
   	 		when available == 1 && ( completed == 0 || completed.nil?)
   	 			return "incomplete  <i class='fa fa-times'></i>".html_safe
   	 		when available == 1 && completed == 1  	 			

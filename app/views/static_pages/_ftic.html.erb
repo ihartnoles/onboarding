@@ -809,7 +809,7 @@ Hello, <%= session[:cas_user] %>!
 
 		   <li class="panel">
 
-		   	<% if @orientation_available == 1 && @orientation_complete == 0 %>
+		   	<% if @orientation_available == 1 && @orientation_complete == 0 || @orientation_complete.nil? %>
 				<a href="#step-13" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
 			<% elsif  @orientation_available == 1 && @orientation_complete == 1 %>
 				<a href="#step-13" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
@@ -817,7 +817,7 @@ Hello, <%= session[:cas_user] %>!
 				<a href="#step-13" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 			<% end %>
 
-			  <div class="number"><!-- Step 13 -->A:<%= @orientation_available %> | C:<%= @orientation_complete %> <%= get_statusicon(@orientation_available, @orientation_complete) %></div>
+			  <div class="number"><!-- Step 13 --><%= get_statusicon(@orientation_available, @orientation_complete) %></div>
 			  <h6>Orientation</h6>
 			</a>
 			

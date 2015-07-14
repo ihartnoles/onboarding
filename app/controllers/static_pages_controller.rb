@@ -215,7 +215,7 @@ class StaticPagesController < ApplicationController
       @learning_comm_complete = 0
 
       orientation_status.each do |o|
-        if o['attended'] == 'Yes'
+        if o['attended'] == 'Yes' && !o['attended'].nil?
           @orientation_complete = 1
         else
           @orientation_complete = 0
