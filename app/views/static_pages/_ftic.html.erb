@@ -873,7 +873,11 @@ Hello, <%= session[:cas_user] %>!
 						<button data-dismiss="alert" class="close" type="button">×</button>
 						<br>
 						<table class="table table-striped text-left order-details">	
-							
+							<thead>
+				  				<tr>
+				  					<th class="product-name">Your registered credit hours</th><th class="product-total">Term</th>
+				  				</tr>
+				  			</thead>
 							<strong>
 								<%= registered_hours(@znum)%>
 							</strong>
