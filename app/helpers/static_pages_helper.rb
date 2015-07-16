@@ -17,7 +17,7 @@ module StaticPagesHelper
          else
 
           return "Orienation status pending"
-          
+
          end
       end
       	 else
@@ -172,7 +172,7 @@ module StaticPagesHelper
         if output.count > 0
           output.each do |o| 
              if o['sgbstdn_resd_code'].include?('T') || o['sgbstdn_resd_code'].include?('F') || o['sgbstdn_resd_code'].include?('R') || o['sgbstdn_resd_code'].include?('O')
-               tmp =  "You are classified as a RESIDENT. <br> Because of this classification you will save $518.55 per credit hour! <br> That's a savings of over $6000 for a 12 hour course load!"
+               tmp =  "You are classified as a RESIDENT. <br> Because of this classification you will pay $518.55 <i>LESS</i> per credit hour than non-residents!"
              else
                tmp =  "You are classified as a NON-RESIDENT. <br>  Because of this classification You will pay $518.55 more per credit hour than residents!"
              end
@@ -186,28 +186,36 @@ module StaticPagesHelper
 
 
   	 def get_fullname(znum)
-  	 	 output = Faudw.fullname(znum)
+  	 	 output = Banner.fullname(znum)
 
   	 	 # if !output.nil?
   	 	 # 	return output
   	 	 # else
   	 	 # 	return 'unknown'
   	 	 # end
-        if output.count > 0
+
+       # puts YAML::dump(' *** BEGIN FULLNAME static_pages_helper  ***')      
+       # puts YAML::dump(session[:cas_user])
+       # puts YAML::dump(output)
+       # puts YAML::dump(' *** MIDDLE FULLNAME static_pages_helper  ***') 
+
+       if output.count >= 0
         output.each do |o| 
 
+         # puts YAML::dump(o['fullname'])
+
          if !o.nil?
-           tmp =  "#{o['fname']} #{o['lname']}"
+           tmp =  "#{o['fullname']}"
          else
            tmp =  ""
          end
-         
-
          return tmp
-         end
+
+          # puts YAML::dump(' *** END FULLNAME static_pages_helper  ***')
+        end
 
       else
-        return "OARS status pending"
+        return "UNKNOWN"
       end 
     end
 
@@ -220,7 +228,8 @@ module StaticPagesHelper
          if o['sarchkl_admr_code'] == 'TUTD' && !o['sarchkl_receive_date'].nil?
            tmp =  "Your tuition deposit was paid on #{o['sarchkl_receive_date'].strftime('%x')}."
          else
-           tmp =  "Your tuition deposit has NOT been paid yet! <a href='http://www.fau.edu/admissions/tuitiondeposit.php' target='_blank'>[More Information]</a>."
+           tmp =  "Your tuition deposit has NOT been paid yet!  <br>            
+              <a title='FAU Admissions Deposit' href='https://bannersso.fau.edu/ssomanager/c/SSB?pkg=wsak_touchnet.p_touchnet_link' target='_blank'>[Pay Your Tuition Deposit Now]</a>"
          end
          
 

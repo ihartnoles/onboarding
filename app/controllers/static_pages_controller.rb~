@@ -64,9 +64,9 @@ class StaticPagesController < ApplicationController
         record_activity("Proxy Login")
       else
 		 
-		    # puts YAML::dump(' *** BEGIN CAS USER  ***')      
-	     #  puts YAML::dump(session[:cas_user])
-      #   puts YAML::dump('*** END CAS USER ***')      
+		  puts YAML::dump(' *** BEGIN CAS USER  ***')      
+	     puts YAML::dump(session[:cas_user])
+        puts YAML::dump('*** END CAS USER ***')      
       
         # @znum = 'Z23122293'
         output = Banner.find_student_by_netid(session[:cas_user])
@@ -75,11 +75,11 @@ class StaticPagesController < ApplicationController
 		  	@znum = o['z_number']        
 		  end			
 			        
-       #  puts YAML::dump(' *** BEGIN  ***')      
-	      # puts YAML::dump(@znum)
-       #  puts YAML::dump('*** END ***')
+        puts YAML::dump(' *** BEGIN  ***')      
+	     puts YAML::dump(@znum)
+        puts YAML::dump('*** END ***')
       
-        record_activity("User Login")
+        #record_activity("User Login")
       end
 
       availability = FticModulesAvailable.where(:znumber => @znum)
