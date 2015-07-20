@@ -28,6 +28,7 @@ class FticModulesAvailable < ActiveRecord::Base
          newstudent.bookadvance = 0
          newstudent.tution = 0
          newstudent.vehiclereg = 0 
+         newstudent.isactive = 0
          newstudent.save(validate: false)   
         else
          student = FticModulesAvailable.find_by_znumber(bs['z_number'])       

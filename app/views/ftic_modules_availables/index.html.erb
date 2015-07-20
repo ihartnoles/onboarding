@@ -29,8 +29,8 @@
         </thead> -->
           <thead>
           <tr >
-            <th>Z#</th>
             <th>Netid</th>
+            <th>Z#</th>
             <th>Actions</th>  
             <th>Welcome</th>
             <th>Deposit</th>
@@ -61,9 +61,9 @@
 
          <% @modules_availables.each do |modules_available| %>
             <tr>
-              <td><%= modules_available.znumber %></td>
               <td><%= modules_available.netid %></td>
-               <td>
+              <td><%= modules_available.znumber %></td>
+              <td>
                  <%= link_to 'Edit', edit_ftic_modules_available_path(modules_available) %> <br>
                  <a href="/home?znum=<%= modules_available.znumber %>" target="_blank">Proxy</a><br>
                  <a href="/activity_log/<%= modules_available.znumber %>" target="_blank">Activity Log</a>                
@@ -240,7 +240,7 @@ $(document).ready(function(){
     "scrollX": true,
     "aoColumns": [
       null,
-      null,
+      { "asSorting": [ "asc" ] },
       { "bSortable": false },
       { "bSortable": false },
       { "bSortable": false },

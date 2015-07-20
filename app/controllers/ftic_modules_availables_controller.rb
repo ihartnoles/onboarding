@@ -6,7 +6,7 @@ class FticModulesAvailablesController < ApplicationController
   # GET /modules_availables
   # GET /modules_availables.json
   def index
-    @modules_availables = FticModulesAvailable.all
+    @modules_availables = FticModulesAvailable.where(:isactive => 1).order(:netid)
   end
 
   # GET /modules_availables/1
