@@ -1,4 +1,6 @@
 class FticModulesAvailablesController < ApplicationController
+
+  before_filter CASClient::Frameworks::Rails::Filter
   before_action :set_ftic_modules_available, only: [:show, :edit, :update, :destroy]
 
   # GET /modules_availables

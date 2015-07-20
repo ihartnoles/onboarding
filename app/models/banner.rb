@@ -12,7 +12,7 @@ class Banner < ActiveRecord::Base
 		end
 
 		def self.fullname(id)
-		 	get = connection.exec_query("select distinct CONCAT(CONCAT(L_NAME, ' '), F_NAME) as fullname  FROM BANINST1.AWS_ONBOARDING_MAIN WHERE Z_NUMBER=#{connection.quote(id)} AND rownum = 1")
+		 	get = connection.exec_query("select distinct CONCAT(CONCAT(F_NAME, ' '), L_NAME) as fullname  FROM BANINST1.AWS_ONBOARDING_MAIN WHERE Z_NUMBER=#{connection.quote(id)} AND rownum = 1")
 		end
 
 		def self.find_newstudents
