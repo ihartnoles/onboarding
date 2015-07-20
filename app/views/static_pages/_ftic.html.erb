@@ -460,7 +460,7 @@ Hello, <%= session[:cas_user] %>!
 		  	<% if @finaid_available == 1 && @finaid_complete == 0 %>
 			   <a href="#step-6" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
 			<% elsif @finaid_available == 1 && @finaid_complete == 1 %>
-			   <a href="#step-6" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="">
+			   <a href="#step-6" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
 			<% else %>
                <a href="#step-6" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 			<% end %>
