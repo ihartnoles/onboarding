@@ -1,4 +1,4 @@
-require 'url_api'
+require 'mapquest_api'
 
 class StaticPagesController < ApplicationController
       
@@ -140,6 +140,7 @@ class StaticPagesController < ApplicationController
       immunization_status = Banner.immunization_status(@znum)
       residency_status = Banner.residency_status(@znum)
       finaid_status = Banner.fin_aid_docs(@znum)
+      housing_fee_status = 0
       oars_status = Faudw.oars_status(@znum)
       orientation_status = Faudw.orientation_status(@znum)
       registration_status = Banner.registered_hours(@znum)
@@ -195,8 +196,13 @@ class StaticPagesController < ApplicationController
       end 
       #end finaidflags
 
-      @housing_fee_complete = 0
+      #begin housing fee
+        @housing_fee_complete = 0
+
       
+
+
+      #end housing housing_fee
 
       @residency_complete = 0
       residency_status.each do |o|
