@@ -67,15 +67,15 @@ class StaticPagesController < ApplicationController
       else
 		 
 		    # puts YAML::dump(' *** BEGIN CAS USER  ***')      
-	     #  puts YAML::dump(session[:cas_user])
-      #   puts YAML::dump('*** END CAS USER ***')      
+	      # puts YAML::dump(session[:cas_user])
+        # puts YAML::dump('*** END CAS USER ***')      
       
         # @znum = 'Z23122293'
         output = Banner.find_student_by_netid(session[:cas_user])
         
         output.each do |o| 
-		  	@znum = o['z_number']        
-		  end			
+  		  	@znum = o['z_number']        
+  		  end			
 			        
        #  puts YAML::dump(' *** BEGIN  ***')      
 	      # puts YAML::dump(@znum)
@@ -140,6 +140,23 @@ class StaticPagesController < ApplicationController
       immunization_status = Banner.immunization_status(@znum)
       residency_status = Banner.residency_status(@znum)
       finaid_status = Banner.fin_aid_docs(@znum)
+      #pull the student's zip
+      student_zip = Banner.find_student_zip_by_z(@znum)
+
+       # puts YAML::dump('**********AYYEEEEE**********')
+       # puts YAML::dump(student_zip)
+
+      #set the zip
+      student_zip.each do |o| 
+         zipcode = o['zip']  
+         @zipcode = o['zip']      
+         # puts YAML::dump('**********ZIIIIIIIP**********')
+         # puts YAML::dump(zipcode)
+         # puts YAML::dump('**********CODE**********')
+      end     
+
+      
+
       housing_fee_status = 0
       oars_status = Faudw.oars_status(@znum)
       orientation_status = Faudw.orientation_status(@znum)
@@ -197,10 +214,21 @@ class StaticPagesController < ApplicationController
       #end finaidflags
 
       #begin housing fee
-        @housing_fee_complete = 0
 
-      
+        #check zipcode radius
+        housing_fee_required = HousingZipcode.where(:zip => @zipcode, :campus => 'Boca Raton')
+        
+        # puts YAML::dump('BBHMM')
+        # puts YAML::dump(housing_fee_required.empty?)
 
+        #determine if housing fee is required
+        if housing_fee_required.count > 0            
+            @housing_fee_required = 0
+            @housing_fee_complete = 1           
+        else
+            @housing_fee_required = 1
+            @housing_fee_complete = 0         
+        end
 
       #end housing housing_fee
 

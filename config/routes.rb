@@ -1,5 +1,7 @@
 Onboarding::Application.routes.draw do
 
+  resources :housing_zipcodes
+
   resources :activity_logs
   get       '/activity_log/:znum',  to: 'activity_logs#znumber'
 

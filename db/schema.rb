@@ -11,12 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150720154249) do
+ActiveRecord::Schema.define(version: 20150722142114) do
 
 # Could not dump table "activity_logs" because of following NoMethodError
-#   undefined method `column_spec_with_oracle_enhanced' for #<ActiveRecord::ConnectionAdapters::SQLServerAdapter:0xa4a4d68>
+#   undefined method `column_spec_with_oracle_enhanced' for #<ActiveRecord::ConnectionAdapters::SQLServerAdapter:0xa4a4944>
 
 # Could not dump table "ftic_modules_availables" because of following NoMethodError
-#   undefined method `column_spec_with_oracle_enhanced' for #<ActiveRecord::ConnectionAdapters::SQLServerAdapter:0xa4a4d68>
+#   undefined method `column_spec_with_oracle_enhanced' for #<ActiveRecord::ConnectionAdapters::SQLServerAdapter:0xa4a4944>
+
+# Could not dump table "housing_zipcodes" because of following NoMethodError
+#   undefined method `column_spec_with_oracle_enhanced' for #<ActiveRecord::ConnectionAdapters::SQLServerAdapter:0xa4a4944>
 
 end
