@@ -1,3 +1,5 @@
+require 'url_api'
+
 class StaticPagesController < ApplicationController
       
       #before_filter :get_session_info
@@ -359,6 +361,17 @@ class StaticPagesController < ApplicationController
 
       end
 
+  end
+
+  #mapquest integration - 
+  def calc_distance
+      @from  = 'Boca Raton, FL'
+      @to = 'Aventura, FL'
+      mapquest = MapquestApi.new
+      distance = mapquest.post_url(@from, @to)
+      puts YAML::dump('*** DUH HELLO ***')
+      puts YAML::dump(distance)
+      render :nothing => true
   end
 
   # protected

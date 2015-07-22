@@ -20,7 +20,8 @@ Onboarding::Application.routes.draw do
   match  '/do_manual_login',  to: 'login#do_manual_login', via: 'post'
   get    '/do_manual_login',  to: 'login#do_manual_login'
   get    '/fticsync/',        to: 'static_pages#fticsync'
-
+  match  '/zipcode/',         to: 'static_pages#calc_distance', via: 'post'
+  get    '/zipcode',          to: 'static_pages#calc_distance'
 
 
   # get  '/login',            to: 'static_pages#login'

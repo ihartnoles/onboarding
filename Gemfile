@@ -21,6 +21,9 @@ gem 'tiny_tds'
 #cas adapter
 gem 'rubycas-client'
 
+#httparty - to call API's
+gem 'httparty'
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
