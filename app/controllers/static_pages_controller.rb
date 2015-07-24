@@ -230,6 +230,23 @@ class StaticPagesController < ApplicationController
             @housing_fee_complete = 0         
         end
 
+        # begin: check the student's age 
+        age_requirement = Banner.age_calculation(@znum)
+
+        age_requirement.each do |o| 
+           # age = o['age']  
+           @age = o['age']                 
+        end      
+
+        if @age < 21 && @housing_fee_required = 1
+          @housing_fee_required = 1
+        else
+          @housing_fee_required = 0
+          @housing_fee_complete = 1
+        end
+
+        #end: chec the student's age 
+
       #end housing housing_fee
 
       @residency_complete = 0

@@ -657,25 +657,37 @@ Hello, <%= session[:cas_user] %>!
 			  		
 		  		<h3 class="title">On-Campus Housing </h3>
 
-		  		<p>Lorem ipsum Ad ullamco elit reprehenderit veniam aute minim dolore ullamco incididunt ea do. Lorem ipsum Reprehenderit do consectetur dolore do fugiat proident incididunt consequat minim ullamco. Lorem ipsum Proident laboris dolore in aliqua ut magna minim irure ut proident. Lorem ipsum Anim dolore incididunt aliquip do irure aute reprehenderit reprehenderit enim ut. Lorem ipsum Reprehenderit commodo anim laboris ex cupidatat dolor deserunt dolore exercitation Ut et culpa.  <a title="FAU Housing" href="http://www.fau.edu/housing/" target="_blank">[More Information]</a> </p>
+		  		<p>
+		  		   All full-time freshmen are required to live in University Housing. Exemptions are made for students residing with their parent or legal guardian within a 30-mile commutable radius of the campus, students who
+		  		   are at least 21 years of age, or students who are married. Students who wish to be exempt must apply prior to the start of the acadmeic year.
+		  		 <a title="FAU Housing" href="http://www.fau.edu/housing/" target="_blank">[More Information]</a> 
+		  		</p>
 
 		  		<div class="alert alert-border alert-danger text-center fade in alert-dismissable">
 			  		<button data-dismiss="alert" class="close" type="button">×</button>
 		             <p>
 		             	<strong>
-		             		 <% if @housing_fee_required == 1 %>			  	
-				                    Our records indicate your home address is OUTSIDE a 30-mile commutable radius of the campus. <br> As such you are required to live in University Housing.		                    	
+		             		  <% if @housing_fee_required == 1 %>			  	
+				                    Our records indicate the following: 
+				                    <ul>
+				                    	 <li>Your residential address is OUTSIDE the 30-mile commutable radius of the campus. </li>
+				                    <% if @age < 21 %>
+				                    	 <li> You are under the age of 21.</li>
+				                    <% end %>
+				                	</ul>
+				                    <br> As such you are required to live in University Housing.	
+
+				                    <p>
+		  							 	<a title="FAU Housing" href="https://housing.fau.edu/THDSS/security/login_student_posted.cfm?StudentID=<%=params[:znum]%>" target="_blank">[Sign up here]</a>
+		  							</p>	                    	
 			                 <% else %>
-			                 		Our records indicate your home address is within a 30-mile commutable radius of the campus. <br> As such you are NOT required to live in University Housing.
+			                 		Our records indicate your residential address is within a 30-mile commutable radius of the campus <br>OR<br> you are over the age of 21.<br> As such you are NOT required to live in University Housing.
 			                 <% end %>
 	              		</strong>
 		              <p>
 	              </div>
 
-		  		<p>
-		  			
-		  			 <a title="FAU Housing" href="https://housing.fau.edu/THDSS/security/login_student_posted.cfm?StudentID=<%=params[:znum]%>" target="_blank">[Sign up here]</a>
-		  		</p>
+		  		
 			
 			  </div> 
 			

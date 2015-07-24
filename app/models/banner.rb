@@ -15,12 +15,16 @@ class Banner < ActiveRecord::Base
 		 	get = connection.exec_query("select distinct SUBSTR( SPRADDR_ZIP, 1 , 5 ) as ZIP FROM BANINST1.AWS_ONBOARDING_MAIN WHERE Z_NUMBER=#{connection.quote(id)} AND rownum = 1")
 		end
 
+		def self.age_calculation(netid)
+			get = connection.exec_query("select floor(months_between(SYSDATE, SPBPERS_BIRTH_DATE) /12) as AGE FROM BANINST1.AWS_ONBOARDING_MAIN WHERE Z_NUMBER=#{connection.quote(netid)} AND rownum = 1")
+		end
+
 		def self.fullname(id)
 		 	get = connection.exec_query("select distinct CONCAT(CONCAT(F_NAME, ' '), L_NAME) as fullname  FROM BANINST1.AWS_ONBOARDING_MAIN WHERE Z_NUMBER=#{connection.quote(id)} AND rownum = 1")
 		end
 
 		def self.find_newstudents
-		 	get = connection.exec_query("select distinct Z_NUMBER, L_NAME, F_NAME, GOBTPAC_EXTERNAL_USER from BANINST1.AWS_ONBOARDING_MAIN where  SPRADDR_STAT_CODE <> 'FL' AND rownum <= 30")
+		 	get = connection.exec_query("select distinct Z_NUMBER, L_NAME, F_NAME, GOBTPAC_EXTERNAL_USER from BANINST1.AWS_ONBOARDING_MAIN where  SPRADDR_STAT_CODE <> 'FL' AND GOBTPAC_EXTERNAL_USER = 'jrydlun2014'")
 		end
 
 
