@@ -6,5 +6,6 @@ Onboarding::Application.initialize!
 
 
 CASClient::Frameworks::Rails::Filter.configure(
-  :cas_base_url => "https://ssot.fau.edu/"
+  :cas_base_url => "https://ssot.fau.edu/",
+  :force_ssl_verification => false
 )

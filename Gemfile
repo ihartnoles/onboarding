@@ -16,10 +16,11 @@ gem 'ruby-oci8', '~> 2.1.0'
 gem 'activerecord-oracle_enhanced-adapter', github: 'rsim/oracle-enhanced', branch: 'rails4'
 #gem 'activerecord-oracle_enhanced-adapter', :git => 'git://github.com/rsim/oracle-enhanced.git'
 gem 'activerecord-sqlserver-adapter'
-gem 'tiny_tds'
+
+gem 'tiny_tds', '~> 0.6.3.rc1'
 
 #cas adapter
-gem 'rubycas-client'
+gem 'rubycas-client', :git => 'git://github.com/rubycas/rubycas-client.git'
 
 #httparty - to call API's
 gem 'httparty'
@@ -50,6 +51,10 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+group :development do
+  gem 'meta_request'
 end
 
 # Use ActiveModel has_secure_password
