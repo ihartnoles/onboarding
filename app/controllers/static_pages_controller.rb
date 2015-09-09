@@ -189,17 +189,24 @@ class StaticPagesController < ApplicationController
 
           @welcome_complete = 1
 
-          tuition_status.each do |o|
-            if o['sarchkl_admr_code'] == 'TUTD' && !o['sarchkl_receive_date'].nil?
-              @deposit_complete = 1
-            else
-              @deposit_complete = 0
-            end 
+          if tuition_status.blank?
+            @deposit_complete = 0
+          else
+            tuition_status.each do |o|
+              if o['sarchkl_admr_code'] == 'TUTD' && !o['sarchkl_receive_date'].nil?
+                @deposit_complete = 1
+              else
+                @deposit_complete = 0
+              end 
+            end
           end
 
           @account_complete = 0
           @communication_complete = 0
-                
+          
+         if immunization_status.blank?
+              @immunization_complete = 0
+         else
           immunization_status.each do |o|
              if o['imm_hold_flg'] == 'N' || o['imm_hold_flg'].nil?
               @immunization_complete = 0
@@ -207,6 +214,7 @@ class StaticPagesController < ApplicationController
               @immunization_complete = 1
             end 
           end
+         end
 
 
           #begin finaidflags
@@ -235,90 +243,146 @@ class StaticPagesController < ApplicationController
 
           #begin housing fee
 
-            #check zipcode radius
-            housing_fee_required = HousingZipcode.where(:zip => @zipcode, :campus => 'Boca Raton')
-            
-            # puts YAML::dump('BBHMM')
-            # puts YAML::dump(housing_fee_required.empty?)
+            housing_reqs = Banner.additional_housing_reqs(@znum)
 
-            #determine if housing fee is required
-            if housing_fee_required.count > 0            
-                @housing_fee_required = 0
-                @housing_fee_complete = 1           
+            if housing_reqs.blank?
+              @housing_fee_required = 0 #default to not-required; we can't find any info on them! YIKES!
+              @housing_fee_complete = 0 
+
             else
-                @housing_fee_required = 1
-                @housing_fee_complete = 0         
+
+              housing_reqs.each do |o| 
+                 @married = o['spbpers_mrtl_code']
+                 @whc_student = o['whc_student']    
+                 @age = o['age']               
+              end      
+
+              if @married = 'M' ||  @age >= 21 #check if they are married or over the age of 21
+                 @housing_fee_required = 0
+                 @housing_fee_complete = 1 
+              end
+
+              if @whc_student = 'Y' #check if they are a wilkes honors college student
+                #check zipcode radius for Jupiter Campus; WHC students have to live on Jupiter Campus
+                housing_fee_required = HousingZipcode.where(:zip => @zipcode, :campus => 'Jupiter')
+              else
+                #check zipcode radius for Boca Campus              
+                housing_fee_required = HousingZipcode.where(:zip => @zipcode, :campus => 'Boca Raton')
+              end
+
+
+                # puts YAML::dump('BBHMM')
+                # puts YAML::dump(housing_fee_required.empty?)
+
+                #determine if housing fee is required
+                if housing_fee_required.count > 0            
+                    @housing_fee_required = 0
+                    @housing_fee_complete = 1           
+                else
+                    @housing_fee_required = 1
+                    @housing_fee_complete = 0         
+                end
+
             end
+
+
+
+            
+            
+          
+
+
+          
 
             # begin: check the student's age 
-            age_requirement = Banner.age_calculation(@znum)
 
-            age_requirement.each do |o| 
-               # age = o['age']  
-               @age = o['age']                 
-            end      
+              # age_requirement = Banner.age_calculation(@znum)
 
-            if @age < 21 && @housing_fee_required == 1
-              @housing_fee_required = 1
-            else
-              @housing_fee_required = 0
-              @housing_fee_complete = 1
-            end
+              # age_requirement.each do |o| 
+              #    # age = o['age']  
+              #    @age = o['age']                 
+              # end      
 
+              # if @age < 21 && @housing_fee_required == 1
+              #   @housing_fee_required = 1
+              # else
+              #   @housing_fee_required = 0
+              #   @housing_fee_complete = 1
+              # end
             #end: chec the student's age 
 
           #end housing housing_fee
 
-          @residency_complete = 0
-          residency_status.each do |o|
-             if o['sgbstdn_resd_code'].include?('T') || o['sgbstdn_resd_code'].include?('F') || o['sgbstdn_resd_code'].include?('R') || o['sgbstdn_resd_code'].include?('O')
-              @residency_complete = 1
-            else
-              @residency_complete = 0
-            end 
+
+          #@residency_complete = 0
+          if residency_status.blank?
+               @residency_complete = 0
+          else
+            residency_status.each do |o|
+               if o['sgbstdn_resd_code'].include?('T') || o['sgbstdn_resd_code'].include?('F') || o['sgbstdn_resd_code'].include?('R') || o['sgbstdn_resd_code'].include?('O')
+                @residency_complete = 1
+              else
+                @residency_complete = 0
+              end 
+            end
           end
 
           @housing_meal_plans_complete = 0
 
-         
-          aleks_status.each do |o|
-            if o['aleks_taken'] == 'N' || o['aleks_taken'].nil?
-              @aleks_complete = 0
-            else
-              @aleks_complete = 1
-            end 
+          if aleks_status.blank?
+             @aleks_complete = 0
+          else
+            aleks_status.each do |o|
+              if o['aleks_taken'] == 'N' || o['aleks_taken'].nil?
+                @aleks_complete = 0
+              else
+                @aleks_complete = 1
+              end 
+            end
           end
 
 
           #@oars_complete = 1
-          oars_status.each do |o|
-            if o.nil?
-              @oars_complete = 0
-            else
-              @oars_complete = 1
+          if oars_status.blank?
+             @oars_complete = 0
+          else
+            oars_status.each do |o|
+              if o.nil?
+                @oars_complete = 0
+              else
+                @oars_complete = 1
+              end
             end
           end
 
+
           @learning_comm_complete = 0
 
-          orientation_status.each do |o|
-            if o['attended'] == 'Yes' && !o['attended'].nil?
-              @orientation_complete = 1
-            else
+          if orientation_status.blank?
               @orientation_complete = 0
+          else
+            orientation_status.each do |o|
+              if o['attended'] == 'Yes' && !o['attended'].nil?
+                @orientation_complete = 1
+              else
+                @orientation_complete = 0
+              end
             end
           end
 
           #@reg_complete = 0
-          registration_status.each do |o|
-            if o['sfrstcr_credit_hr'] >= 12
-              @reg_complete = 1
-            else
-              @reg_complete = 0
+          if registration_status.blank?
+                @reg_complete = 0
+          else 
+            registration_status.each do |o|
+              if o['sfrstcr_credit_hr'] >= 12
+                @reg_complete = 1
+              else
+                @reg_complete = 0
+              end
+
+              @sfrstcr_credit_hr = o['sfrstcr_credit_hr']
             end
-
-            @sfrstcr_credit_hr = o['sfrstcr_credit_hr']
-
           end
 
 

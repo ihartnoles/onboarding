@@ -72,6 +72,15 @@ Hello, <%= session[:cas_user] %>!
 	      	Welcome to FAU <%= get_fullname(@znum) %>! Let's get started!</h4>
 
 	      <p>We want your transition to college life to be as smooth as possible. Below is a checklist of things to keep in mind and tasks you will need to complete prior to your arrival on campus.</p><br>
+	    <!--  <hr>
+	      <p>
+	          <a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=wsak_touchnet.p_touchnet_link" target="_blank">Pay Tuition:</a><br>
+		      <a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=twbkwbis.P_GenMenu?name=bmenu.P_RegMnu" target="_blank">Registration:</a><br>
+              <a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=bwgkoemr.P_ViewEmrgContacts" target="_blank">  Emergency Contacts:</a><br>
+              <a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=lwgkr911.p_initial_fau_alert_load" target="_blank"> FAU Alert</a><br>
+              <a href="http://www.fau.edu/finaid/resources/forms.php" target="_blank"> Fin aid Forms:</a><br>
+          </p>
+          <hr> -->
 	   </article>
     </div>	
  <!--  </header> -->
@@ -667,20 +676,22 @@ Hello, <%= session[:cas_user] %>!
 		             <p>
 		             	<strong>
 		             		  <% if @housing_fee_required == 1 %>			  	
-				                    Our records indicate the following: 
-				                    <ul>
-				                    	 <li>Your residential address is OUTSIDE the 30-mile commutable radius of the campus. </li>
-				                    <% if @age < 21 %>
-				                    	 <li> You are under the age of 21.</li>
-				                    <% end %>
-				                	</ul>
-				                    <br> As such you are required to live in University Housing.	
+				                    Our records indicate you meet one or more of the following criteria:
+
+				                    <br>Your residential address is OUTSIDE the 30-mile commutable radius of the campus. 
+				                    <br>You are under the age of 21.
+				                	<br>Your marital status is: single.<br>
+				                    <br>As such you are required to live in University Housing.	
 
 				                    <p>
 		  							 	<a title="FAU Housing" href="https://housing.fau.edu/THDSS/security/login_student_posted.cfm?StudentID=<%=params[:znum]%>" target="_blank">[Sign up here]</a>
 		  							</p>	                    	
 			                 <% else %>
-			                 		Our records indicate your residential address is within a 30-mile commutable radius of the campus <br>OR<br> you are over the age of 21.<br> As such you are NOT required to live in University Housing.
+			                 		Our records indicate you meet at least one of the following criteria:
+			                 		<br>Your residential address is within a 30-mile commutable radius of the campus, 
+			                 		<br>You are over the age of 21.
+			                 		<br>Your marital status is: married.<br> 
+			                 		<br>As such you are NOT required to live in University Housing.
 			                 <% end %>
 	              		</strong>
 		              <p>
@@ -752,41 +763,40 @@ Hello, <%= session[:cas_user] %>!
 			</div>
 		  </li>
 
-		   <li class="panel">
-		   	<% if @oars_available == 1 && @oars_complete == 0 %>
-				<a href="#step-11" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
-			<% elsif @oars_available == 1 && @oars_complete == 1 %>
-				<a href="#step-11" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
+		       <li class="panel">
+
+		   	<% if @orientation_available == 1 && @orientation_complete == 0 || @orientation_complete.nil? %>
+				<a href="#step-13" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
+			<% elsif  @orientation_available == 1 && @orientation_complete == 1 %>
+				<a href="#step-13" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
 			<% else %>
-				<a href="#step-11" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
+				<a href="#step-13" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 			<% end %>
 
-
-			  <div class="number"><!-- Step 11 --> <%= get_statusicon(@oars_available, @oars_complete) %></div>
-			  <h6>Online Advising & Resource System - OARS</h6>
+			  <div class="number"><!-- Step 13 --><%= get_statusicon(@orientation_available, @orientation_complete) %></div>
+			  <h6>Orientation</h6>
 			</a>
 			
-			<div id="step-11" class="collapse">				   
+			<div id="step-13" class="collapse">				   
 			  <div class="step-content">			  		
-		  		<h3 class="title">Online Advising & Resource System</h3>
-		  		<p>
-					"OARS" is a self-directed system. You may be a little nervous about choosing classes on your own, but DON'T WORRY! Help is always just a phone call or mouse click away, and the instructions are very user-friendly. When you log in to select your courses, you will find:
-						A brief description of the course when you click on the subject.
-						A sample class schedule for your major.
-						It takes three (3) to five (5) business days to process your submitted OARS form. After three to five business days, log back into OARS to review your advisor's comments. If your holds are cleared and your course selections are in sync with your advisors, you can log into MyFAU to register for classes. That's all there is to it!  <a title="OARS information" href="http://www.fau.edu/uas/oars.php" target="_blank">[More Information]</a>
+		  		<h3 class="title">New Student Orientation</h3>
+				<p>
+					All new incoming students are required to complete an orientation session.  Freshman students are required to complete a two-day orientation program.  Please read more about your orientation session 
+					<a href="http://www.fau.edu/orientation/" target="_blank">here</a>
 				</p>	
 
-
-				 <div class="alert alert-border alert-danger text-center fade in alert-dismissable">
+				<div class="alert alert-border alert-danger text-center fade in alert-dismissable">
 						<button data-dismiss="alert" class="close" type="button">×</button>
-						<strong>					
-							<%= oars_status(@znum) %>
+						<p>
+						<strong>
+							<%= orientation_status(@znum)%>
 						</strong>
-				 </div>
+						</p>
+				</div>
 
-		  		<p>
-					<a href="http://www.fau.edu/uas/oars.php" target="_blank">[More Information]</a>
-		  		</p>
+				<!-- <p>
+					<a title="FAU Orientation" href="http://www.fau.edu/orientation/about/HowDoISignup.php" target="_blank">[More Information]</a>
+				</p> -->
 
 			  </div>			
 			</div>
@@ -833,42 +843,48 @@ Hello, <%= session[:cas_user] %>!
 		  </li>
 
 		   <li class="panel">
-
-		   	<% if @orientation_available == 1 && @orientation_complete == 0 || @orientation_complete.nil? %>
-				<a href="#step-13" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
-			<% elsif  @orientation_available == 1 && @orientation_complete == 1 %>
-				<a href="#step-13" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
+		   	<% if @oars_available == 1 && @oars_complete == 0 %>
+				<a href="#step-11" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
+			<% elsif @oars_available == 1 && @oars_complete == 1 %>
+				<a href="#step-11" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
 			<% else %>
-				<a href="#step-13" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
+				<a href="#step-11" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 			<% end %>
 
-			  <div class="number"><!-- Step 13 --><%= get_statusicon(@orientation_available, @orientation_complete) %></div>
-			  <h6>Orientation</h6>
+
+			  <div class="number"><!-- Step 11 --> <%= get_statusicon(@oars_available, @oars_complete) %></div>
+			  <h6>Online Advising & Resource System - OARS</h6>
 			</a>
 			
-			<div id="step-13" class="collapse">				   
+			<div id="step-11" class="collapse">				   
 			  <div class="step-content">			  		
-		  		<h3 class="title">New Student Orientation</h3>
-				<p>
-					Orientation is designed to make the transition to Florida Atlantic University as smooth as possible for you and your family members. The mandatory, two-day program promotes student development and accountability, and will provide you with information needed for a successful start to your academic career. Orientation is offered over the summer months for students enrolling in the summer and fall semesters, it is offered in November for students enrolling in the spring semester. http://www.fau.edu/orientation/about/HowDoISignup.php
+		  		<h3 class="title">Online Advising & Resource System</h3>
+		  		<p>
+					"OARS" is a self-directed system. You may be a little nervous about choosing classes on your own, but DON'T WORRY! Help is always just a phone call or mouse click away, and the instructions are very user-friendly. When you log in to select your courses, you will find:
+						A brief description of the course when you click on the subject.
+						A sample class schedule for your major.
+						It takes three (3) to five (5) business days to process your submitted OARS form. After three to five business days, log back into OARS to review your advisor's comments. If your holds are cleared and your course selections are in sync with your advisors, you can log into MyFAU to register for classes. That's all there is to it!  <a title="OARS information" href="http://www.fau.edu/uas/oars.php" target="_blank">[More Information]</a>
 				</p>	
 
-				<div class="alert alert-border alert-danger text-center fade in alert-dismissable">
-						<button data-dismiss="alert" class="close" type="button">×</button>
-						<p>
-						<strong>
-							<%= orientation_status(@znum)%>
-						</strong>
-						</p>
-				</div>
 
-				<p>
-					<a title="FAU Orientation" href="http://www.fau.edu/orientation/about/HowDoISignup.php" target="_blank">[More Information]</a>
-				</p>
+				 <div class="alert alert-border alert-danger text-center fade in alert-dismissable">
+						<button data-dismiss="alert" class="close" type="button">×</button>
+						<strong>					
+							<%= oars_status(@znum) %>
+						</strong>
+				 </div>
+
+		  		<p>
+					<a href="http://www.fau.edu/uas/oars.php" target="_blank">[More Information]</a>
+		  		</p>
 
 			  </div>			
 			</div>
 		  </li>
+
+
+
+		 
 
 		   <li class="panel">
 		   	
@@ -1224,9 +1240,9 @@ If you don't know the CRN, use the Class Search button to find them. When you ge
 			<li><a href="#" class="edit"><%= get_statusicon(@housing_fee_available, @housing_fee_complete) %></a> Housing Fee</li>
 			<li><a href="#" class="edit"><%= get_statusicon(@housing_meal_plans_available, @housing_meal_plans_complete) %></a> Housing & Meal Plans</li>
 			<li><a href="#" class="edit"><%= get_statusicon(@aleks_available, @aleks_complete) %></a> Math Placement Exam </li>
-			<li><a href="#" class="edit"><%= get_statusicon(@oars_available, @oars_complete) %></a> Online Advising & Resource System</li>
-			<li><a href="#" class="edit">information <i class='fa fa-info'></i></a> Learning Communities</li>
 			<li><a href="#" class="edit"><%= get_statusicon(@orientation_available, @orientation_complete) %></a> Orientation</li>
+			<li><a href="#" class="edit">information <i class='fa fa-info'></i></a> Learning Communities</li>
+			<li><a href="#" class="edit"><%= get_statusicon(@oars_available, @oars_complete) %></a> Online Advising & Resource System</li>
 			<li><a href="#" class="edit"><%= get_statusicon(@reg_available, @reg_complete) %></a> Registration</li>
 			<li><a href="#" class="edit"><%= get_statusicon(@emergency_available, @emergency_complete) %></a> Emergency Contacts</li>
 			<li><a href="#" class="edit"><%= get_statusicon(@fau_alert_available, @fau_alert_complete) %></a> FAU Alert Info</li>
