@@ -28,7 +28,7 @@ class Banner < ActiveRecord::Base
 		end
 
 		def self.find_newstudents
-		 	get = connection.exec_query("select distinct Z_NUMBER, L_NAME, F_NAME, GOBTPAC_EXTERNAL_USER from BANINST1.AWS_ONBOARDING_MAIN where  SPRADDR_STAT_CODE <> 'FL' AND GOBTPAC_EXTERNAL_USER = 'jrydlun2014'")
+		 	get = connection.exec_query("select distinct Z_NUMBER, L_NAME, F_NAME, GOBTPAC_EXTERNAL_USER from BANINST1.AWS_ONBOARDING_MAIN")
 		end
 
 

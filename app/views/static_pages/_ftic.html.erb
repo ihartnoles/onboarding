@@ -72,7 +72,7 @@ Hello, <%= session[:cas_user] %>!
 	      	Welcome to FAU <%= get_fullname(@znum) %>! Let's get started!</h4>
 
 	      <p>We want your transition to college life to be as smooth as possible. Below is a checklist of things to keep in mind and tasks you will need to complete prior to your arrival on campus.</p><br>
-	    <!--  <hr>
+	     <!-- <hr>
 	      <p>
 	          <a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=wsak_touchnet.p_touchnet_link" target="_blank">Pay Tuition:</a><br>
 		      <a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=twbkwbis.P_GenMenu?name=bmenu.P_RegMnu" target="_blank">Registration:</a><br>
@@ -950,6 +950,74 @@ If you don't know the CRN, use the Class Search button to find them. When you ge
 			</div>
 		  </li>
 
+
+		   <li class="panel">
+		  	
+		  	<% if @tuition_available == 1 && @tuition_complete == 0 %>
+				<a href="#step-19" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
+			<% elsif @tuition_available == 1 && @tuition_complete == 1 %>
+				<a href="#step-19" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
+			<% else %>
+				<a href="#step-19" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
+			<% end %>
+
+			  <div class="number"><!-- Step 19 --> <%= get_statusicon(@tuition_available, @tuition_complete) %></div>
+			  <h6>Tuition Payment</h6>
+			</a>
+			
+			<div id="step-19" class="collapse">				   
+			  <div class="step-content">			  		
+		  		<h3 class="title">Tuition and Billing Services</h3>
+				  <p>
+				  	<b>
+				  	Please note: The tuition deposit is separate from any Housing payments. First time applicants who plan to live on campus  are required to pay a $100 one-time non-refundable administration charge. 
+				    </b>
+				  </p>
+
+				  <p>
+                  Florida Atlantic University is pleased to announce there will be no net increase of tuition and fees for the 2014-15 Academic Year. The last day to pay the balance due for Fall 2014 is August 25, 2014.
+                  </p>
+                  
+                  <p>
+                  Tuition and fees amounts are detailed at:
+                  </p>
+                  <a href="http://www.fau.edu/controller/student_information/tuition_breakdown.php" target="_blank">
+                     
+                        http://www.fau.edu/controller/student_information/tuition_breakdown.php 
+                  </a>
+                  <br>
+                  
+                  
+                  <p>All payments will need to be made online, by mail or by using the drop box at the Boca Raton campus.</p>
+
+                  <p>It is important to note you have the following options to pay your bill:</p>
+
+                  <ul>
+                  	<li>Online by using your Visa, MasterCard, American Express or Discover Card. Using the online system, the third party vendor will process your payment and apply it to your student account with a non-refundable fee of 2.60%</li>
+                  	<li>Online by using your personal checking/savings account without a non-refundable fee.</li>
+                  	<li>By check or money order mailed to Florida Atlantic University. The postmark of your payment will be used to determine timeliness of the payment.</li>
+                  	<li>By check or money order dropped into the drop box located at the Cashier’s Office in the Student Services Building on the Boca Raton campus.</li>
+                  </ul>
+                  <br>
+                  <p>
+                		If you have any questions, please email <a href="mailto:webcontroller@fau.edu">webcontroller@fau.edu</a> or call tuition and billing services (561)297-6101.
+                  </p>
+
+                  <p>
+                    <a href='http://www.fau.edu/registrar/pdf/acadcal1516.pdf' target='_blank'>
+              	   		[More Information]
+              	    </a>  | 
+              	     <a href='http://www.fau.edu/controller/student_information/pdfs/Summer_2015_Fee_Bulletin_2.pdf ' target='_blank'>
+              	   		[Fee Payment Information]
+              	    </a>
+              	  </p>
+
+              
+				</div>			
+			</div>
+		  </li>
+		  
+
 		  <li class="panel">
 		  <% if @emergency_available == 1 && @emergency_complete == 0 %>
 		  	<a href="#step-15" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
@@ -1065,71 +1133,7 @@ If you don't know the CRN, use the Class Search button to find them. When you ge
 
 		  </li>
 
-		  <li class="panel">
-		  	
-		  	<% if @tuition_available == 1 && @tuition_complete == 0 %>
-				<a href="#step-19" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
-			<% elsif @tuition_available == 1 && @tuition_complete == 1 %>
-				<a href="#step-19" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
-			<% else %>
-				<a href="#step-19" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
-			<% end %>
-
-			  <div class="number"><!-- Step 19 --> <%= get_statusicon(@tuition_available, @tuition_complete) %></div>
-			  <h6>Tuition Payment</h6>
-			</a>
-			
-			<div id="step-19" class="collapse">				   
-			  <div class="step-content">			  		
-		  		<h3 class="title">Tuition and Billing Services</h3>
-				  <p>
-				  	<b>
-				  	Please note: The tuition deposit is separate from any Housing payments. First time applicants who plan to live on campus  are required to pay a $100 one-time non-refundable administration charge. 
-				    </b>
-				  </p>
-
-				  <p>
-                  Florida Atlantic University is pleased to announce there will be no net increase of tuition and fees for the 2014-15 Academic Year. The last day to pay the balance due for Fall 2014 is August 25, 2014.
-                  </p>
-                  
-                  <p>
-                  Tuition and fees amounts are detailed at:
-                  </p>
-                  <a href="http://www.fau.edu/controller/student_information/tuition_breakdown.php" target="_blank">
-                     
-                        http://www.fau.edu/controller/student_information/tuition_breakdown.php 
-                  </a>
-                  <br>
-                  
-                  
-                  <p>All payments will need to be made online, by mail or by using the drop box at the Boca Raton campus.</p>
-
-                  <p>It is important to note you have the following options to pay your bill:</p>
-
-                  <ul>
-                  	<li>Online by using your Visa, MasterCard, American Express or Discover Card. Using the online system, the third party vendor will process your payment and apply it to your student account with a non-refundable fee of 2.60%</li>
-                  	<li>Online by using your personal checking/savings account without a non-refundable fee.</li>
-                  	<li>By check or money order mailed to Florida Atlantic University. The postmark of your payment will be used to determine timeliness of the payment.</li>
-                  	<li>By check or money order dropped into the drop box located at the Cashier’s Office in the Student Services Building on the Boca Raton campus.</li>
-                  </ul>
-                  <br>
-                  <p>
-                		If you have any questions, please email <a href="mailto:webcontroller@fau.edu">webcontroller@fau.edu</a> or call tuition and billing services (561)297-6101.
-                  </p>
-
-                  <p>
-                    <a href='http://www.fau.edu/registrar/pdf/acadcal1516.pdf' target='_blank'>
-              	   		[More Information]
-              	    </a>  | 
-              	     <a href='http://www.fau.edu/controller/student_information/pdfs/Summer_2015_Fee_Bulletin_2.pdf ' target='_blank'>
-              	   		[Fee Payment Information]
-              	    </a>
-              	  </p>
-
-              
-				</div>			
-			</div>
-		  </li>
+		 
 
 		 
 		  <li class="panel">
@@ -1244,11 +1248,11 @@ If you don't know the CRN, use the Class Search button to find them. When you ge
 			<li><a href="#" class="edit">information <i class='fa fa-info'></i></a> Learning Communities</li>
 			<li><a href="#" class="edit"><%= get_statusicon(@oars_available, @oars_complete) %></a> Online Advising & Resource System</li>
 			<li><a href="#" class="edit"><%= get_statusicon(@reg_available, @reg_complete) %></a> Registration</li>
+			<li><a href="#" class="edit"><%= get_statusicon(@tuition_available, @tuition_complete) %></a> Tuition Payment</li>
 			<li><a href="#" class="edit"><%= get_statusicon(@emergency_available, @emergency_complete) %></a> Emergency Contacts</li>
 			<li><a href="#" class="edit"><%= get_statusicon(@fau_alert_available, @fau_alert_complete) %></a> FAU Alert Info</li>
 			<li><a href="#" class="edit">information <i class='fa fa-info'></i></a> Owl Card</li>
 			<li><a href="#" class="edit">information <i class='fa fa-info'></i></a> Book Advance Program</li>
-			<li><a href="#" class="edit"><%= get_statusicon(@tuition_available, @tuition_complete) %></a> Tuition Payment</li>
 			<li><a href="#" class="edit"><a href="#raptors" class="edit">information <i class='fa fa-info'></i></a> Car Registration</li>
 		  </ul>
 		</aside>

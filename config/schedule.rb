@@ -19,6 +19,12 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 1.hours do
-   runner "Fticmodulesavailable.sync"
+
+# set :output, "#{path}/log/cron.log"
+env :PATH, '/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin'
+
+every 15.minutes do
+ #runner "FticModulesAvailable.sync"
+ #command "/bin/bash -l -c 'cd /home/ihartstein/ror/onboarding && bin/rails runner '\''fticsync'\'''"
+ runner "/bin/bash -l -c 'cd /home/ihartstein/ror/onboarding && source /home/ihartstein/.rvm/scripts/rvm && rvm use 1.9.3-p551 && bin/rails runner -e development '\''FticModulesAvailable.sync'\'''"
 end

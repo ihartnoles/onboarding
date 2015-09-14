@@ -262,7 +262,7 @@ class StaticPagesController < ApplicationController
                  @housing_fee_complete = 1 
               end
 
-              if @whc_student = 'Y' #check if they are a wilkes honors college student
+              if @whc_student == 'Y' #check if they are a wilkes honors college student
                 #check zipcode radius for Jupiter Campus; WHC students have to live on Jupiter Campus
                 housing_fee_required = HousingZipcode.where(:zip => @zipcode, :campus => 'Jupiter')
               else
@@ -486,6 +486,7 @@ class StaticPagesController < ApplicationController
          newstudent.bookadvance = 0
          newstudent.tution = 0
          newstudent.vehiclereg = 0 
+         newstudent.isactive = 1
          newstudent.save(validate: false)   
         else
          student = FticModulesAvailable.find_by_znumber(bs['z_number'])       
@@ -496,6 +497,8 @@ class StaticPagesController < ApplicationController
         end
 
       end
+
+      render :nothing => true
 
   end
 
