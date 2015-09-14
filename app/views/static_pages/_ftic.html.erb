@@ -903,7 +903,17 @@ Hello, <%= session[:cas_user] %>!
 			<div id="step-14" class="collapse">				   
 			  <div class="step-content">			  		
 		  		<h3 class="title">Register for Classes</h3>
-				<p>See the  Academic Calendar  for registration dates. Please check your holds prior to registration by going to http://myfau.fau.edu , clicking FAU Self Service, then Student Services, then Student Records, then View Holds.</p>
+				<p>The University has a policy on Timely Graduation which encourages students at FAU to graduate in 4 years. Most degree programs at FAU require 120 credit hours to obtain a Bachelor’s degree. Full-time undergraduate students are those who are registered for 12 or more credits in any semester. A typical undergraduate course load is 15 or 16 credits with 18 credits being the maximum. Registrations exceeding this maximum must be approved in advance by the dean of the college.</p>
+
+				<p>The maximum undergraduate load in the summer semester is 9 credits each for short terms 2 and 3, and 18 credits for the full term 1. The maximum for the entire summer (whatever combination is taken) may not exceed 18 credits. Registrations exceeding this maximum must be approved in advance by the dean of the college.</p>
+
+				<p>
+				Half-time undergraduate students are those who are registered for 6 to 11 credits. Any student registered for 5 or fewer credits is classified as less than half-time. Students who drop courses during a semester, reducing their registration below 12 credits, will be classified as outlined above.	
+				</p>
+
+				<p>
+				See the Academic Calendar for registration dates. Please check your holds prior to registration by going to <a href="http://myfau.fau.edu" target="_blank">http://myfau.fau.edu</a> , clicking FAU Self Service, then Student Services, then Student Records, then View Holds.	
+				</p>
 
 
 
@@ -925,7 +935,7 @@ Hello, <%= session[:cas_user] %>!
 					
 				</div>
 
-				<p>Once you have resolved any holds, you can register for classes by following these steps:</p>
+			<!-- 	<p>Once you have resolved any holds, you can register for classes by following these steps:</p>
 				<ol>
 					<li> Go to http://myfau.fau.edu 
 The username is your FAUNet ID and the default password is “fau” plus your date of birth in MMDDYY format. For example if you were born in March 7th, 1982, your default password will be fau030782. 
@@ -938,7 +948,7 @@ If your account is not found or you cannot log in, please contact the helpdesk a
 					<li>You will be presented with the Add Classes Worksheet page. If you know the CRN (available on the Departmental Course Schedule) for the classes you want, enter the CRN here and then click the Submit Changes button to add the class. <br>
 If you don't know the CRN, use the Class Search button to find them. When you get the list of classes, there will be a small box to the left of classes that are available for adding. You can click in the box to select it, and then, at the bottom of the page, click the Register button.</li>
 					<li>To print out your course schedule, click on Return to Menu in the top right and then click on the My Schedule link from the “Registration” menu.</li>
-				</ol>
+				</ol> -->
 
 
 				
@@ -1016,7 +1026,7 @@ If you don't know the CRN, use the Class Search button to find them. When you ge
 				</div>			
 			</div>
 		  </li>
-		  
+
 
 		  <li class="panel">
 		  <% if @emergency_available == 1 && @emergency_complete == 0 %>
