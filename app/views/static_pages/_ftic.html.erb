@@ -72,7 +72,8 @@ Hello, <%= session[:cas_user] %>!
 	      	Welcome to FAU <%= get_fullname(@znum) %>! Let's get started!</h4>
 
 	      <p>We want your transition to college life to be as smooth as possible. Below is a checklist of things to keep in mind and tasks you will need to complete prior to your arrival on campus.</p><br>
-	     <!-- <hr>
+	     <% if params[:links] %>
+	     <hr>
 	      <p>
 	          <a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=wsak_touchnet.p_touchnet_link" target="_blank">Pay Tuition:</a><br>
 		      <a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=twbkwbis.P_GenMenu?name=bmenu.P_RegMnu" target="_blank">Registration:</a><br>
@@ -80,7 +81,8 @@ Hello, <%= session[:cas_user] %>!
               <a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=lwgkr911.p_initial_fau_alert_load" target="_blank"> FAU Alert</a><br>
               <a href="http://www.fau.edu/finaid/resources/forms.php" target="_blank"> Fin aid Forms:</a><br>
           </p>
-          <hr> -->
+          <hr>
+          <% end %>
 	   </article>
     </div>	
  <!--  </header> -->
@@ -903,39 +905,67 @@ Hello, <%= session[:cas_user] %>!
 			<div id="step-14" class="collapse">				   
 			  <div class="step-content">			  		
 		  		<h3 class="title">Register for Classes</h3>
-				<p>The University has a policy on Timely Graduation which encourages students at FAU to graduate in 4 years. Most degree programs at FAU require 120 credit hours to obtain a Bachelor’s degree. Full-time undergraduate students are those who are registered for 12 or more credits in any semester. A typical undergraduate course load is 15 or 16 credits with 18 credits being the maximum. Registrations exceeding this maximum must be approved in advance by the dean of the college.</p>
 
-				<p>The maximum undergraduate load in the summer semester is 9 credits each for short terms 2 and 3, and 18 credits for the full term 1. The maximum for the entire summer (whatever combination is taken) may not exceed 18 credits. Registrations exceeding this maximum must be approved in advance by the dean of the college.</p>
+		  		<% if  @deposit_complete = 0 || @account_complete = 0 || @oars_complete = 0 || @immunization_complete == 0  %>
+		  			
+		  			<p>You have holds on your record which are preventing you from registering for classes. The holds are listed below:</p>
 
-				<p>
-				Half-time undergraduate students are those who are registered for 6 to 11 credits. Any student registered for 5 or fewer credits is classified as less than half-time. Students who drop courses during a semester, reducing their registration below 12 credits, will be classified as outlined above.	
-				</p>
+		  			<ol>
+		  				<% if @deposit_complete = 0 %>
+		  					<li>You must confirm your intention to enroll and secure your space in the class with a $200.00 non-refundable deposit.</li>
+		  				<% end %>
 
-				<p>
-				See the Academic Calendar for registration dates. Please check your holds prior to registration by going to <a href="http://myfau.fau.edu" target="_blank">http://myfau.fau.edu</a> , clicking FAU Self Service, then Student Services, then Student Records, then View Holds.	
-				</p>
+		  				<% if @account_complete = 0 %>
+		  					<li>You must claim your FAU NetID.</li>
+		  				<% end %>
+
+		  				<% if @oars_complete = 0 %>
+		  					<li>You must complete Online Advising (OARS).</li>
+		  				<% end %>
+
+		  				<% if @immunization_complete = 0 %>
+		  					<li>You must provide proof of immunizations and vaccinations.</li>
+		  				<% end %>
+
+		  			</ol>
+
+		  		<% else %>
+
+					<p>The University has a policy on Timely Graduation which encourages students at FAU to graduate in 4 years. Most degree programs at FAU require 120 credit hours to obtain a Bachelor’s degree. Full-time undergraduate students are those who are registered for 12 or more credits in any semester. A typical undergraduate course load is 15 or 16 credits with 18 credits being the maximum. Registrations exceeding this maximum must be approved in advance by the dean of the college.</p>
+
+					<p>The maximum undergraduate load in the summer semester is 9 credits each for short terms 2 and 3, and 18 credits for the full term 1. The maximum for the entire summer (whatever combination is taken) may not exceed 18 credits. Registrations exceeding this maximum must be approved in advance by the dean of the college.</p>
+
+					<p>
+					Half-time undergraduate students are those who are registered for 6 to 11 credits. Any student registered for 5 or fewer credits is classified as less than half-time. Students who drop courses during a semester, reducing their registration below 12 credits, will be classified as outlined above.	
+					</p>
+
+					<p>
+					See the Academic Calendar for registration dates. Please check your holds prior to registration by going to <a href="http://myfau.fau.edu" target="_blank">http://myfau.fau.edu</a> , clicking FAU Self Service, then Student Services, then Student Records, then View Holds.	
+					</p>
 
 
 
-				<p>Your registration status:</p>
+					<p>Your registration status:</p>
 
-				<div class="alert alert-border alert-danger text-center fade in alert-dismissable">
-						<button data-dismiss="alert" class="close" type="button">×</button>
-						<br>
-						<table class="table table-striped text-left order-details">	
-							<thead>
-				  				<tr>
-				  					<th class="product-name">Your registered credit hours</th><th class="product-total">Term</th>
-				  				</tr>
-				  			</thead>
-							<strong>
-								<%= registered_hours(@znum)%>
-							</strong>
-						</table>
-					
-				</div>
+					<div class="alert alert-border alert-danger text-center fade in alert-dismissable">
+							<button data-dismiss="alert" class="close" type="button">×</button>
+							<br>
+							<table class="table table-striped text-left order-details">	
+								<thead>
+					  				<tr>
+					  					<th class="product-name">Your registered credit hours</th><th class="product-total">Term</th>
+					  				</tr>
+					  			</thead>
+								<strong>
+									<%= registered_hours(@znum)%>
+								</strong>
+							</table>
+						
+					</div>
 
-			<!-- 	<p>Once you have resolved any holds, you can register for classes by following these steps:</p>
+
+			  <!-- 	
+			   <p>Once you have resolved any holds, you can register for classes by following these steps:</p>
 				<ol>
 					<li> Go to http://myfau.fau.edu 
 The username is your FAUNet ID and the default password is “fau” plus your date of birth in MMDDYY format. For example if you were born in March 7th, 1982, your default password will be fau030782. 
@@ -948,13 +978,18 @@ If your account is not found or you cannot log in, please contact the helpdesk a
 					<li>You will be presented with the Add Classes Worksheet page. If you know the CRN (available on the Departmental Course Schedule) for the classes you want, enter the CRN here and then click the Submit Changes button to add the class. <br>
 If you don't know the CRN, use the Class Search button to find them. When you get the list of classes, there will be a small box to the left of classes that are available for adding. You can click in the box to select it, and then, at the bottom of the page, click the Register button.</li>
 					<li>To print out your course schedule, click on Return to Menu in the top right and then click on the My Schedule link from the “Registration” menu.</li>
-				</ol> -->
+				</ol> 
+			   -->
 
 
 				
 				<p>
 					<a href="http://www.fau.edu/uas/registration.php" target="_blank">[More Information]</a>
 				</p>
+
+		  		<% end %>
+
+
 
 			  </div>			
 			</div>
