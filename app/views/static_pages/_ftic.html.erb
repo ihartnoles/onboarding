@@ -466,66 +466,8 @@ Hello, <%= session[:cas_user] %>!
 			
 			</div>
 		  </li>
-		  
-		  <li class="panel">
-		  	<% if @finaid_available == 1 && @finaid_complete == 0 %>
-			   <a href="#step-6" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
-			<% elsif @finaid_available == 1 && @finaid_complete == 1 %>
-			   <a href="#step-6" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
-			<% else %>
-               <a href="#step-6" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
-			<% end %>
 
-			  <div class="number"><!-- Step 6 --><%= get_statusicon(@finaid_available, @finaid_complete) %> </div>
-			  <h6>Financial Aid Checklist</h6>
-			</a>
-			
-			<div id="step-6" class="collapse">
-			  <div class="step-content">
-
-					  		<h3 class="title">Your Financial Aid Documents</h3>
-
-					  		<p>To apply for financial aid, complete an online Free Application for Federal Student Aid at www.fafsa.ed.gov beginning January 1. The FAU priority deadline is March 1. Financial aid correspondence will be sent to your MyFAU email account. For more information, visit the financial aid website at www.fau.edu/finaid or call 561-297-3530.&nbsp;
-					  			<a title="FAU Financial Aid Information" href="http://www.fau.edu/finaid" target="_blank">[More Information]</a> | 
-					  			<a title="FAU Financial Aid Forms" href="http://www.fau.edu/finaid/resources/forms.php" target="_blank">[FAFSA Form Information]</a> |
-					  			<a href="https://sctformsalt.fau.edu:8070/TESTdad/twbkwbis.P_GenMenu?name=bmenu.P_FinAidMainMnu" target="_blank">[Your Financial Aid Information]</a>
-
-					  		</p>
-
-					  		
-
-					  		<!-- <p>
-					  			<ul>								
-									<li><a href="##">FAFSA Doc #1</a></li>
-									<li><a href="##">FAFSA Doc #2</a></li>
-									<li><a href="##">FAFSA Doc #3</a></li>
-									<li><a href="##">FAFSA Doc #4</a></li>
-									<li><a href="##">FAFSA Doc #5</a></li>																						
-								</ul>
-					  		</p> -->
-
-					  	<!-- <p>
-						  	<ul> -->
-						  		<table class="table table-striped text-left order-details">
-						  			<thead>
-						  				<tr>
-						  					<th class="product-name">FAFSA Document</th><th class="product-total">Status</th>
-						  				</tr>
-						  			</thead>
-
-						  				<%= fin_aid_docs(@znum) %>
-						  		</table>
-						  		<br>
-						  <!-- 	</ul>
-					  	</p> -->
-
-								
-				<button type="button" class="btn btn-danger">Continue</button>
-			  </div>
-			</div>
-		  </li>
-
-		  <li class="panel">
+		   <li class="panel">
 
 		  <% if @residency_available == 1 && @residency_complete == 0 %>
 			<a href="#step-7" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
@@ -647,6 +589,80 @@ Hello, <%= session[:cas_user] %>!
 			
 			</div>
 		  </li>
+		  
+		  <li class="panel">
+		  	<% if @finaid_available == 1 && @finaid_complete == 0 %>
+			   <a href="#step-6" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
+			<% elsif @finaid_available == 1 && @finaid_complete == 1 %>
+			   <a href="#step-6" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
+			<% else %>
+               <a href="#step-6" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
+			<% end %>
+
+			  <div class="number"><!-- Step 6 --><%= get_statusicon(@finaid_available, @finaid_complete) %> </div>
+			  <h6>Financial Aid</h6>
+			</a>
+			
+			<div id="step-6" class="collapse">
+			  <div class="step-content">
+
+			  				<h3 class="title">The Financial Aid Steps</h3>
+			  				<p>
+			  					<ol>
+			  						<li><a href="http://fafsa.gov" target="_blank">Complete your Free Application for Federal Student Aid at FAFSA.gov</a> </li>
+			  						<li>Checklist - pull from RTVTREQ; description and hyperlink for each student requirement form.</li>
+			  						<li>Complete Your Financial Aid Package</li>
+			  						<li><a href="https://sctformsalt.fau.edu:8070/TESTdad/bwrkrhst.P_DisplayTabs?tab_type=TC&aidy_in=1415&calling_proc_name=bwrksumm.P_DispSumm" target="_blank">Terms & Conditions - prompt for award year? </a></li>
+			  						<li><a href="https://sctformsalt.fau.edu:8070/TESTdad/bwrkrhst.P_DisplayTabs?tab_type=AA&aidy_in=1415&calling_proc_name=bwrksumm.P_DispSumm" target="_blank">Accept Your Financial Aid Package</a></li>
+			  					</ol>
+			  				</p>
+
+
+					  		<h3 class="title">Your Financial Aid Documents</h3>
+
+					  		<p>Complete your Free Application for Federal Student Aid at FAFSA.gov (available January 1). The FAU priority deadline is March 1. Check your FAU email frequently for important financial aid correspondence. For more information, visit the Financial Aid website at <a title="FAU Financial Aid Information" href="http://www.fau.edu/finaid" target="_blank">www.fau.edu/finaid</a> or call 561-297-3530. 
+					  			<!-- <a title="FAU Financial Aid Information" href="http://www.fau.edu/finaid" target="_blank">[More Information]</a> | 
+					  			<a title="FAU Financial Aid Forms" href="http://www.fau.edu/finaid/resources/forms.php" target="_blank">[FAFSA Form Information]</a> | -->
+					  			<a href="https://sctformsalt.fau.edu:8070/TESTdad/twbkwbis.P_GenMenu?name=bmenu.P_FinAidMainMnu" target="_blank">[Your Financial Aid Information]</a>
+
+					  		</p>
+
+					  		
+
+					  		<!-- <p>
+					  			<ul>								
+									<li><a href="##">FAFSA Doc #1</a></li>
+									<li><a href="##">FAFSA Doc #2</a></li>
+									<li><a href="##">FAFSA Doc #3</a></li>
+									<li><a href="##">FAFSA Doc #4</a></li>
+									<li><a href="##">FAFSA Doc #5</a></li>																						
+								</ul>
+					  		</p> -->
+
+					  	<!-- <p>
+						  	<ul> -->
+						  		<table class="table table-striped text-left order-details">
+						  			<thead>
+						  				<tr>
+						  					<th class="product-name">FAFSA Document</th><th class="product-total">Status</th>
+						  				</tr>
+						  			</thead>
+
+						  				<%= fin_aid_docs(@znum) %>
+						  		</table>
+						  		<br>
+
+
+						  <!-- 	</ul>
+					  	</p> -->
+
+								
+				<button type="button" class="btn btn-danger">Continue</button>
+			  </div>
+			</div>
+		  </li>
+
+		 
 		  
 		  <li class="panel">
 
@@ -1015,28 +1031,35 @@ If you don't know the CRN, use the Class Search button to find them. When you ge
 			<div id="step-19" class="collapse">				   
 			  <div class="step-content">			  		
 		  		<h3 class="title">Tuition and Billing Services</h3>
-					<% if  @reg_complete = 0 || @residency_complete = 0 || @housing_meal_plans_complete = 0   %>
+					<%# if  @reg_complete = 0 || @residency_complete = 0 || @housing_meal_plans_complete = 0   %>
                          
-
+<!-- 
 							<p>You have holds on your record which are preventing you from completing your tution payment. The holds are listed below:</p>
 
 				  			<ol>
-				  				<% if @reg_complete = 0 %>
+				  				<%# if @reg_complete = 0 %>
 				  					<li>You must be registered for 12 or more credits in any semester.</li>
-				  				<% end %>
+				  				<%# end %>
 
-				  				<% if @residency_complete = 0 %>
+				  				<%# if @residency_complete = 0 %>
 				  					<li>You must complete the Residency Classification for Tuition Purposes and submit the required documentation.</li>
-				  				<% end %>
+				  				<%# end %>
 
-				  				<% if @housing_meal_plans_complete = 0 && @housing_fee_required == 1  %>
+				  				<%# if @housing_meal_plans_complete = 0 && @housing_fee_required == 1  %>
 				  					<li>You must submit a housing contract and deposit to the Department of Housing and Residential Life.</li>
-				  				<% end %>
+				  				<%# end %>
 				  				
-				  			</ol>
+				  			</ol> -->
 					
 
-					<% else %>
+					<%# else %>
+						 <p>
+						  	<b>
+							Before paying your tuition you may want to take a look at our  <a href="https://sctformsalt.fau.edu:8070/TESTdad/kwr_finaid_calc.P_ViewAcctTerm" target='_blank'>Financial Aid Disbursement Estimator</a>. The disbursement estimate provided using this calculator does not represent a final determination of financial aid disbursements; it is an estimate based on your enrollment and award status now. 
+							</b>
+						 </p>
+						 <hr>
+
 						 <p>
 						  	<b>
 						  	Please note: The tuition deposit is separate from any Housing payments. First time applicants who plan to live on campus  are required to pay a $100 one-time non-refundable administration charge. 
@@ -1080,9 +1103,12 @@ If you don't know the CRN, use the Class Search button to find them. When you ge
 		              	     <a href='http://www.fau.edu/controller/student_information/pdfs/Summer_2015_Fee_Bulletin_2.pdf ' target='_blank'>
 		              	   		[Fee Payment Information]
 		              	    </a>
+
+		              	   
+
 		              	  </p>
 					
-					<% end %>
+					<%# end %>
 	              
 				</div>			
 			</div>
@@ -1311,8 +1337,8 @@ If you don't know the CRN, use the Class Search button to find them. When you ge
 			<li id="accountnav"><a href="#" class="edit"><%= get_statusicon(@account_available, @account_complete) %></a> Create Account</li>
 			<li id="commnav"><a href="#" class="edit"><%= get_statusicon(@communication_available, @communication_complete) %></a> Communication Preference</li>
 			<li id="immunenav"><a href="#" class="edit"><%= get_statusicon(@immunization_available, @immunization_complete) %></a> Immunization Holds</li>
-			<li id="finaidnav"><a href="#" class="edit"><%= get_statusicon(@finaid_available, @finaid_complete) %></a> Financial Aid Checklist</li>
 			<li><a href="#" class="edit"><%= get_statusicon(@residency_available, @residency_complete) %></a> Residency Validation</li>
+			<li id="finaidnav"><a href="#" class="edit"><%= get_statusicon(@finaid_available, @finaid_complete) %></a> Financial Aid</li>
 			<li><a href="#" class="edit"><%= get_statusicon(@housing_fee_available, @housing_fee_complete) %></a> Housing Fee</li>
 			<li><a href="#" class="edit"><%= get_statusicon(@housing_meal_plans_available, @housing_meal_plans_complete) %></a> Housing & Meal Plans</li>
 			<li><a href="#" class="edit"><%= get_statusicon(@aleks_available, @aleks_complete) %></a> Math Placement Exam </li>
