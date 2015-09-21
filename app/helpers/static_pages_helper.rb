@@ -229,7 +229,8 @@ module StaticPagesHelper
            tmp =  "Your tuition deposit was paid on #{o['sarchkl_receive_date'].strftime('%x')}."
          else
            tmp =  "Your tuition deposit has NOT been paid yet!  <br>            
-              <a title='FAU Admissions Deposit' href='https://bannersso.fau.edu/ssomanager/c/SSB?pkg=wsak_touchnet.p_touchnet_link' target='_blank'>[Pay Your Tuition Deposit Now]</a>"
+               <a href='https://epay.fau.edu:8443/C20081test_tsa/web/welcome.jsp' target='_blank'>[Pay Your Tuition Deposit Now]</a>
+              "
          end
          
 

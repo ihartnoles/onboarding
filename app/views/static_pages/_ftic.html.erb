@@ -75,12 +75,14 @@ Hello, <%= session[:cas_user] %>!
 	     <% if params[:links] %>
 	     <hr>
 	      <p>
-	          <a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=wsak_touchnet.p_touchnet_link" target="_blank">Pay Tuition:</a><br>
-		      <a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=twbkwbis.P_GenMenu?name=bmenu.P_RegMnu" target="_blank">Registration:</a><br>
-              <a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=bwgkoemr.P_ViewEmrgContacts" target="_blank">  Emergency Contacts:</a><br>
+	          <a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=wsak_touchnet.p_touchnet_link" target="_blank">Pay Tuition</a><br>
+	          <a href="https://epay.fau.edu:8443/C20081test_tsa/web/welcome.jsp" target="_blank">Pay Tuition Touchnet</a><br>
+		      <a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=twbkwbis.P_GenMenu?name=bmenu.P_RegMnu" target="_blank">Registration</a><br>
+              <a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=bwgkoemr.P_ViewEmrgContacts" target="_blank">  Emergency Contacts</a><br>
               <a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=lwgkr911.p_initial_fau_alert_load" target="_blank"> FAU Alert</a><br>
-              <a href="https://sctformsalt.fau.edu:8070/TESTdad/twbkwbis.P_GenMenu?name=bmenu.P_FinAidMainMnu" target="_blank">Fin. Aid. Info</a><br>
-              <a href="http://www.fau.edu/finaid/resources/forms.php" target="_blank"> Fin aid Forms:</a><br>
+             <!--  <a href="https://sctformsalt.fau.edu:8070/TESTdad/twbkwbis.P_GenMenu?name=bmenu.P_FinAidMainMnu" target="_blank">Fin. Aid. Info</a><br> -->
+              <a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=twbkwbis.P_GenMenu?name=bmenu.P_FinAidMainMnu" target="_blank">Fin. Aid. Info</a><br>
+              <a href="http://www.fau.edu/finaid/resources/forms.php" target="_blank"> Fin aid Forms</a><br>
           </p>
           <hr>
           <% end %>
@@ -173,7 +175,7 @@ Hello, <%= session[:cas_user] %>!
 				 		<p>All admitted freshmen must confirm their intention to enroll and secure their space in the class with a $200.00 <strong>non-refundable</strong> deposit. The $200 is applied to your tuition and fees for the semester in which you are admitted to FAU. It will be forfeited if you pay the deposit and choose not to enroll at FAU for that term, or if you submit a change of entry request for a different term. Your space will be released to another applicant if the deposit is not received by<span style="text-decoration: underline;"> May 1 or within two weeks of admission if admitted after May 1 <sup>st</sup></span>.
                          <br><br>The deposit is applied to your account when you enroll and will be used toward your tuition and fees. It will be forfeited if you do not enroll. <a title="FAU Admissions Deposit" href="http://www.fau.edu/admissions/tuitiondeposit.php" target="_blank">[More Information]</a></p>
 				 		
-				 		
+				 		 <!-- <a href="https://epay.fau.edu:8443/C20081test_tsa/web/welcome.jsp" target="_blank">Pay Tuition Touchnet:</a> -->
 
 				 		<div class="alert alert-border alert-danger text-center fade in alert-dismissable">
 							<button data-dismiss="alert" class="close" type="button">×</button>
@@ -612,8 +614,12 @@ Hello, <%= session[:cas_user] %>!
 			  						<li><a href="http://fafsa.gov" target="_blank">Complete your Free Application for Federal Student Aid at FAFSA.gov</a> </li>
 			  						<li>Checklist - pull from RTVTREQ; description and hyperlink for each student requirement form.</li>
 			  						<li>Complete Your Financial Aid Package</li>
-			  						<li><a href="https://sctformsalt.fau.edu:8070/TESTdad/bwrkrhst.P_DisplayTabs?tab_type=TC&aidy_in=1415&calling_proc_name=bwrksumm.P_DispSumm" target="_blank">Terms & Conditions - prompt for award year? </a></li>
-			  						<li><a href="https://sctformsalt.fau.edu:8070/TESTdad/bwrkrhst.P_DisplayTabs?tab_type=AA&aidy_in=1415&calling_proc_name=bwrksumm.P_DispSumm" target="_blank">Accept Your Financial Aid Package</a></li>
+			  						<li><!-- <a href="https://sctformsalt.fau.edu:8070/TESTdad/bwrkrhst.P_DisplayTabs?tab_type=TC&aidy_in=1415&calling_proc_name=bwrksumm.P_DispSumm" target="_blank">Terms & Conditions - prompt for award year? </a> -->
+			  							<a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=bwrkrhst.P_DisplayTabs?tab_type=TC&aidy_in=1415&calling_proc_name=bwrksumm.P_DispSumm" target="_blank">Terms & Conditions - prompt for award year?</a>
+			  						</li>
+			  						<li><!-- <a href="https://sctformsalt.fau.edu:8070/TESTdad/bwrkrhst.P_DisplayTabs?tab_type=AA&aidy_in=1415&calling_proc_name=bwrksumm.P_DispSumm" target="_blank">Accept Your Financial Aid Package</a> -->
+			  							<a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=bwrkrhst.P_DisplayTabs?tab_type=AA&aidy_in=1415&calling_proc_name=bwrksumm.P_DispSumm" target="_blank">Accept Your Financial Aid Package</a>			  							
+			  						</li>
 			  					</ol>
 			  				</p>
 
@@ -623,7 +629,9 @@ Hello, <%= session[:cas_user] %>!
 					  		<p>Complete your Free Application for Federal Student Aid at FAFSA.gov (available January 1). The FAU priority deadline is March 1. Check your FAU email frequently for important financial aid correspondence. For more information, visit the Financial Aid website at <a title="FAU Financial Aid Information" href="http://www.fau.edu/finaid" target="_blank">www.fau.edu/finaid</a> or call 561-297-3530. 
 					  			<!-- <a title="FAU Financial Aid Information" href="http://www.fau.edu/finaid" target="_blank">[More Information]</a> | 
 					  			<a title="FAU Financial Aid Forms" href="http://www.fau.edu/finaid/resources/forms.php" target="_blank">[FAFSA Form Information]</a> | -->
-					  			<a href="https://sctformsalt.fau.edu:8070/TESTdad/twbkwbis.P_GenMenu?name=bmenu.P_FinAidMainMnu" target="_blank">[Your Financial Aid Information]</a>
+					  			
+
+					  			<a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=twbkwbis.P_GenMenu?name=bmenu.P_FinAidMainMnu" target="_blank">[Your Financial Aid Information]</a>
 
 					  		</p>
 
