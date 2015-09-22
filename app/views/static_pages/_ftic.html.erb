@@ -1040,7 +1040,13 @@ If you don't know the CRN, use the Class Search button to find them. When you ge
 		   <li class="panel">
 		  	
 		  	<% if @tuition_available == 1 && @tuition_complete == 0 %>
-				<a href="#step-19" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
+				
+				<% if  @reg_complete == 0 || @residency_complete == 0 || @housing_meal_plans_complete == 0  %>
+		   			<a href="#step-19" class="collapsed step-title warning" data-parent="#checkoutsteps" data-toggle="collapse">
+		   		<% else %>
+		   			<a href="#step-19" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
+		   		<% end %>
+
 			<% elsif @tuition_available == 1 && @tuition_complete == 1 %>
 				<a href="#step-19" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
 			<% else %>
@@ -1054,9 +1060,9 @@ If you don't know the CRN, use the Class Search button to find them. When you ge
 			<div id="step-19" class="collapse">				   
 			  <div class="step-content">			  		
 		  		<h3 class="title">Tuition and Billing Services</h3>
-					<%# if  @reg_complete = 0 || @residency_complete = 0 || @housing_meal_plans_complete = 0   %>
+					<% if  @reg_complete = 0 || @residency_complete = 0 || @housing_meal_plans_complete = 0   %>
                          
-<!-- 
+
 							<p>You have holds on your record which are preventing you from completing your tution payment. The holds are listed below:</p>
 
 				  			<ol>
@@ -1072,10 +1078,10 @@ If you don't know the CRN, use the Class Search button to find them. When you ge
 				  					<li>You must submit a housing contract and deposit to the Department of Housing and Residential Life.</li>
 				  				<%# end %>
 				  				
-				  			</ol> -->
+				  			</ol>
 					
 
-					<%# else %>
+					<% else %>
 						 <p>
 						  	<b>
 							Before paying your tuition you may want to take a look at our  <a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=kwr_finaid_calc.P_ViewAcctTerm" target='_blank'>Financial Aid Disbursement Estimator</a>. The disbursement estimate provided using this calculator does not represent a final determination of financial aid disbursements; it is an estimate based on your enrollment and award status now. 
@@ -1131,7 +1137,7 @@ If you don't know the CRN, use the Class Search button to find them. When you ge
 
 		              	  </p>
 					
-					<%# end %>
+					<% end %>
 	              
 				</div>			
 			</div>
