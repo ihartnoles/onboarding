@@ -155,8 +155,7 @@ class StaticPagesController < ApplicationController
 
           #module completion flags
 
-          tuition_status = Banner.tuition_deposit_status(@znum)
-          aleks_status = Banner.aleks_status(@znum)
+          
           immunization_status = Banner.immunization_status(@znum)
           residency_status = Banner.residency_status(@znum)
           finaid_status = Banner.fin_aid_docs(@znum)
@@ -182,6 +181,11 @@ class StaticPagesController < ApplicationController
           orientation_status = Faudw.orientation_status(@znum)
           registration_status = Banner.registered_hours(@znum)
 
+          # temporarily comment these out to test get_multistatus
+            # tuition_status = Banner.tuition_deposit_status(@znum)
+            # aleks_status = Banner.aleks_status(@znum)
+
+          get_multistatus = Banner.get_multistatus(@znum)
 
           #Banner.tuition_deposit_status('Z23173909')
 
@@ -191,23 +195,81 @@ class StaticPagesController < ApplicationController
 
           @welcome_complete = 1
 
-          if tuition_status.blank?
-            @deposit_complete ||= 0
-            @dep_complete_flag = 0
-          else
-            tuition_status.each do |o|
-              if o['sarchkl_admr_code'] == 'TUTD' && !o['sarchkl_receive_date'].nil?
-                @deposit_complete ||= 1
-                @dep_complete_flag = 1
-              else
-                @deposit_complete ||= 0
-                @dep_complete_flag = 0
-              end 
-            end
-          end
+          # BEGIN temporarily comment these out to test get_multistatus
+            # if tuition_status.blank?
+            #   @deposit_complete ||= 0
+            #   @dep_complete_flag = 0
+            # else
+            #   tuition_status.each do |o|
+            #     if o['sarchkl_admr_code'] == 'TUTD' && !o['sarchkl_receive_date'].nil?
+            #       @deposit_complete ||= 1
+            #       @dep_complete_flag = 1
+            #     else
+            #       @deposit_complete ||= 0
+            #       @dep_complete_flag = 0
+            #     end 
+            #   end
+            # end
 
-          @account_complete = 0
-          @communication_complete = 0
+          # temporarily comment these out to test get_multistatus
+            # @account_complete = 0
+          
+          # if aleks_status.blank?
+            #    @aleks_complete = 0
+            # else
+            #   aleks_status.each do |o|
+            #     if o['aleks_taken'] == 'N' || o['aleks_taken'].nil?
+            #       @aleks_complete = 0
+            #     else
+            #       @aleks_complete = 1
+            #     end 
+            #   end
+            # end
+
+
+            if get_multistatus.blank?
+               @aleks_complete = 0
+               @deposit_complete ||= 0
+               @dep_complete_flag = 0
+               @account_complete = 0
+               @emergency_complete = 0
+            else
+                get_multistatus.each do |o|
+                  if o['aleks_taken'] == 'N' || o['aleks_taken'].nil?
+                    @aleks_complete = 0
+                  else
+                    @aleks_complete = 1
+                  end 
+
+                  if o['sarchkl_admr_code'] == 'TUTD' && !o['sarchkl_receive_date'].nil?
+                    @deposit_complete ||= 1
+                    @dep_complete_flag = 1
+                  else
+                    @deposit_complete ||= 0
+                    @dep_complete_flag = 0
+                  end 
+
+                  if o['gobtpac_external_user'].nil?
+                    @account_complete = 0
+                  else
+                    @account_complete = 1
+                  end 
+
+                  if o['spremrg_contact_name'].nil?
+                    @emergency_complete = 0
+                  else
+                    @emergency_complete = 1
+                    @emergency_contact = o['spremrg_contact_name']
+                  end 
+
+
+                end
+            end
+
+
+          # END temporarily comment these out to test get_multistatus
+
+         @communication_complete = 0
           
          if immunization_status.blank?
               @immunization_complete = 0
@@ -334,17 +396,7 @@ class StaticPagesController < ApplicationController
 
           @housing_meal_plans_complete = 0
 
-          if aleks_status.blank?
-             @aleks_complete = 0
-          else
-            aleks_status.each do |o|
-              if o['aleks_taken'] == 'N' || o['aleks_taken'].nil?
-                @aleks_complete = 0
-              else
-                @aleks_complete = 1
-              end 
-            end
-          end
+            
 
 
           #@oars_complete = 1
@@ -394,7 +446,7 @@ class StaticPagesController < ApplicationController
           end
 
 
-          @emergency_complete = 0
+          #@emergency_complete = 0
           @fau_alert_complete = 0
           @owlcard_complete = 0
           @bookadvance_complete = 1

@@ -168,7 +168,7 @@ Hello, <%= session[:cas_user] %>!
 			
 			<div id="step-2" class="collapse">
 			  <div class="step-content">
-			  	<h3 class="title">Paying Your Admisssions Tuition Deposit</h3>
+			  	<h3 class="title">Paying Your Admisssions Tuition Deposit  </h3>
 			 
 				  		<p>The non-refundable admissions tuition deposit is for admitted freshman students only.</p>
 				 		 
@@ -271,7 +271,7 @@ Hello, <%= session[:cas_user] %>!
 			
 			<div id="step-3" class="collapse">
 			  <div class="step-content">
-			  	<h3 class="title">Claiming Your Account</h3>
+			  	<h3 class="title">Claiming Your Account <%= @account_complete %></h3>
 			  	
 				  		 <p>The FAUNet ID is the account name you will use to login to many of the systems you will utilize in your daily life at Florida Atlantic University. It is a part of your official FAU e-mail address (e.g., FAUNetID@fau.edu). All students, faculty and staff are automatically granted a FAUNet ID and may claim their account by logging into the MyFAU portal. While many online services provided by the University require a separate password, OIT is working to synchronize these passwords while striving to improve the security of the system.</p>
 
@@ -1160,8 +1160,12 @@ If you don't know the CRN, use the Class Search button to find them. When you ge
 			<div id="step-15" class="collapse">				   
 			  <div class="step-content">			  		
 		  		<h3 class="title">Emergency Contacts</h3>
-				<p> Please be on the lookout for the FAU Alert and Statement of Responsibility forms/screens when you login to Self Service for the first time. You  must verify and submit both before the respective holds are lifted and access is granted to Self Service.</p>
-				 <a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=bwgkoemr.P_ViewEmrgContacts" target="_blank"> [Your Emergency Contact Information]</a>
+				<!-- <p> Please be on the lookout for the FAU Alert and Statement of Responsibility forms/screens when you login to Self Service for the first time. You  must verify and submit both before the respective holds are lifted and access is granted to Self Service.</p> -->
+					
+				 Your emergency contact on file is: <%= @emergency_contact %>
+
+
+				 <br><a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=bwgkoemr.P_ViewEmrgContacts" target="_blank"> [View/Edit Your Emergency Contact Information]</a>
 			  </div>			
 			</div>
 		  </li>

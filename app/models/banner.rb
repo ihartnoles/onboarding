@@ -40,6 +40,21 @@ class Banner < ActiveRecord::Base
 			get = connection.exec_query("SELECT sarchkl_admr_code, sarchkl_receive_date FROM BANINST1.AWS_ONBOARDING_MAIN WHERE Z_NUMBER=#{connection.quote(id)}")
 		end
 
+		def self.account_claimed_status(id)
+			get = connection.exec_query("SELECT spremrg_first_name, spremrg_last_name FROM BANINST1.AWS_ONBOARDING_MAIN WHERE Z_NUMBER=#{connection.quote(id)}")
+		end
+
+		#BEGIN: a test to consolidate aleks tution and account claim status
+			# presence of gobtpac_external_user means they have their netid;
+			# aleks_taken = self explanatory
+			# sarchkl_admr_code == TUTD -> deposit has been made
+			# spremrg fields = emergency contact info on file
+		def self.get_multistatus(id)
+			get = connection.exec_query("SELECT GOBTPAC_EXTERNAL_USER, aleks_taken, sarchkl_admr_code, sarchkl_receive_date, sarchkl_receive_date, sarchkl_admr_code, CONCAT(CONCAT(spremrg_first_name,' '),spremrg_last_name) as spremrg_contact_name FROM BANINST1.AWS_ONBOARDING_MAIN WHERE Z_NUMBER=#{connection.quote(id)}")
+		end
+		#END: a test to consolidate aleks tution and account claim status
+
+
 	#END: QUERIES TO BANINST1.AWS_ONBOARDING_MAIN
 	
 
