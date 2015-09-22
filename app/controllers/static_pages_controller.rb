@@ -183,20 +183,25 @@ class StaticPagesController < ApplicationController
           registration_status = Banner.registered_hours(@znum)
 
 
-          #Banner.tuition_deposit_status('Z23122293')
+          #Banner.tuition_deposit_status('Z23173909')
 
-          #puts YAML::dump(tuition_status)
+          # puts YAML::dump('**********TUITION**********')
+          # puts YAML::dump(tuition_status)
+          # puts YAML::dump('**********STATUS**********')
 
           @welcome_complete = 1
 
           if tuition_status.blank?
-            @deposit_complete = 0
+            @deposit_complete ||= 0
+            @dep_complete_flag = 0
           else
             tuition_status.each do |o|
               if o['sarchkl_admr_code'] == 'TUTD' && !o['sarchkl_receive_date'].nil?
-                @deposit_complete = 1
+                @deposit_complete ||= 1
+                @dep_complete_flag = 1
               else
-                @deposit_complete = 0
+                @deposit_complete ||= 0
+                @dep_complete_flag = 0
               end 
             end
           end
@@ -345,12 +350,15 @@ class StaticPagesController < ApplicationController
           #@oars_complete = 1
           if oars_status.blank?
              @oars_complete = 0
+             @oars_complete_flag = 0
           else
             oars_status.each do |o|
               if o.nil?
                 @oars_complete = 0
+                @oars_complete_flag = 0
               else
                 @oars_complete = 1
+                @oars_complete_flag = 1
               end
             end
           end
