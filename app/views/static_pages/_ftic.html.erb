@@ -917,7 +917,22 @@ Hello, <%= session[:cas_user] %>!
 		   <li class="panel">
 		   	
 		   	<% if @reg_available == 1 && @reg_complete == 0 %>		   	
-		   		<a href="#step-14" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
+
+		   		<!-- @dep_complete_flag : <%#= @dep_complete_flag %>
+		   		@account_complete :<%#= @account_complete %>
+		   		@oars_complete_flag : <%#= @oars_complete_flag %>
+				@immunization_complete : <%#= @immunization_complete %> -->
+
+
+
+		   		<% if  @dep_complete_flag == 0 || @account_complete == 0 || @oars_complete_flag == 0 || @immunization_complete == 0 %>
+		   			<a href="#step-14" class="collapsed step-title warning" data-parent="#checkoutsteps" data-toggle="collapse">
+		   		<% else %>
+		   			<a href="#step-14" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
+		   		<% end %>
+		   		
+		   
+		   		<!-- <a href="#step-14" class="collapsed step-title warning" data-parent="#checkoutsteps" data-toggle="collapse"> -->
 		   	<% elsif  @reg_available == 1 && @reg_complete == 1 %>
 		   		<a href="#step-14" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
 		   	<% else %>
@@ -932,7 +947,7 @@ Hello, <%= session[:cas_user] %>!
 			  <div class="step-content">			  		
 		  		<h3 class="title">Register for Classes</h3>
 
-		  		<% if  @dep_complete_flag == 0 || @account_complete === 0 || @oars_complete_flag == 0 || @immunization_complete == 0  %>
+		  		<% if  @dep_complete_flag == 0 || @account_complete == 0 || @oars_complete_flag == 0 || @immunization_complete == 0  %>
 		  			
 		  			<p>You have holds on your record which are preventing you from registering for classes. The holds are listed below:</p>
 
