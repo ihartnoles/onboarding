@@ -612,14 +612,10 @@ Hello, <%= session[:cas_user] %>!
 			  				<p>
 			  					<ol>
 			  						<li><a href="http://fafsa.gov" target="_blank">Complete your Free Application for Federal Student Aid at FAFSA.gov</a> </li>
-			  						<li>Checklist - pull from RTVTREQ; description and hyperlink for each student requirement form.</li>
+			  						<li><a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=bwrkelig.P_DisplayTabs?tab_type=ER&aidy_in=1415&calling_proc_name=bwrksumm.P_DispSumm" target="_blank">Eligibility Requirements</a></li>
 			  						<li>Complete Your Financial Aid Package</li>
-			  						<li><!-- <a href="https://sctformsalt.fau.edu:8070/TESTdad/bwrkrhst.P_DisplayTabs?tab_type=TC&aidy_in=1415&calling_proc_name=bwrksumm.P_DispSumm" target="_blank">Terms & Conditions - prompt for award year? </a> -->
-			  							<a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=bwrkrhst.P_DisplayTabs?tab_type=TC&aidy_in=1415&calling_proc_name=bwrksumm.P_DispSumm" target="_blank">Terms & Conditions - prompt for award year?</a>
-			  						</li>
-			  						<li><!-- <a href="https://sctformsalt.fau.edu:8070/TESTdad/bwrkrhst.P_DisplayTabs?tab_type=AA&aidy_in=1415&calling_proc_name=bwrksumm.P_DispSumm" target="_blank">Accept Your Financial Aid Package</a> -->
-			  							<a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=bwrkrhst.P_DisplayTabs?tab_type=AA&aidy_in=1415&calling_proc_name=bwrksumm.P_DispSumm" target="_blank">Accept Your Financial Aid Package</a>			  							
-			  						</li>
+			  						<li><a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=bwrkrhst.P_DisplayTabs?tab_type=TC&aidy_in=1415&calling_proc_name=bwrksumm.P_DispSumm" target="_blank">Terms & Conditions - prompt for award year?</a></li>
+			  						<li><a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=bwrkrhst.P_DisplayTabs?tab_type=AA&aidy_in=1415&calling_proc_name=bwrksumm.P_DispSumm" target="_blank">Accept Your Financial Aid Package</a></li>
 			  					</ol>
 			  				</p>
 
@@ -1162,10 +1158,10 @@ If you don't know the CRN, use the Class Search button to find them. When you ge
 		  		<h3 class="title">Emergency Contacts</h3>
 				<!-- <p> Please be on the lookout for the FAU Alert and Statement of Responsibility forms/screens when you login to Self Service for the first time. You  must verify and submit both before the respective holds are lifted and access is granted to Self Service.</p> -->
 					
-				 Your emergency contact on file is: <%= @emergency_contact %>
+				 <p>Your emergency contact on file is: <b><%= @emergency_contact %></b></p>
 
 
-				 <br><a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=bwgkoemr.P_ViewEmrgContacts" target="_blank"> [View/Edit Your Emergency Contact Information]</a>
+				 <br><a href="https://sctformsalt.fau.edu:8484/ssomanager/c/SSB?pkg=bwgkoemr.P_ViewEmrgContacts" target="_blank"> [View Your Emergency Contact Information]</a>
 			  </div>			
 			</div>
 		  </li>
