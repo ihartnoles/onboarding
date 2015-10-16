@@ -28,6 +28,11 @@ class FticModulesAvailablesController < ApplicationController
   def create
     @modules_available = FticModulesAvailable.new(ftic_modules_available_params)
 
+    PUTS YAML:DUMP('BEGIN*************************************')
+    PUTS YAML:DUMP(ftic_modules_available_params)
+    PUTS YAML:DUMP('END*************************************')
+
+
     respond_to do |format|
       if @modules_available.save
         format.html { redirect_to @modules_available, notice: 'Modules available was successfully created.' }
@@ -71,6 +76,6 @@ class FticModulesAvailablesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ftic_modules_available_params
-      params.require(:ftic_modules_available).permit(:znumber, :netid, :welcome, :deposit, :account, :communication, :immunization, :finaid, :housingfee, :residency, :housingmealplan, :aleks, :oars, :learning_comm, :orientation, :registration, :emergency, :faualert, :owlcard, :bookadvance, :tution, :vehiclereg)
+      params.require(:ftic_modules_available).permit(:znumber, :netid, :welcome, :deposit, :depositbypass, :account, :accountbypass, :communication, :communicationbypass, :immunization, :finaid, :housingfee, :residency, :housingmealplan, :aleks, :oars, :learning_comm, :orientation, :registration, :emergency, :faualert, :owlcard, :bookadvance, :tution, :vehiclereg)
     end
 end

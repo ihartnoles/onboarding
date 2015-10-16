@@ -155,7 +155,7 @@ Hello, <%= session[:cas_user] %>!
 		  	
 		  	<% if  @deposit_available == 1 && @deposit_complete== 0 %>
 				<a href="#step-2" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse" id="deposittitle">
-			<% elsif  @deposit_available == 1 && @deposit_complete == 1 %>
+			<% elsif  (@deposit_available == 1 && @deposit_complete == 1 ) || @deposit_bypass == 1 %>
 				<a href="#step-2" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse" id="deposittitle">
 			<% else %>
 				<a href="#step-2" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="" id="deposittitle">
@@ -170,21 +170,26 @@ Hello, <%= session[:cas_user] %>!
 			  <div class="step-content">
 			  	<h3 class="title">Paying Your Admisssions Tuition Deposit  </h3>
 			 
-				  		<p>The non-refundable admissions tuition deposit is for admitted freshman students only.</p>
-				 		 
-				 		<p>All admitted freshmen must confirm their intention to enroll and secure their space in the class with a $200.00 <strong>non-refundable</strong> deposit. The $200 is applied to your tuition and fees for the semester in which you are admitted to FAU. It will be forfeited if you pay the deposit and choose not to enroll at FAU for that term, or if you submit a change of entry request for a different term. Your space will be released to another applicant if the deposit is not received by<span style="text-decoration: underline;"> May 1 or within two weeks of admission if admitted after May 1 <sup>st</sup></span>.
-                         <br><br>The deposit is applied to your account when you enroll and will be used toward your tuition and fees. It will be forfeited if you do not enroll. <a title="FAU Admissions Deposit" href="http://www.fau.edu/admissions/tuitiondeposit.php" target="_blank">[More Information]</a></p>
-				 		
-				 		 <!-- <a href="https://epay.fau.edu:8443/C20081test_tsa/web/welcome.jsp" target="_blank">Pay Tuition Touchnet:</a> -->
+						<% if @deposit_bypass == 1 %>			  		
+							<p> An administrator has bypassed this section for you.</p>
+						<% else %>
 
-				 		<div class="alert alert-border alert-danger text-center fade in alert-dismissable">
-							<button data-dismiss="alert" class="close" type="button">×</button>
-							<p>
-								<strong>
-									<%= get_tuition_deposit_status(@znum) %>
-								</strong>
-							</p>					
-		   			    </div>
+					  		<p>The non-refundable admissions tuition deposit is for admitted freshman students only.</p>
+					 		 
+					 		<p>All admitted freshmen must confirm their intention to enroll and secure their space in the class with a $200.00 <strong>non-refundable</strong> deposit. The $200 is applied to your tuition and fees for the semester in which you are admitted to FAU. It will be forfeited if you pay the deposit and choose not to enroll at FAU for that term, or if you submit a change of entry request for a different term. Your space will be released to another applicant if the deposit is not received by<span style="text-decoration: underline;"> May 1 or within two weeks of admission if admitted after May 1 <sup>st</sup></span>.
+	                         <br><br>The deposit is applied to your account when you enroll and will be used toward your tuition and fees. It will be forfeited if you do not enroll. <a title="FAU Admissions Deposit" href="http://www.fau.edu/admissions/tuitiondeposit.php" target="_blank">[More Information]</a></p>
+					 		
+					 		 <!-- <a href="https://epay.fau.edu:8443/C20081test_tsa/web/welcome.jsp" target="_blank">Pay Tuition Touchnet:</a> -->
+
+					 		<div class="alert alert-border alert-danger text-center fade in alert-dismissable">
+								<button data-dismiss="alert" class="close" type="button">×</button>
+								<p>
+									<strong>
+										<%= get_tuition_deposit_status(@znum) %>
+									</strong>
+								</p>					
+			   			    </div>
+			   			  <% end %>
 
                          <div class="buttons-box text-right">
 						  <button type="button" class="btn btn-danger" id="depositBut">Continue</button>						 
@@ -259,7 +264,7 @@ Hello, <%= session[:cas_user] %>!
 		  	
 		  	<% if  @account_available == 1 && @account_complete== 0 %>
 				<a href="#step-3" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse" id="accounttitle">
-			<% elsif  @account_available == 1 && @account_complete == 1 %>
+			<% elsif  @account_available == 1 && @account_complete == 1 || @account_bypass == 1 %>
 				<a href="#step-3" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse" id="accounttitle">
 			<% else %>
 				<a href="#step-3" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="" id="accounttitle">

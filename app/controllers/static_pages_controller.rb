@@ -111,6 +111,7 @@ class StaticPagesController < ApplicationController
           availability.each do |a|
             @welcome_available = a.welcome
             @deposit_available = a.deposit
+            @deposit_bypass = a.depositbypass
             @account_available = a.account
             @communication_available = a.communication
             @immunization_available = a.immunization
@@ -226,6 +227,8 @@ class StaticPagesController < ApplicationController
             #   end
             # end
 
+            #@deposit_bypass = 1
+            #@account_bypass = 1
 
             if get_multistatus.blank?
                @aleks_complete = 0
@@ -351,15 +354,8 @@ class StaticPagesController < ApplicationController
                 end
 
             end
-
-
-
-            
-            
           
-
-
-          
+         
 
             # begin: check the student's age 
 

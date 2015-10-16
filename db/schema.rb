@@ -14,12 +14,12 @@
 ActiveRecord::Schema.define(version: 20150722142114) do
 
 # Could not dump table "activity_logs" because of following NoMethodError
-#   undefined method `column_spec_with_oracle_enhanced' for #<ActiveRecord::ConnectionAdapters::SQLServerAdapter:0xa4a4944>
+#   undefined method `column_spec_with_oracle_enhanced' for #<ActiveRecord::ConnectionAdapters::SQLServerAdapter:0xa22db0c>
 
 # Could not dump table "ftic_modules_availables" because of following NoMethodError
-#   undefined method `column_spec_with_oracle_enhanced' for #<ActiveRecord::ConnectionAdapters::SQLServerAdapter:0xa4a4944>
+#   undefined method `column_spec_with_oracle_enhanced' for #<ActiveRecord::ConnectionAdapters::SQLServerAdapter:0xa22db0c>
 
 # Could not dump table "housing_zipcodes" because of following NoMethodError
-#   undefined method `column_spec_with_oracle_enhanced' for #<ActiveRecord::ConnectionAdapters::SQLServerAdapter:0xa4a4944>
+#   undefined method `column_spec_with_oracle_enhanced' for #<ActiveRecord::ConnectionAdapters::SQLServerAdapter:0xa22db0c>
 
 end

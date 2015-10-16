@@ -1,0 +1,3 @@
+      invoke  active_record
+      remove    db/migrate/20151015200936_add_deposit_bypass_to_ftic_modules_availables.rb
+      create    db/migrate/20151015201257_add_deposit_bypass_to_ftic_modules_availables.rb
