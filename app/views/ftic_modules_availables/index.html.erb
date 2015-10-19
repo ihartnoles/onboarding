@@ -70,145 +70,275 @@
               </td>
               <td>
                 <% if modules_available.welcome == 1 %>
-                  <%= image_tag('/assets/Check_16x16.png')  %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
                 <% else %>
-                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                    <div class="icon icon- bg text-error20"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
                 <% end %>
-               
+                 
+              
               </td>
               <td>
                 <% if modules_available.deposit == 1 %>
-                  <%= image_tag('/assets/Check_16x16.png')  %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                    <div class="icon icon-20"> 
+                      <i class="fa fa-unlock-alt"></i>
+                    </div>
                 <% else %>
-                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
                 <% end %>
+
+                <% #if modules_available.depositbypass == 1 %>
+                 <!-- 
+                  <div class="icon icon-20"> 
+                    <i class='icon icon-20 fa fa-asterisk'></i>
+                  </div> 
+                   -->
+                <%# end %>
+
               </td>
               <td>
                 <% if modules_available.account == 1 %>
-                  <%= image_tag('/assets/Check_16x16.png')  %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
                 <% else %>
-                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
                 <% end %>
               </td>
               <td>
                 <%#= modules_available.communication %>
                 <% if modules_available.communication == 1 %>
-                  <%= image_tag('/assets/Check_16x16.png')  %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
                 <% else %>
-                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
                 <% end %>
               </td>
               <td>
                 <%#= modules_available.immunization %>
                 <% if modules_available.immunization == 1 %>
-                  <%= image_tag('/assets/Check_16x16.png')  %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
                 <% else %>
-                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
                 <% end %>
               </td>
               <td>
                 <% if modules_available.finaid == 1 %>
-                  <%= image_tag('/assets/Check_16x16.png')  %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
                 <% else %>
-                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
                 <% end %>
               </td>
               <td>
                 <% if modules_available.housingfee == 1 %>
-                  <%= image_tag('/assets/Check_16x16.png')  %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
                 <% else %>
-                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
                 <% end %>
               </td>
               <td>
                 <% if modules_available.residency == 1 %>
-                  <%= image_tag('/assets/Check_16x16.png')  %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
                 <% else %>
-                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
                 <% end %>
               </td>
               <td>
                 <% if modules_available.housingmealplan == 1 %>
-                  <%= image_tag('/assets/Check_16x16.png')  %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
                 <% else %>
-                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
                 <% end %>
               </td>
               <td>
                 <% if modules_available.aleks == 1 %>
-                  <%= image_tag('/assets/Check_16x16.png')  %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
                 <% else %>
-                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
                 <% end %>
               </td>
               <td>
                 <% if modules_available.oars == 1 %>
-                  <%= image_tag('/assets/Check_16x16.png')  %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
                 <% else %>
-                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
                 <% end %>
               </td>
               <td>
                 <% if modules_available.learning_comm == 1 %>
-                  <%= image_tag('/assets/Check_16x16.png')  %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
                 <% else %>
-                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
                 <% end %>
               </td>
               <td>
                <% if modules_available.orientation == 1 %>
-                  <%= image_tag('/assets/Check_16x16.png')  %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
                 <% else %>
-                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
                 <% end %>
               </td>
               <td>
                 <% if modules_available.registration == 1 %>
-                  <%= image_tag('/assets/Check_16x16.png')  %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
                 <% else %>
-                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
                 <% end %>
               </td>
               <td>
                 <% if modules_available.emergency == 1 %>
-                  <%= image_tag('/assets/Check_16x16.png')  %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
                 <% else %>
-                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
                 <% end %>
               </td>
               <td>
                 <% if modules_available.faualert == 1 %>
-                  <%= image_tag('/assets/Check_16x16.png')  %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
                 <% else %>
-                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
                 <% end %>
               </td>
               <td>
                 <% if modules_available.owlcard == 1 %>
-                  <%= image_tag('/assets/Check_16x16.png')  %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
                 <% else %>
-                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
                 <% end %>
               </td>
               <td>
                 <% if modules_available.bookadvance == 1 %>
-                  <%= image_tag('/assets/Check_16x16.png')  %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
                 <% else %>
-                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
                 <% end %>
               </td>
               <td>
                 <% if modules_available.tution == 1 %>
-                  <%= image_tag('/assets/Check_16x16.png')  %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
                 <% else %>
-                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
                 <% end %>
               </td>
               <td>
                 <% if modules_available.vehiclereg == 1 %>
-                  <%= image_tag('/assets/Check_16x16.png')  %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
                 <% else %>
-                  <%= image_tag('/assets/Delete_16x16.png')  %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
                 <% end %>
               </td>
               <!-- <td><%#= link_to 'Show', ftic_modules_available %></td> -->
