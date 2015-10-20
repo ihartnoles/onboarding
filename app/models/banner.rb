@@ -81,6 +81,10 @@ class Banner < ActiveRecord::Base
 			get = connection.exec_query("SELECT SGBSTDN_RESD_CODE from BANINST1.AWS_ONBOARDING_FINAID WHERE Z_NUMBER=#{connection.quote(id)}")
 		end
 
+		def self.fin_aid_awards(id)
+			get = connection.exec_query("SELECT RFRBASE_FUND_TITLE, RPRATRM_PERIOD, RPRATRM_OFFER_AMT, TO_CHAR(RPRATRM_OFFER_DATE,'MM/DD/YYYY') as offerdate FROM BANINST1.AWS_ONBOARDING_FINAID_AWARDS WHERE Z_NUMBER=#{connection.quote(id)}")
+		end
+
 	#END:QUERIES TO BANINST1.AWS_ONBOARDING_FINAID
 
 

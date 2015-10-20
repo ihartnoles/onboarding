@@ -47,7 +47,32 @@ module StaticPagesHelper
      end
 
 
-     def fin_aid_docs(znum)
+     def fin_aid_awards(znum)
+      output = Banner.fin_aid_awards(znum)
+
+      tmp = ''
+      doc_status = ''
+
+      if output.count > 0
+        output.each do |o| 
+             if !o.nil?              
+
+               tmp <<  "<tr><td>#{o['rfrbase_fund_title']}</td><td>#{o['rpratrm_period']}</td><td>#{number_to_currency(o['rpratrm_offer_amt'])}</td><td>#{o['offerdate']}</td></tr>"
+             else
+               tmp =  "<tr><td colspan='4'>You DO NOT have award information on file.</td></tr>"
+             end        
+        end
+
+           return tmp.html_safe
+
+      else
+         tmp =  "<tr><td colspan='4'>You DO NOT have award information on file.</td></tr>"
+       return tmp.html_safe
+      end 
+     end
+
+
+      def fin_aid_docs(znum)
       output = Banner.fin_aid_docs(znum)
 
       tmp = ''

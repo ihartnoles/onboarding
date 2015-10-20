@@ -86,12 +86,21 @@
               <td>
                 <% if modules_available.deposit == 1 %>
                   <%#= image_tag('/assets/Check_16x16.png')  %>
-                    <div class="icon icon-20"> 
+                    <% if modules_available.depositbypass == 1 %>
+                       <div class="icon icon-20 text-warning">
+                    <% else %>
+                      <div class="icon icon-20">
+                    <% end %>                     
                       <i class="fa fa-unlock-alt"></i>
                     </div>
                 <% else %>
                   <%#= image_tag('/assets/Delete_16x16.png')  %>
-                  <div class="icon icon-20 text-error"> 
+                    <% if modules_available.depositbypass == 1 %>
+                       <div class="icon icon-20 text-warning">
+                   <% else %>
+                        <div class="icon icon-20 text-error"> 
+                   <% end %>
+
                     <i class="fa fa-lock"></i>
                   </div>
                 <% end %>

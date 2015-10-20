@@ -655,20 +655,7 @@ Hello, <%= session[:cas_user] %>!
 
 					  		</p>
 
-					  		
-
-					  		<!-- <p>
-					  			<ul>								
-									<li><a href="##">FAFSA Doc #1</a></li>
-									<li><a href="##">FAFSA Doc #2</a></li>
-									<li><a href="##">FAFSA Doc #3</a></li>
-									<li><a href="##">FAFSA Doc #4</a></li>
-									<li><a href="##">FAFSA Doc #5</a></li>																						
-								</ul>
-					  		</p> -->
-
-					  	<!-- <p>
-						  	<ul> -->
+					  	
 						  		<table class="table table-striped text-left order-details">
 						  			<thead>
 						  				<tr>
@@ -681,8 +668,22 @@ Hello, <%= session[:cas_user] %>!
 						  		<br>
 
 
-						  <!-- 	</ul>
-					  	</p> -->
+
+					  		<h3 class="title">Your Financial Aid Awards</h3>
+
+					  		<p>
+					  			<table class="table table-striped text-left order-details">
+						  			<thead>
+						  				<tr>
+						  					<th class="product-name">Award</th><th class="product-total">Term</th><th class="product-total">Amount</th><th class="product-total">Offer Date</th>
+						  				</tr>
+						  			</thead>
+
+						  				<%= fin_aid_awards(@znum) %>
+						  		</table>
+						  		<br>
+
+					  		</p>
 
 								
 				<button type="button" class="btn btn-danger">Continue</button>
@@ -1472,57 +1473,57 @@ Hello, <%= session[:cas_user] %>!
 			<% end %>
 			
 			<% if  @communication_available == 1 &&  @communication_complete == 0 %>
-				<li id="commnav"><a href="#" class="edit"><%= get_statusicon(@communication_available, @communication_complete) %></a> Communication Preference</li>
+				<li id="commnav"><a href="#" class="edit"><%= get_statusicon(@communication_available, @communication_complete, @communication_bypass) %></a> Communication Preference</li>
 			<% end %>
 
 			<% if  @immunization_available == 1 && @immunization_complete == 0 %>
-				<li id="immunenav"><a href="#" class="edit"><%= get_statusicon(@immunization_available, @immunization_complete) %></a> Immunization Holds</li>
+				<li id="immunenav"><a href="#" class="edit"><%= get_statusicon(@immunization_available, @immunization_complete, @immunization_bypass) %></a> Immunization Holds</li>
 			<% end %>
 
 			<% if  @residency_available == 1 && @residency_complete == 0 %>
-				<li><a href="#" class="edit"><%= get_statusicon(@residency_available, @residency_complete) %></a> Residency Validation</li>
+				<li><a href="#" class="edit"><%= get_statusicon(@residency_available, @residency_complete, @residency_bypass) %></a> Residency Validation</li>
 			<% end %>
 
 			<% if  @finaid_available == 1 && @finaid_complete == 0 %>
-			<li id="finaidnav"><a href="#" class="edit"><%= get_statusicon(@finaid_available, @finaid_complete) %></a> Financial Aid</li>
+			<li id="finaidnav"><a href="#" class="edit"><%= get_statusicon(@finaid_available, @finaid_complete, @finaid_bypass) %></a> Financial Aid</li>
 			<% end %>
 
 			<% if  @housing_fee_available == 1 && @housing_fee_complete == 0 %>
-				<li><a href="#" class="edit"><%= get_statusicon(@housing_fee_available, @housing_fee_complete) %></a> Housing Fee</li>
+				<li><a href="#" class="edit"><%= get_statusicon(@housing_fee_available, @housing_fee_complete, @housingfee_bypass) %></a> Housing Fee</li>
 			<% end %>
 
 			<% if  @housing_meal_plans_available == 1 && @housing_meal_plans_complete == 0 %>
-			<li><a href="#" class="edit"><%= get_statusicon(@housing_meal_plans_available, @housing_meal_plans_complete) %></a> Housing & Meal Plans</li>
+			<li><a href="#" class="edit"><%= get_statusicon(@housing_meal_plans_available, @housing_meal_plans_complete,@housingmealplanbypass) %></a> Housing & Meal Plans</li>
 			<% end %>
 
 			<% if  @aleks_available == 1 && @aleks_complete == 0 %>
-			<li><a href="#" class="edit"><%= get_statusicon(@aleks_available, @aleks_complete) %></a> Math Placement Exam </li>
+			<li><a href="#" class="edit"><%= get_statusicon(@aleks_available, @aleks_complete, @aleksbypass) %></a> Math Placement Exam </li>
 			<% end %>
 
 
 			<% if  @orientation_available == 1 && @orientation_complete == 0 %>
-			<li><a href="#" class="edit"><%= get_statusicon(@orientation_available, @orientation_complete) %></a> Orientation</li>
+			<li><a href="#" class="edit"><%= get_statusicon(@orientation_available, @orientation_complete, @orientationbypass) %></a> Orientation</li>
 			<% end %>
 
 			<li><a href="#" class="edit">information <i class='fa fa-info'></i></a> Learning Communities</li>
 			
 			<% if  @oars_available == 1 && @oars_complete_flag == 0 %>
-			<li><a href="#" class="edit"><%= get_statusicon(@oars_available, @oars_complete) %></a> Online Advising & Resource System</li>
+			<li><a href="#" class="edit"><%= get_statusicon(@oars_available, @oars_complete, @oars_bypass) %></a> Online Advising & Resource System</li>
 			<% end %>
 
 
 			<% if  @reg_available == 1 && @reg_complete == 0 %>
-				<li><a href="#" class="edit"><%= get_statusicon(@reg_available, @reg_complete) %></a> Registration</li>
+				<li><a href="#" class="edit"><%= get_statusicon(@reg_available, @reg_complete, @registrationbypass) %></a> Registration</li>
 			<% end %>
 
 			<% if  @tuition_available == 1 && @tuition_complete == 0 %>
-				<li><a href="#" class="edit"><%= get_statusicon(@tuition_available, @tuition_complete) %></a> Tuition Payment</li>
+				<li><a href="#" class="edit"><%= get_statusicon(@tuition_available, @tuition_complete, @tuition_bypass) %></a> Tuition Payment</li>
 			<% end %>
 			<% if  @emergency_available == 1 && @emergency_complete == 0 %>
-				<li><a href="#" class="edit"><%= get_statusicon(@emergency_available, @emergency_complete) %></a> Emergency Contacts</li>
+				<li><a href="#" class="edit"><%= get_statusicon(@emergency_available, @emergency_complete, @emergencybypass) %></a> Emergency Contacts</li>
 			<% end %>
 			<% if  @fau_alert_available == 1 && @fau_alert_complete == 0 %>
-				<li><a href="#" class="edit"><%= get_statusicon(@fau_alert_available, @fau_alert_complete) %></a> FAU Alert Info</li>
+				<li><a href="#" class="edit"><%= get_statusicon(@fau_alert_available, @fau_alert_complete, @faualertbypass) %></a> FAU Alert Info</li>
 			<% end %>
 
 			<li><a href="#" class="edit">information <i class='fa fa-info'></i></a> Owl Card</li>
