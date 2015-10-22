@@ -951,7 +951,7 @@ Hello, <%= session[:cas_user] %>!
 			</div>
 		  </li>
 
-		       <li class="panel">
+		  <li class="panel">
 
 		   	<% if @orientation_available == 1 && @orientation_complete == 0 || @orientation_complete.nil? %>
 				<a href="#step-13" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
@@ -987,6 +987,49 @@ Hello, <%= session[:cas_user] %>!
 							</p>
 					</div>
 
+					<!-- <p>
+						<a title="FAU Orientation" href="http://www.fau.edu/orientation/about/HowDoISignup.php" target="_blank">[More Information]</a>
+					</p> -->
+
+				<% end %>
+			  </div>			
+			</div>
+		  </li>
+
+		   <li class="panel">
+
+		   	<% if @orientation_available == 1 && @orientation_complete == 0 || @orientation_complete.nil? %>
+				<a href="#step-13A" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
+			<% elsif  (@orientation_available == 1 && @orientation_complete == 1) || @orientationbypass == 1 %>
+				<a href="#step-13A" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
+			<% else %>
+				<a href="#step-13A" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
+			<% end %>
+
+			  <div class="number"><!-- Step 13 --><%= get_statusicon(@orientation_available, @orientation_complete, @orientationbypass) %></div>
+			  <h6>International Student Orientation</h6>
+			</a>
+			
+			<div id="step-13A" class="collapse">				   
+			  <div class="step-content">			  		
+		  		<h3 class="title">International Student Orientation</h3>
+
+		  		<% if @orientationbypass == 1 %>			  		
+						<p> An administrator has bypassed (overridden) this section for you.</p>
+				<% else %>
+
+					<p>
+						In addition to the university-wide student orientation, international students holding F-1 or J-1 visa classification must also register for mandatory immigration check-in and international orientation. 
+						
+					</p>	
+
+					<p>Register for mandatory <a href="https://docs.google.com/forms/d/1nMaxZuzgsDps14fS_F5C7e3WMc-EAjzX-EdHu2HLOyE/viewform?c=0&w=1" target="_blank">Immigration Check-in</a>.</p>
+					<p>Register for mandatory <a href="https://docs.google.com/forms/d/1GBYhv4bhBzBwbrY-fAwoTSKnIQYyzGEM4WRbGMYngL0/viewform" target="_blank">International Student Orientation</a>.</p>
+					
+					<p><em>After the two steps above are complete, the IS hold should be removed. Currently, these holds are manually removed after the students complete these two steps.</em></p>
+
+
+					
 					<!-- <p>
 						<a title="FAU Orientation" href="http://www.fau.edu/orientation/about/HowDoISignup.php" target="_blank">[More Information]</a>
 					</p> -->
