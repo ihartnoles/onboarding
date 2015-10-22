@@ -1044,7 +1044,7 @@ Hello, <%= session[:cas_user] %>!
 		  <% if @learning_comm_available == 1  %>
 			<a href="#step-12" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
 		  <% elsif  (@learning_comm_available == 1 || @learning_comm_available == 0) && @learning_commbypass == 1 %>
-		   	<a href="#step-18" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
+		   	<a href="#step-12" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
 		  <% else %>
 		    <a href="#step-12" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
 		  <% end %>
