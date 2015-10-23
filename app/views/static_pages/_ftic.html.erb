@@ -600,7 +600,51 @@ Hello, <%= session[:cas_user] %>!
 			</div>
 		  </li>
 
-		   <li class="panel">
+		  <li class="panel">
+		  <% if @emergency_available == 1 && @emergency_complete == 0 %>
+		  	<a href="#step-5A" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
+		  <% elsif (@emergency_available == 1 && @emergency_complete == 1) || @emergencybypass == 1 %>
+		  	<a href="#step-5A" class="collapsed step-title complete" data-parent="#checkoutsteps" data-toggle="collapse">
+		  <% else %>
+		    <a href="#step-5A" class="collapsed step-title disabled" data-parent="#checkoutsteps" data-toggle="">
+		  <% end %>
+
+			  <div class="number"><!-- Step 15 --> <%= get_statusicon(@emergency_available, @emergency_complete, @emergencybypass) %></div>
+			  <h6>International Student Medical Insurance</h6>
+			</a>
+			
+			<div id="step-5A" class="collapse">				   
+			  <div class="step-content">			  		
+		  		<h3 class="title">International Student Medical Insurance</h3>
+				<!-- <p> Please be on the lookout for the FAU Alert and Statement of Responsibility forms/screens when you login to Self Service for the first time. You  must verify and submit both before the respective holds are lifted and access is granted to Self Service.</p> -->
+
+				<% if @emergencybypass == 1 %>			  		
+						<p> An administrator has bypassed (overridden) this section for you.</p>
+				<% else %>
+					
+					 <p>
+					 	All international students are permitted to register for classes at Florida Atlantic University (FAU) only after demonstrating that they hold medical insurance coverage which meets the guidelines set by the Florida Board of Governors Regulation BOG 6.009 and FAU Regulation 4.009 International students with F-1 and J-1 status are required to maintain continuous insurance coverage throughout the entire duration of their association with FAU (including any period authorized for academic training or authorized vacation or leave).  International students beginning enrollment in the fall semester must show proof of insurance for the full academic year, including the summer semester.  Students beginning enrollment in the spring or summer semesters, must have coverage extending from at least the beginning of the term to the third week of August. Misrepresenting or willfully failing to maintain appropriate medical insurance coverage will result in serious consequences for the student.
+					 </p>
+
+					 <p>
+					 	<strong>OPTION I</strong><br>
+							Step 1. <a href="http://www.insuranceforstudents.com/insurance-plans/year/schools/details?s=9&l=5012&b=0" target="_blank">Enroll</a> in the FAU insurance plan for international students.<br>
+							Step 2. Submit your receipt to <a href="mailto:insurance@fau.edu">insurance@fau.edu</a> (subject line: Remove MM hold – insurance receipt).<br>
+					 </p>
+				 		
+				 	 <p>
+					 	<strong>OPTION II</strong><br>
+							Students who wish to seek medical insurance coverage under a non-FAU plan must submit the <a href="http://www.fau.edu/shs/PDFs/Alternate_Insurance_Form_2015_2016.pdf" target="_blank">Alternate Insurance Compliance Form</a> in lieu of purchasing the FAU insurance plan for international students.
+					 </p>
+					 <p>
+					 	<em><b>MM hold is manually removed by Student Health Services.</b></em>
+					 </p>
+				<% end %>
+			  </div>			
+			</div>
+		  </li>
+
+	   <li class="panel">
 
 		  <% if @residency_available == 1 && @residency_complete == 0 %>
 			<a href="#step-7" class="collapsed step-title incomplete" data-parent="#checkoutsteps" data-toggle="collapse">
