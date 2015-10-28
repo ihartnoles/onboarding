@@ -8,6 +8,8 @@ class FticModulesAvailable < ActiveRecord::Base
          newstudent = FticModulesAvailable.new
          newstudent.znumber = bs['z_number']
          newstudent.netid   = bs['gobtpac_external_user']
+         newstudent.fname = bs['f_name']
+         newstudent.lname = bs['l_name']
          newstudent.welcome = 1
          newstudent.deposit = 1
          newstudent.account = 0
@@ -34,7 +36,9 @@ class FticModulesAvailable < ActiveRecord::Base
          student = FticModulesAvailable.find_by_znumber(bs['z_number'])       
          student.update_attributes(
           :netid => bs['gobtpac_external_user'],
-          :znumber => bs['z_number']
+          :znumber => bs['z_number'],
+          :f_name => bs['f_name'],
+          :l_name => bs['l_name']
          ) 
         end
 

@@ -7,8 +7,13 @@ Hello, <%= session[:cas_user] %>!
 <% end %>
 
 
+ 	
+
+
+<div class="page-box" >
+
 	<p>
-	 <div id="cover" class="sk-spinner sk-spinner-three-bounce" style="width: 100%; height: 100%;">
+	 <div id="cover" class="sk-spinner sk-spinner-three-bounce" style="width: 90%;">
       <span id="loadingmessage"><h4>Welcome to Florida Atlantic University</h4></span><br>
       <div class="sk-bounce1"></div>
       <div class="sk-bounce2"></div>
@@ -16,12 +21,7 @@ Hello, <%= session[:cas_user] %>!
     </div>
 	</p>      
 
-
-<div class="page-box">
-
-	
-
-<div class="page-box-content">
+  <div class="page-box-content"> 
   
 
 	<div id="top-box">
@@ -30,7 +30,7 @@ Hello, <%= session[:cas_user] %>!
 
 	<%#= render 'header' %>
 
-	<header class="header" style="visibility:hidden">
+	<header class="header" >
 	  <div class="header-wrapper">
 		<div class="container">
 		  <div class="row">
@@ -1924,13 +1924,13 @@ Hello, <%= session[:cas_user] %>!
  
     $(window).load(function(){
     	$('#loadingmessage').html('<h4>FAU Onboarding Modules Loading</h4>');
-        $('#cover').delay(500).fadeOut(1500);     
+        $('#cover').delay(700).fadeOut(1500);     
  	})
 
 	 $(function() {
-	 	$('.header').css('visibility','visible').delay(500).hide().fadeIn(500);
-	 	$('#main').css('visibility','visible').delay(500).hide().fadeIn(500);
-		$('#footer').css('visibility','visible').delay(500).hide().fadeIn(500);
+	 	$('.page-box-content').css('visibility','visible').delay(700).hide().fadeIn(700);
+	 	$('#main').css('visibility','visible').delay(700).hide().slideUp().fadeIn(700);
+		$('#footer').css('visibility','visible').delay(700).hide().fadeIn(700);
 
 	 $("#btnForm").fancybox({
 	 	'autoScale': true,

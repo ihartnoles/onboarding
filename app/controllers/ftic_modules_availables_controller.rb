@@ -28,9 +28,9 @@ class FticModulesAvailablesController < ApplicationController
   def create
     @modules_available = FticModulesAvailable.new(ftic_modules_available_params)
 
-    PUTS YAML:DUMP('BEGIN*************************************')
-    PUTS YAML:DUMP(ftic_modules_available_params)
-    PUTS YAML:DUMP('END*************************************')
+    # PUTS YAML:DUMP('BEGIN*************************************')
+    # PUTS YAML:DUMP(ftic_modules_available_params)
+    # PUTS YAML:DUMP('END*************************************')
 
 
     respond_to do |format|
@@ -76,7 +76,7 @@ class FticModulesAvailablesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ftic_modules_available_params
-      params.require(:ftic_modules_available).permit(:znumber, :netid, :welcome, :deposit, :depositbypass, :account, :accountbypass, :communication, :communicationbypass, :immunization, :immunizationbypass, :finaid, :finaidbypass, :housingfee, :housingfeebypass, :residency, :residencybypass, :housingmealplan, :housingmealplanbypass, :aleks, :aleksbypass, :oars, :oarsbypass, :learning_comm,  :learning_commbypass, 
+      params.require(:ftic_modules_available).permit(:znumber, :netid, :f_name, :l_name, :welcome, :deposit, :depositbypass, :account, :accountbypass, :communication, :communicationbypass, :immunization, :immunizationbypass, :finaid, :finaidbypass, :housingfee, :housingfeebypass, :residency, :residencybypass, :housingmealplan, :housingmealplanbypass, :aleks, :aleksbypass, :oars, :oarsbypass, :learning_comm,  :learning_commbypass, 
         :orientation, :orientationbypass, 
         :registrationbypass, :registration, :emergency, :emergencybypass, :faualert,  :faualertbypass, :owlcard, :owlcardbypass, :bookadvance, :bookadvancebypass ,:tution, :tuitionbypass, :vehiclereg, :vehicleregbypass)
     end

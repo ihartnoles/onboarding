@@ -7,7 +7,7 @@
   <div class="container">
       <header class="page-header">
         <div class="container">
-          <h3 class="title">FTIC Module Availabilty Queue</h3>
+          <h3 class="title">FTIC Queue</h3>
         </div>
       </header>
 
@@ -31,6 +31,8 @@
           <tr >
             <th>Netid</th>
             <th>Z#</th>
+            <th>First</th>
+            <th>Last</th>
             <th>Actions</th>  
             <th>Welcome</th>
             <th>Deposit</th>
@@ -63,6 +65,8 @@
             <tr>
               <td><%= modules_available.netid %></td>
               <td><%= modules_available.znumber %></td>
+              <td><%= modules_available.f_name %></td>
+              <td><%= modules_available.l_name %></td>
               <td>
                  <%= link_to 'Edit', edit_ftic_modules_available_path(modules_available) %> <br>
                  <a href="/home?znum=<%= modules_available.znumber %>" target="_blank">Proxy</a><br>
@@ -380,6 +384,8 @@ $(document).ready(function(){
     "aoColumns": [
       null,
       { "asSorting": [ "asc" ] },
+      { "bSortable": false },
+      { "bSortable": false },
       { "bSortable": false },
       { "bSortable": false },
       { "bSortable": false },
