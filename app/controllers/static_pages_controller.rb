@@ -73,7 +73,7 @@ class StaticPagesController < ApplicationController
       #     @displayname = 'TAMAS'
       #   end
       else
-         @displayname = 'UFO'
+         @displayname = 'N/A'
       end
       
       if params[:znum] 
@@ -283,7 +283,12 @@ class StaticPagesController < ApplicationController
                     @emergency_contact = o['spremrg_contact_name']
                   end 
 
+                  @term_display = o['term']
+                  @year_display = o['year']
 
+                  @finaidyear = o['finaidyear']
+
+                  
                 end
             end
 

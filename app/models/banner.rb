@@ -50,7 +50,23 @@ class Banner < ActiveRecord::Base
 			# sarchkl_admr_code == TUTD -> deposit has been made
 			# spremrg fields = emergency contact info on file
 		def self.get_multistatus(id)
-			get = connection.exec_query("SELECT GOBTPAC_EXTERNAL_USER, aleks_taken, sarchkl_admr_code, sarchkl_receive_date, sarchkl_receive_date, sarchkl_admr_code, CONCAT(CONCAT(spremrg_first_name,' '),spremrg_last_name) as spremrg_contact_name FROM BANINST1.AWS_ONBOARDING_MAIN WHERE Z_NUMBER=#{connection.quote(id)}")
+			get = connection.exec_query("SELECT GOBTPAC_EXTERNAL_USER, 
+										 SUBSTR( SARADAP_TERM_CODE_ENTRY, 1 , 4 ) as year,
+									      CASE SUBSTR(SARADAP_TERM_CODE_ENTRY, 5 , 6 )
+									             WHEN '01' THEN 'Spring'
+									             WHEN '08' THEN 'Fall'
+									             WHEN '05' THEN 'Summer'
+									          ELSE ''
+									      END as term ,
+
+									      CASE SUBSTR( SARADAP_TERM_CODE_ENTRY, 1 , 4 )
+									             WHEN '2016' THEN '1516'
+									             WHEN '2015' THEN '1415'
+									             WHEN '2014' THEN '1314'            
+									           ELSE ''
+									      END as finaidyear,
+									      
+									      aleks_taken, sarchkl_admr_code, sarchkl_receive_date, sarchkl_receive_date, sarchkl_admr_code, CONCAT(CONCAT(spremrg_first_name,' '),spremrg_last_name) as spremrg_contact_name FROM BANINST1.AWS_ONBOARDING_MAIN WHERE Z_NUMBER=#{connection.quote(id)}")
 		end
 		#END: a test to consolidate aleks tution and account claim status
 
