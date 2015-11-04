@@ -53,7 +53,7 @@ class FticModulesAvailablesController < ApplicationController
   def update
     respond_to do |format|
       if @modules_available.update(ftic_modules_available_params)
-        format.html { redirect_to ftic_modules_availables_path, notice: 'Record updated!' }
+        format.html { redirect_to '/dashboard/ftic', notice: 'Record updated!' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

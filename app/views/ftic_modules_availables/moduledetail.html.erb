@@ -1,5 +1,5 @@
 
-
+<p>&nbsp;</p>
 
 <div class="container">
 <% @modules_availables.each do |modules_available| %>	
@@ -16,7 +16,7 @@
 			<h4 class="title">Module Information</h4>	
 		  </header> -->
 		
-			<div class="col-sm-4 col-md-4 service">
+			<div class="col-sm-4 col-md-4 service alert alert-border">
 		  <a href="/fticadmin/<%= modules_available.id %>/edit">
 			<div class="icon bg"> <% if modules_available.welcome == 1 %><i class="fa fa-unlock-alt"></i><% else %><i class="fa fa-lock"></i><% end %></div>
 			<h6 class="title">Welcome</h6>
@@ -27,7 +27,7 @@
 			 
 		  </a>
 		</div>
-		<div class="col-sm-4 col-md-4 service">
+		<div class="col-sm-4 col-md-4 service alert alert-border">
 		  <a href="/fticadmin/<%= modules_available.id %>/edit">
 			<div class="icon bg">
 				<% if modules_available.deposit == 1 %>
@@ -35,7 +35,7 @@
                     <% if modules_available.depositbypass == 1 %>
                        <div class="icon icon-20 text-warning">
                     <% else %>
-                      <div class="icon icon-20">
+                      <div class="icon icon-20 text-danger">
                     <% end %>                     
                       <i class="fa fa-unlock-alt"></i>
                     </div>
@@ -59,7 +59,7 @@
 		  </a>
 		</div>
 
-		<div class="col-sm-4 col-md-4 service">
+		<div class="col-sm-4 col-md-4 service alert alert-border">
 		  <a href="/fticadmin/<%= modules_available.id %>/edit">
 			<div class="icon bg"><% if modules_available.account == 1 %>
                   <%#= image_tag('/assets/Check_16x16.png')  %>
@@ -82,7 +82,7 @@
 
 		<hr>
 
-		 <div class="col-sm-4 col-md-4 service">
+		 <div class="col-sm-4 col-md-4 service alert alert-border">
 		  <a href="/fticadmin/<%= modules_available.id %>/edit">
 			<div class="icon bg"><% if modules_available.communication == 1 %>
                   <%#= image_tag('/assets/Check_16x16.png')  %>
@@ -103,7 +103,7 @@
 		  </a>
 		</div>
 
-		<div class="col-sm-4 col-md-4 service">
+		<div class="col-sm-4 col-md-4 service alert alert-border">
 		  <a href="/fticadmin/<%= modules_available.id %>/edit">
 			<div class="icon bg"> 
 				<% if modules_available.immunization == 1 %>
@@ -125,7 +125,7 @@
 			</div>	
 		  </a>
 		</div>
-		<div class="col-sm-4 col-md-4 service">
+		<div class="col-sm-4 col-md-4 service alert alert-border">
 		  <a href="/fticadmin/<%= modules_available.id %>/edit">
 			<div class="icon bg"><% if modules_available.residency == 1 %>
                   <%#= image_tag('/assets/Check_16x16.png')  %>
@@ -146,7 +146,7 @@
 		  </a>
 		</div>
    		
-   		 <div class="col-sm-4 col-md-4 service">
+   		 <div class="col-sm-4 col-md-4 service alert alert-border">
 		  <a href="/fticadmin/<%= modules_available.id %>/edit">
 			<div class="icon bg"><% if modules_available.finaid == 1 %>
                   <%#= image_tag('/assets/Check_16x16.png')  %>
@@ -167,7 +167,7 @@
 		  </a>
 		</div>
 
-		<div class="col-sm-4 col-md-4 service">
+		<div class="col-sm-4 col-md-4 service alert alert-border">
 		  <a href="/fticadmin/<%= modules_available.id %>/edit">
 			<div class="icon bg"> <% if modules_available.housingfee == 1 %>
                   <%#= image_tag('/assets/Check_16x16.png')  %>
@@ -187,7 +187,7 @@
 			</div>	
 		  </a>
 		</div>
-		<div class="col-sm-4 col-md-4 service">
+		<div class="col-sm-4 col-md-4 service alert alert-border">
 		  <a href="/fticadmin/<%= modules_available.id %>/edit">
 			<div class="icon bg"><% if modules_available.housingmealplan == 1 %>
                   <%#= image_tag('/assets/Check_16x16.png')  %>
@@ -209,7 +209,7 @@
 		</div>
 
 
-		<div class="col-sm-4 col-md-4 service">
+		<div class="col-sm-4 col-md-4 service alert alert-border">
 		  <a href="/fticadmin/<%= modules_available.id %>/edit">
 			<div class="icon bg"> 
 				<% if modules_available.aleks == 1 %>
@@ -230,7 +230,7 @@
 			</div>	
 		  </a>
 		</div>
-		<div class="col-sm-4 col-md-4 service">
+		<div class="col-sm-4 col-md-4 service alert alert-border">
 		  <a href="/fticadmin/<%= modules_available.id %>/edit">
 			<div class="icon bg"> <% if modules_available.orientation == 1 %>
                   <%#= image_tag('/assets/Check_16x16.png')  %>
@@ -251,7 +251,7 @@
 		  </a>
 		</div>
    		
-   		 <div class="col-sm-4 col-md-4 service">
+   		 <div class="col-sm-4 col-md-4 service alert alert-border">
 		  <a href="/fticadmin/<%= modules_available.id %>/edit">
 			<div class="icon bg">
 			    <% if modules_available.learning_comm == 1 %>
@@ -273,7 +273,7 @@
 		  </a>
 		</div>
 
-		<div class="col-sm-4 col-md-4 service">
+		<div class="col-sm-4 col-md-4 service alert alert-border">
 		  <a href="/fticadmin/<%= modules_available.id %>/edit">
 			<div class="icon bg"><% if modules_available.oars == 1 %>
                   <%#= image_tag('/assets/Check_16x16.png')  %>
@@ -293,7 +293,7 @@
 			</div>	
 		  </a>
 		</div>
-		<div class="col-sm-4 col-md-4 service">
+		<div class="col-sm-4 col-md-4 service alert alert-border">
 		  <a href="/fticadmin/<%= modules_available.id %>/edit">
 			<div class="icon bg"> <% if modules_available.registration == 1 %>
                   <%#= image_tag('/assets/Check_16x16.png')  %>
@@ -314,7 +314,7 @@
 		  </a>
 		</div>
    		
-   		 <div class="col-sm-4 col-md-4 service">
+   		 <div class="col-sm-4 col-md-4 service alert alert-border">
 		  <a href="/fticadmin/<%= modules_available.id %>/edit">
 			<div class="icon bg"> 
 				<% if modules_available.tution == 1 %>
@@ -336,7 +336,7 @@
 		  </a>
 		</div>
 
-		<div class="col-sm-4 col-md-4 service">
+		<div class="col-sm-4 col-md-4 service alert alert-border">
 		  <a href="/fticadmin/<%= modules_available.id %>/edit">
 			<div class="icon bg">  <% if modules_available.emergency == 1 %>
                   <%#= image_tag('/assets/Check_16x16.png')  %>
@@ -356,7 +356,7 @@
 			</div>	
 		  </a>
 		</div>
-		<div class="col-sm-4 col-md-4 service">
+		<div class="col-sm-4 col-md-4 service alert alert-border">
 		  <a href="/fticadmin/<%= modules_available.id %>/edit">
 			<div class="icon bg"> <% if modules_available.faualert == 1 %>
                   <%#= image_tag('/assets/Check_16x16.png')  %>
@@ -377,7 +377,7 @@
 		  </a>
 		</div>
    		
-   		 <div class="col-sm-4 col-md-4 service">
+   		 <div class="col-sm-4 col-md-4 service alert alert-border">
 		  <a href="/fticadmin/<%= modules_available.id %>/edit">
 			<div class="icon bg"> <% if modules_available.owlcard == 1 %>
                   <%#= image_tag('/assets/Check_16x16.png')  %>
@@ -398,7 +398,7 @@
 		  </a>
 		</div>
 
-		<div class="col-sm-4 col-md-4 service">
+		<div class="col-sm-4 col-md-4 service alert alert-border">
 		  <a href="/fticadmin/<%= modules_available.id %>/edit">
 			<div class="icon bg"> <% if modules_available.bookadvance == 1 %>
                   <%#= image_tag('/assets/Check_16x16.png')  %>
@@ -418,7 +418,7 @@
 			</div>	
 		  </a>
 		</div>
-		<div class="col-sm-4 col-md-4 service">
+		<div class="col-sm-4 col-md-4 service alert alert-border">
 		  <a href="/fticadmin/<%= modules_available.id %>/edit">
 			<div class="icon bg">
 				<% if modules_available.vehiclereg == 1 %>
