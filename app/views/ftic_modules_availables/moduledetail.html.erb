@@ -1,0 +1,453 @@
+
+
+
+<div class="container">
+<% @modules_availables.each do |modules_available| %>	
+	<header class="page-header">
+    <div class="container">
+      <h3 class="title">Student Information for <%= modules_available.f_name%>  <%= modules_available.l_name%> (<%=modules_available.znumber %>) </h1>
+    </div>  
+  </header>
+
+    <div class="row">
+      <div class="sidebar col-sm-12 col-md-12" id="sidebar">
+		
+		  <!-- <header>
+			<h4 class="title">Module Information</h4>	
+		  </header> -->
+		
+			<div class="col-sm-4 col-md-4 service">
+		  <a href="/fticadmin/<%= modules_available.id %>/edit">
+			<div class="icon bg"> <% if modules_available.welcome == 1 %><i class="fa fa-unlock-alt"></i><% else %><i class="fa fa-lock"></i><% end %></div>
+			<h6 class="title">Welcome</h6>
+			<div class="text-small">
+				<div class="text-warning"><em><b>pending</b></em></div><br>
+				The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
+			</div>	
+			 
+		  </a>
+		</div>
+		<div class="col-sm-4 col-md-4 service">
+		  <a href="/fticadmin/<%= modules_available.id %>/edit">
+			<div class="icon bg">
+				<% if modules_available.deposit == 1 %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                    <% if modules_available.depositbypass == 1 %>
+                       <div class="icon icon-20 text-warning">
+                    <% else %>
+                      <div class="icon icon-20">
+                    <% end %>                     
+                      <i class="fa fa-unlock-alt"></i>
+                    </div>
+                <% else %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                    <% if modules_available.depositbypass == 1 %>
+                       <div class="icon icon-20 text-warning">
+                   <% else %>
+                        <div class="icon icon-20 text-error"> 
+                   <% end %>
+
+                    <i class="fa fa-lock"></i>
+                  </div>
+                <% end %>
+			</div>
+			<h6 class="title">Deposit</h6>
+			<div class="text-small">
+				<div class="text-warning"><em><b>pending</b></em></div><br>
+				The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
+			</div>	
+		  </a>
+		</div>
+
+		<div class="col-sm-4 col-md-4 service">
+		  <a href="/fticadmin/<%= modules_available.id %>/edit">
+			<div class="icon bg"><% if modules_available.account == 1 %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
+                <% else %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
+                <% end %></div>
+			<h6 class="title">Account</h6>
+			<div class="text-small">
+				<div class="text-warning"><em><b>pending</b></em></div><br>
+				The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
+			</div>	
+		  </a>
+		</div>
+
+		<hr>
+
+		 <div class="col-sm-4 col-md-4 service">
+		  <a href="/fticadmin/<%= modules_available.id %>/edit">
+			<div class="icon bg"><% if modules_available.communication == 1 %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
+                <% else %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
+                <% end %></div>
+			<h6 class="title">Communication Preference</h6>
+			<div class="text-small">
+				<div class="text-warning"><em><b>pending</b></em></div><br>
+				The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
+			</div>	
+		  </a>
+		</div>
+
+		<div class="col-sm-4 col-md-4 service">
+		  <a href="/fticadmin/<%= modules_available.id %>/edit">
+			<div class="icon bg"> 
+				<% if modules_available.immunization == 1 %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
+                <% else %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
+                <% end %>
+            </div>
+			<h6 class="title">Immunization Holds</h6>
+			<div class="text-small">
+				<div class="text-warning"><em><b>pending</b></em></div><br>
+				The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
+			</div>	
+		  </a>
+		</div>
+		<div class="col-sm-4 col-md-4 service">
+		  <a href="/fticadmin/<%= modules_available.id %>/edit">
+			<div class="icon bg"><% if modules_available.residency == 1 %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
+                <% else %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
+                <% end %></div>
+			<h6 class="title">Residency Validation</h6>
+			<div class="text-small">
+				<div class="text-warning"><em><b>pending</b></em></div><br>
+				The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
+			</div>	
+		  </a>
+		</div>
+   		
+   		 <div class="col-sm-4 col-md-4 service">
+		  <a href="/fticadmin/<%= modules_available.id %>/edit">
+			<div class="icon bg"><% if modules_available.finaid == 1 %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
+                <% else %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
+                <% end %></div>
+			<h6 class="title">Financial Aid</h6>
+			<div class="text-small">
+				<div class="text-warning"><em><b>pending</b></em></div><br>
+				The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
+			</div>	
+		  </a>
+		</div>
+
+		<div class="col-sm-4 col-md-4 service">
+		  <a href="/fticadmin/<%= modules_available.id %>/edit">
+			<div class="icon bg"> <% if modules_available.housingfee == 1 %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
+                <% else %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
+                <% end %></div>
+			<h6 class="title">Housing Fee</h6>
+			<div class="text-small">
+				<div class="text-warning"><em><b>pending</b></em></div><br>
+				The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
+			</div>	
+		  </a>
+		</div>
+		<div class="col-sm-4 col-md-4 service">
+		  <a href="/fticadmin/<%= modules_available.id %>/edit">
+			<div class="icon bg"><% if modules_available.housingmealplan == 1 %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
+                <% else %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
+                <% end %></div>
+			<h6 class="title">Housing and Meal Plans</h6>
+			<div class="text-small">
+				<div class="text-warning"><em><b>pending</b></em></div><br>
+				The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
+			</div>	
+		  </a>
+		</div>
+
+
+		<div class="col-sm-4 col-md-4 service">
+		  <a href="/fticadmin/<%= modules_available.id %>/edit">
+			<div class="icon bg"> 
+				<% if modules_available.aleks == 1 %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
+                <% else %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
+                <% end %></div>
+			<h6 class="title">ALEKS</h6>
+			<div class="text-small">
+				<div class="text-warning"><em><b>pending</b></em></div><br>
+				The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
+			</div>	
+		  </a>
+		</div>
+		<div class="col-sm-4 col-md-4 service">
+		  <a href="/fticadmin/<%= modules_available.id %>/edit">
+			<div class="icon bg"> <% if modules_available.orientation == 1 %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
+                <% else %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
+                <% end %></div>
+			<h6 class="title">Orientation</h6>
+			<div class="text-small">
+				<div class="text-warning"><em><b>pending</b></em></div><br>
+				The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
+			</div>	
+		  </a>
+		</div>
+   		
+   		 <div class="col-sm-4 col-md-4 service">
+		  <a href="/fticadmin/<%= modules_available.id %>/edit">
+			<div class="icon bg">
+			    <% if modules_available.learning_comm == 1 %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
+                <% else %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
+                <% end %></div>
+			<h6 class="title">Learning Communities</h6>
+			<div class="text-small">
+				<div class="text-warning"><em><b>pending</b></em></div><br>
+				The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
+			</div>	
+		  </a>
+		</div>
+
+		<div class="col-sm-4 col-md-4 service">
+		  <a href="/fticadmin/<%= modules_available.id %>/edit">
+			<div class="icon bg"><% if modules_available.oars == 1 %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
+                <% else %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
+                <% end %></div>
+			<h6 class="title">OARS</h6>
+			<div class="text-small">
+				<div class="text-warning"><em><b>pending</b></em></div><br>
+				The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
+			</div>	
+		  </a>
+		</div>
+		<div class="col-sm-4 col-md-4 service">
+		  <a href="/fticadmin/<%= modules_available.id %>/edit">
+			<div class="icon bg"> <% if modules_available.registration == 1 %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
+                <% else %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
+                <% end %></div>
+			<h6 class="title">Registration</h6>
+			<div class="text-small">
+				<div class="text-warning"><em><b>pending</b></em></div><br>
+				The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
+			</div>	
+		  </a>
+		</div>
+   		
+   		 <div class="col-sm-4 col-md-4 service">
+		  <a href="/fticadmin/<%= modules_available.id %>/edit">
+			<div class="icon bg"> 
+				<% if modules_available.tution == 1 %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
+                <% else %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
+                <% end %></div>
+			<h6 class="title">Tuition Payment</h6>
+			<div class="text-small">
+				<div class="text-warning"><em><b>pending</b></em></div><br>
+				The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
+			</div>	
+		  </a>
+		</div>
+
+		<div class="col-sm-4 col-md-4 service">
+		  <a href="/fticadmin/<%= modules_available.id %>/edit">
+			<div class="icon bg">  <% if modules_available.emergency == 1 %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
+                <% else %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
+                <% end %></div>
+			<h6 class="title">Emergency Contacts</h6>
+			<div class="text-small">
+				<div class="text-warning"><em><b>pending</b></em></div><br>
+				The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
+			</div>	
+		  </a>
+		</div>
+		<div class="col-sm-4 col-md-4 service">
+		  <a href="/fticadmin/<%= modules_available.id %>/edit">
+			<div class="icon bg"> <% if modules_available.faualert == 1 %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
+                <% else %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
+                <% end %></div>
+			<h6 class="title">FAU Alert</h6>
+			<div class="text-small">
+				<div class="text-warning"><em><b>pending</b></em></div><br>
+				The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
+			</div>	
+		  </a>
+		</div>
+   		
+   		 <div class="col-sm-4 col-md-4 service">
+		  <a href="/fticadmin/<%= modules_available.id %>/edit">
+			<div class="icon bg"> <% if modules_available.owlcard == 1 %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
+                <% else %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
+                <% end %></div>
+			<h6 class="title">Owl Card</h6>
+			<div class="text-small">
+				<div class="text-warning"><em><b>pending</b></em></div><br>
+				The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
+			</div>	
+		  </a>
+		</div>
+
+		<div class="col-sm-4 col-md-4 service">
+		  <a href="/fticadmin/<%= modules_available.id %>/edit">
+			<div class="icon bg"> <% if modules_available.bookadvance == 1 %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
+                <% else %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
+                <% end %></div>
+			<h6 class="title">Book Advance</h6>
+			<div class="text-small">
+				<div class="text-warning"><em><b>pending</b></em></div><br>
+				The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
+			</div>	
+		  </a>
+		</div>
+		<div class="col-sm-4 col-md-4 service">
+		  <a href="/fticadmin/<%= modules_available.id %>/edit">
+			<div class="icon bg">
+				<% if modules_available.vehiclereg == 1 %>
+                  <%#= image_tag('/assets/Check_16x16.png')  %>
+                   <div class="icon icon-20"> 
+                    <i class="fa fa-unlock-alt"></i>
+                  </div>
+                <% else %>
+                  <%#= image_tag('/assets/Delete_16x16.png')  %>
+                  <div class="icon icon-20 text-error"> 
+                    <i class="fa fa-lock"></i>
+                  </div>
+                <% end %></div>
+			<h6 class="title">Vechicle</h6>
+			<div class="text-small">
+				<div class="text-warning"><em><b>pending</b></em></div><br>
+				The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
+			</div>	
+		  </a>
+		</div>
+   		
+   		 
+
+	  </div><!-- .row -->
+
+	
+     
+
+	 
+    <% end %>
+  </div><!-- .container -->
+

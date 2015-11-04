@@ -9,6 +9,10 @@ class FticModulesAvailablesController < ApplicationController
     @modules_availables = FticModulesAvailable.where(:isactive => 1).order(:netid)
   end
 
+  def moduledetail
+    @modules_availables = FticModulesAvailable.where(:znumber => params[:znum])
+  end
+
   # GET /modules_availables/1
   # GET /modules_availables/1.json
   def show

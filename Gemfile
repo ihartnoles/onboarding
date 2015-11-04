@@ -4,6 +4,10 @@ source 'https://rubygems.org'
 # gem 'rails', '4.0.4'
 gem 'rails', '4.0.4'
 
+gem 'paperclip'
+
+gem 'ckeditor', github: 'galetahub/ckeditor'
+
 #gem 'newrelic_rpm'
 
 gem 'whenever', :require => false

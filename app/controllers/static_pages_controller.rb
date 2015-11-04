@@ -516,6 +516,26 @@ class StaticPagesController < ApplicationController
 	# 	@description = 'Reporting Options'
 	# end 
 
+  def dashboard
+    studentype = params[:type].presence || 'ftic'
+
+    case studentype
+     when "ftic"
+       @table_label = "First Time in College Queue"
+       @modules_availables = FticModulesAvailable.where(:isactive => 1).order(:netid)
+     when "intl"
+       @table_label = "International Queue"
+       @modules_availables = FticModulesAvailable.where(:isactive => 1).order(:netid)
+     when "transfer"
+       @table_label = "Transfer Queue"
+       @modules_availables = FticModulesAvailable.where(:isactive => 1).order(:netid)
+     else
+       @table_label = "Student Queue"
+       @modules_availabless = FticModulesAvailable.where(:isactive => 1).order(:netid)
+     end
+  end
+
+  
  
 	def unauthorized
 		@title = 'Unauthorized'

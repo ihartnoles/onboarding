@@ -11,15 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150722142114) do
+ActiveRecord::Schema.define(version: 20151104151359) do
 
 # Could not dump table "activity_logs" because of following NoMethodError
-#   undefined method `column_spec_with_oracle_enhanced' for #<ActiveRecord::ConnectionAdapters::SQLServerAdapter:0xa22db0c>
+#   undefined method `column_spec_with_oracle_enhanced' for #<ActiveRecord::ConnectionAdapters::SQLServerAdapter:0xad70050>
+
+# Could not dump table "ckeditor_assets" because of following NoMethodError
+#   undefined method `column_spec_with_oracle_enhanced' for #<ActiveRecord::ConnectionAdapters::SQLServerAdapter:0xad70050>
 
 # Could not dump table "ftic_modules_availables" because of following NoMethodError
-#   undefined method `column_spec_with_oracle_enhanced' for #<ActiveRecord::ConnectionAdapters::SQLServerAdapter:0xa22db0c>
+#   undefined method `column_spec_with_oracle_enhanced' for #<ActiveRecord::ConnectionAdapters::SQLServerAdapter:0xad70050>
 
 # Could not dump table "housing_zipcodes" because of following NoMethodError
-#   undefined method `column_spec_with_oracle_enhanced' for #<ActiveRecord::ConnectionAdapters::SQLServerAdapter:0xa22db0c>
+#   undefined method `column_spec_with_oracle_enhanced' for #<ActiveRecord::ConnectionAdapters::SQLServerAdapter:0xad70050>
+
+# Could not dump table "messages" because of following NoMethodError
+#   undefined method `column_spec_with_oracle_enhanced' for #<ActiveRecord::ConnectionAdapters::SQLServerAdapter:0xad70050>
 
 end
