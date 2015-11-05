@@ -9,6 +9,15 @@
 
 <div class="container">
     <div class="row">
+
+    	<% if flash[:notice] %>
+			<div class="alert alert-info alert-dismissable">
+			  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			  <strong><%= flash[:notice] %></strong>
+			</div>
+		<% end %>
+
+
       <div class="sidebar col-sm-12 col-md-12" id="sidebar">
 		<aside class="widget menu">
 		  <header>
@@ -110,8 +119,8 @@
 	              <td class="text-warning"><em>Pending</em></td>
 	              <td>
 	              	 <div class="btn-group">
-	              	 	<a href="/moduledetail/<%= modules_available.znumber %>"  target="_blank">Details</a> |
-	                 	<%= link_to 'Lock/Unlock', edit_ftic_modules_available_path(modules_available)%> |
+	              	 	<!-- <a href="/moduledetail/<%= modules_available.id %>/<%= modules_available.znumber %>"  target="_blank">Details</a> | -->
+	                 	<%= link_to 'Modules', edit_ftic_modules_available_path(modules_available)%> |
 	                 	<a href="/home?znum=<%= modules_available.znumber %>" target="_blank">Proxy</a> |
 	                 	<a href="/activity_log/<%= modules_available.znumber %>"  target="_blank">Log</a> |
 	                 	<a href="/messages/new/<%= modules_available.znumber %>" target="_blank">Send Message</a>                

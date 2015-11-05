@@ -10,7 +10,8 @@ class FticModulesAvailablesController < ApplicationController
   end
 
   def moduledetail
-    @modules_availables = FticModulesAvailable.where(:znumber => params[:znum])
+    @modules_availables = FticModulesAvailable.where(:znumber => params[:znum])   
+    @ma = FticModulesAvailable.where(:id =>  params[:id] )
   end
 
   # GET /modules_availables/1
@@ -25,6 +26,7 @@ class FticModulesAvailablesController < ApplicationController
 
   # GET /modules_availables/1/edit
   def edit
+    @ma = FticModulesAvailable.where(:id =>  params[:id] )
   end
 
   # POST /modules_availables
