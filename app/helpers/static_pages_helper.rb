@@ -57,7 +57,7 @@ module StaticPagesHelper
         output.each do |o| 
              if !o.nil?              
 
-               tmp <<  "<tr><td>#{o['rfrbase_fund_title']}</td><td>#{number_to_currency(o['rpratrm_offer_amt'])}</td><td>#{o['offerdate']}</td></tr>"
+               tmp <<  "<tr><td>#{o['rfrbase_fund_title']}</td><td>#{o['term']} #{o['year']}</td><td>#{number_to_currency(o['rpratrm_offer_amt'])}</td><td>#{o['offerdate']}</td></tr>"
              else
                tmp =  "<tr><td colspan='4'>You DO NOT have award information on file.</td></tr>"
              end        

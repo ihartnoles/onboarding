@@ -99,7 +99,17 @@ class Banner < ActiveRecord::Base
 		end
 
 		def self.fin_aid_awards(id)
-			get = connection.exec_query("SELECT RFRBASE_FUND_TITLE, RPRATRM_PERIOD, RPRATRM_OFFER_AMT, TO_CHAR(RPRATRM_OFFER_DATE,'MM/DD/YYYY') as offerdate FROM BANINST1.AWS_ONBOARDING_FINAID_AWARDS WHERE Z_NUMBER=#{connection.quote(id)}")
+			get = connection.exec_query("SELECT RFRBASE_FUND_TITLE, RPRATRM_PERIOD, 
+												SUBSTR( RPRATRM_PERIOD, 1 , 4 ) as year,
+ 
+  											  CASE SUBSTR(RPRATRM_PERIOD, 5 , 6 )
+									             WHEN '01' THEN 'Spring'
+									             WHEN '08' THEN 'Fall'
+									             WHEN '05' THEN 'Summer'
+									          ELSE ''
+									      END as term,
+									
+									    RPRATRM_OFFER_AMT, TO_CHAR(RPRATRM_OFFER_DATE,'MM/DD/YYYY') as offerdate FROM BANINST1.AWS_ONBOARDING_FINAID_AWARDS WHERE Z_NUMBER=#{connection.quote(id)} ORDER BY RPRATRM_PERIOD, RFRBASE_FUND_TITLE")
 		end
 
 	#END:QUERIES TO BANINST1.AWS_ONBOARDING_FINAID

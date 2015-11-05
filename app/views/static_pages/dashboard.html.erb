@@ -120,7 +120,7 @@
 	              <td>
 	              	 <div class="btn-group">
 	              	 	<!-- <a href="/moduledetail/<%= modules_available.id %>/<%= modules_available.znumber %>"  target="_blank">Details</a> | -->
-	                 	<%= link_to 'Modules', edit_ftic_modules_available_path(modules_available)%> |
+	                 	<%= link_to 'Modules', edit_ftic_modules_available_path(modules_available), :target => "_blank" %> |
 	                 	<a href="/home?znum=<%= modules_available.znumber %>" target="_blank">Proxy</a> |
 	                 	<a href="/activity_log/<%= modules_available.znumber %>"  target="_blank">Log</a> |
 	                 	<a href="/messages/new/<%= modules_available.znumber %>" target="_blank">Send Message</a>                
