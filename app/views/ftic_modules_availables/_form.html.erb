@@ -36,9 +36,10 @@
                 
                 
                 <div class="col-sm-4 col-md-4 service alert alert-border">
-                  <a href="/fticadmin/<%= m.id %>/edit">
+                  
                     <div class="icon bg"> <% if m.welcome == 1 %><i class="fa fa-unlock-alt"></i><% else %><i class="fa fa-lock"></i><% end %></div>
-                    <h6 class="title">Welcome</h6>
+
+                    <a href="/fticadmin/<%= m.id %>/edit"><h6 class="title">Welcome</h6></a>
                     <div class="text-small">
                         <div class="text-warning"><em><b>pending</b></em></div><br>
                         The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
@@ -55,11 +56,11 @@
                             </div>
                         </div>
                     </div>  
-                  </a>   
+                     
                 </div> <!-- END OF WELCOME -->
 
                 <div class="col-sm-4 col-md-4 service alert alert-border">
-                  <a href="/fticadmin/<%= m.id %>/edit">
+                 
                     <div class="icon bg">
                         <% if m.deposit == 1 %>
                           <%#= image_tag('/assets/Check_16x16.png')  %>
@@ -82,9 +83,16 @@
                           </div>
                         <% end %>
                     </div>
-                    <h6 class="title">Deposit</h6>
+                     <a href="/fticadmin/<%= m.id %>/edit"><h6 class="title">Deposit</h6></a> 
                     <div class="text-small">
-                        <div class="text-warning"><em><b>pending</b></em></div><br>
+                         
+                         <% if @deposit_complete == 1 %>
+                               <div class="text-info"><b>COMPLETED</b></div><br>
+                          <% else %>
+                              <div class="text-danger"><b>INCOMPLETE</b></div><br>
+                          <% end %>
+
+
                         The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.     
                         
                         <br><br>
@@ -102,11 +110,11 @@
                              </div>  
                        </div>
                     </div>
-                  </a>               
+                                
                 </div><!-- END OF DEPOSIT -->
 
                    <div class="col-sm-4 col-md-4 service alert alert-border">
-                      <a href="/fticadmin/<%= m.id %>/edit">
+                     
                         <div class="icon bg"><% if m.account == 1 %>
                               <%#= image_tag('/assets/Check_16x16.png')  %>
                                <div class="icon icon-20"> 
@@ -118,9 +126,16 @@
                                 <i class="fa fa-lock"></i>
                               </div>
                             <% end %></div>
-                        <h6 class="title">Account</h6>
+                         <a href="/fticadmin/<%= m.id %>/edit"><h6 class="title">Account</h6></a>
                         <div class="text-small">
-                            <div class="text-warning"><em><b>pending</b></em></div><br>
+                            
+                          <% if @account_complete == 1 %>
+                               <div class="text-info"><b>COMPLETED</b></div><br>
+                          <% else %>
+                              <div class="text-danger"><b>INCOMPLETE</b></div><br>
+                          <% end %>
+
+
                             The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
 
                             <br><br>
@@ -138,11 +153,11 @@
 
                             </div>
                         </div>  
-                      </a>
+                      
 
 
                         <div class="col-sm-4 col-md-4 service alert alert-border">
-                      <a href="/fticadmin/<%= m.id %>/edit">
+                     
                         <div class="icon bg"><% if m.communication == 1 %>
                               <%#= image_tag('/assets/Check_16x16.png')  %>
                                <div class="icon icon-20"> 
@@ -154,7 +169,7 @@
                                 <i class="fa fa-lock"></i>
                               </div>
                             <% end %></div>
-                        <h6 class="title">Communication Preference</h6>
+                         <a href="/fticadmin/<%= m.id %>/edit"><h6 class="title">Communication Preference</h6></a>
                         <div class="text-small">
                             <div class="text-warning"><em><b>pending</b></em></div><br>
                             The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
@@ -174,11 +189,11 @@
 
                             </div>
                         </div>  
-                      </a>
+                      
 
 
                         <div class="col-sm-4 col-md-4 service alert alert-border">
-                      <a href="/fticadmin/<%= m.id %>/edit">
+                     
                         <div class="icon bg"><% if m.immunization == 1 %>
                               <%#= image_tag('/assets/Check_16x16.png')  %>
                                <div class="icon icon-20"> 
@@ -190,9 +205,13 @@
                                 <i class="fa fa-lock"></i>
                               </div>
                             <% end %></div>
-                        <h6 class="title">Immunization Holds</h6>
+                         <a href="/fticadmin/<%= m.id %>/edit"><h6 class="title">Immunization Holds</h6></a>
                         <div class="text-small">
-                            <div class="text-warning"><em><b>pending</b></em></div><br>
+                          <% if @immunization_complete == 1 %>
+                               <div class="text-info"><b>COMPLETED</b></div><br>
+                          <% else %>
+                              <div class="text-danger"><b>INCOMPLETE</b></div><br>
+                          <% end %>
                             The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
 
                             <br><br>
@@ -210,11 +229,11 @@
 
                             </div>
                         </div>  
-                      </a>
+                      
 
 
                         <div class="col-sm-4 col-md-4 service alert alert-border">
-                      <a href="/fticadmin/<%= m.id %>/edit">
+                      
                         <div class="icon bg"><% if m.residency == 1 %>
                               <%#= image_tag('/assets/Check_16x16.png')  %>
                                <div class="icon icon-20"> 
@@ -226,9 +245,14 @@
                                 <i class="fa fa-lock"></i>
                               </div>
                             <% end %></div>
-                        <h6 class="title">Residency Validation</h6>
+                        <a href="/fticadmin/<%= m.id %>/edit"><h6 class="title">Residency Validation</h6> </a>
                         <div class="text-small">
-                            <div class="text-warning"><em><b>pending</b></em></div><br>
+                          <% if @residency_complete == 1 %>
+                               <div class="text-info"><b>COMPLETED</b></div><br>
+                          <% else %>
+                              <div class="text-danger"><b>INCOMPLETE</b></div><br>
+                          <% end %>
+
                             The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
 
                             <br><br>
@@ -246,12 +270,12 @@
 
                             </div>
                         </div>  
-                      </a>
+                     
 
 
 
                          <div class="col-sm-4 col-md-4 service alert alert-border">
-                      <a href="/fticadmin/<%= m.id %>/edit">
+                      
                         <div class="icon bg"><% if m.finaid == 1 %>
                               <%#= image_tag('/assets/Check_16x16.png')  %>
                                <div class="icon icon-20"> 
@@ -263,9 +287,15 @@
                                 <i class="fa fa-lock"></i>
                               </div>
                             <% end %></div>
-                        <h6 class="title">Financial Aid</h6>
+                        <a href="/fticadmin/<%= m.id %>/edit"><h6 class="title">Financial Aid</h6></a>
                         <div class="text-small">
-                            <div class="text-warning"><em><b>pending</b></em></div><br>
+                            
+                           <% if @finaid_complete == 1 %>
+                               <div class="text-info"><b>COMPLETED</b></div><br>
+                          <% else %>
+                              <div class="text-danger"><b>INCOMPLETE</b></div><br>
+                          <% end %>
+
                             The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
 
                             <br><br>
@@ -283,11 +313,11 @@
 
                             </div>
                         </div>  
-                      </a>
+                      
 
 
                         <div class="col-sm-4 col-md-4 service alert alert-border">
-                      <a href="/fticadmin/<%= m.id %>/edit">
+                      
                         <div class="icon bg"><% if m.housingfee == 1 %>
                               <%#= image_tag('/assets/Check_16x16.png')  %>
                                <div class="icon icon-20"> 
@@ -299,7 +329,7 @@
                                 <i class="fa fa-lock"></i>
                               </div>
                             <% end %></div>
-                        <h6 class="title">Housing Fee</h6>
+                        <a href="/fticadmin/<%= m.id %>/edit"><h6 class="title">Housing Fee</h6></a>
                         <div class="text-small">
                             <div class="text-warning"><em><b>pending</b></em></div><br>
                             The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
@@ -319,11 +349,11 @@
 
                             </div>
                         </div>  
-                      </a>
+                      
 
 
                         <div class="col-sm-4 col-md-4 service alert alert-border">
-                      <a href="/fticadmin/<%= m.id %>/edit">
+                      
                         <div class="icon bg"><% if m.housingmealplan == 1 %>
                               <%#= image_tag('/assets/Check_16x16.png')  %>
                                <div class="icon icon-20"> 
@@ -335,7 +365,7 @@
                                 <i class="fa fa-lock"></i>
                               </div>
                             <% end %></div>
-                        <h6 class="title">Housing & Meal Plans</h6>
+                        <a href="/fticadmin/<%= m.id %>/edit"><h6 class="title">Housing & Meal Plans</h6></a>
                         <div class="text-small">
                             <div class="text-warning"><em><b>pending</b></em></div><br>
                             The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
@@ -355,11 +385,11 @@
 
                             </div>
                         </div>  
-                      </a>
+                      
 
 
                        <div class="col-sm-4 col-md-4 service alert alert-border">
-                      <a href="/fticadmin/<%= m.id %>/edit">
+                      
                         <div class="icon bg"><% if m.aleks == 1 %>
                               <%#= image_tag('/assets/Check_16x16.png')  %>
                                <div class="icon icon-20"> 
@@ -371,9 +401,15 @@
                                 <i class="fa fa-lock"></i>
                               </div>
                             <% end %></div>
-                        <h6 class="title">ALEKS</h6>
+                        <a href="/fticadmin/<%= m.id %>/edit"><h6 class="title">ALEKS</h6></a>
                         <div class="text-small">
-                            <div class="text-warning"><em><b>pending</b></em></div><br>
+                            
+                          <% if @aleks_complete == 1 %>
+                               <div class="text-info"><b>COMPLETED</b></div><br>
+                          <% else %>
+                              <div class="text-danger"><b>INCOMPLETE</b></div><br>
+                          <% end %>
+
                             The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
 
                             <br><br>
@@ -391,11 +427,11 @@
 
                             </div>
                         </div>  
-                      </a>
+                      
 
 
                         <div class="col-sm-4 col-md-4 service alert alert-border">
-                      <a href="/fticadmin/<%= m.id %>/edit">
+                      
                         <div class="icon bg"><% if m.orientation == 1 %>
                               <%#= image_tag('/assets/Check_16x16.png')  %>
                                <div class="icon icon-20"> 
@@ -407,9 +443,15 @@
                                 <i class="fa fa-lock"></i>
                               </div>
                             <% end %></div>
-                        <h6 class="title">Orientation</h6>
+                        <a href="/fticadmin/<%= m.id %>/edit"><h6 class="title">Orientation</h6></a>
                         <div class="text-small">
-                            <div class="text-warning"><em><b>pending</b></em></div><br>
+                          
+                          <% if @orientation_complete == 1 %>
+                               <div class="text-info"><b>COMPLETED</b></div><br>
+                          <% else %>
+                              <div class="text-danger"><b>INCOMPLETE</b></div><br>
+                          <% end %>
+
                             The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
 
                             <br><br>
@@ -427,11 +469,11 @@
 
                             </div>
                         </div>  
-                      </a>
+                      
 
 
                         <div class="col-sm-4 col-md-4 service alert alert-border">
-                      <a href="/fticadmin/<%= m.id %>/edit">
+                      
                         <div class="icon bg"><% if m.learning_comm == 1 %>
                               <%#= image_tag('/assets/Check_16x16.png')  %>
                                <div class="icon icon-20"> 
@@ -443,7 +485,7 @@
                                 <i class="fa fa-lock"></i>
                               </div>
                             <% end %></div>
-                        <h6 class="title">Learning Communities</h6>
+                        <a href="/fticadmin/<%= m.id %>/edit"><h6 class="title">Learning Communities</h6></a>
                         <div class="text-small">
                             <div class="text-warning"><em><b>pending</b></em></div><br>
                             The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
@@ -463,11 +505,11 @@
 
                             </div>
                         </div>  
-                      </a>
+                      
 
 
                        <div class="col-sm-4 col-md-4 service alert alert-border">
-                      <a href="/fticadmin/<%= m.id %>/edit">
+                      
                         <div class="icon bg"><% if m.oars == 1 %>
                               <%#= image_tag('/assets/Check_16x16.png')  %>
                                <div class="icon icon-20"> 
@@ -479,9 +521,15 @@
                                 <i class="fa fa-lock"></i>
                               </div>
                             <% end %></div>
-                        <h6 class="title">OARS</h6>
+                        <a href="/fticadmin/<%= m.id %>/edit"><h6 class="title">OARS</h6></a>
                         <div class="text-small">
-                            <div class="text-warning"><em><b>pending</b></em></div><br>
+
+                          <% if @oars_complete == 1 %>
+                               <div class="text-info"><b>COMPLETED</b></div><br>
+                          <% else %>
+                              <div class="text-danger"><b>INCOMPLETE</b></div><br>
+                          <% end %>
+                            
                             The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
 
                             <br><br>
@@ -503,7 +551,7 @@
 
 
                         <div class="col-sm-4 col-md-4 service alert alert-border">
-                      <a href="/fticadmin/<%= m.id %>/edit">
+                      
                         <div class="icon bg"><% if m.registration == 1 %>
                               <%#= image_tag('/assets/Check_16x16.png')  %>
                                <div class="icon icon-20"> 
@@ -515,9 +563,15 @@
                                 <i class="fa fa-lock"></i>
                               </div>
                             <% end %></div>
-                        <h6 class="title">Registration</h6>
+                        <a href="/fticadmin/<%= m.id %>/edit"><h6 class="title">Registration</h6></a>
                         <div class="text-small">
-                            <div class="text-warning"><em><b>pending</b></em></div><br>
+                          
+                          <% if @reg_complete == 1 %>
+                               <div class="text-info"><b>COMPLETED</b></div><br>
+                          <% else %>
+                              <div class="text-danger"><b>INCOMPLETE</b></div><br>
+                          <% end %>
+
                             The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
 
                             <br><br>
@@ -535,11 +589,11 @@
 
                             </div>
                         </div>  
-                      </a>
+                      
 
 
                         <div class="col-sm-4 col-md-4 service alert alert-border">
-                      <a href="/fticadmin/<%= m.id %>/edit">
+                     
                         <div class="icon bg"><% if m.tution == 1 %>
                               <%#= image_tag('/assets/Check_16x16.png')  %>
                                <div class="icon icon-20"> 
@@ -551,9 +605,15 @@
                                 <i class="fa fa-lock"></i>
                               </div>
                             <% end %></div>
-                        <h6 class="title">Tuition Payment</h6>
+                         <a href="/fticadmin/<%= m.id %>/edit"><h6 class="title">Tuition Payment</h6></a>
                         <div class="text-small">
-                            <div class="text-warning"><em><b>pending</b></em></div><br>
+                          
+                          <% if @tuition_complete == 1 %>
+                              <div class="text-info"><b>COMPLETED</b></div><br>
+                          <% else %>
+                              <div class="text-danger"><b>INCOMPLETE</b></div><br>
+                          <% end %>
+
                             The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
 
                             <br><br>
@@ -571,11 +631,11 @@
 
                             </div>
                         </div>  
-                      </a>
+                      
 
 
                        <div class="col-sm-4 col-md-4 service alert alert-border">
-                      <a href="/fticadmin/<%= m.id %>/edit">
+                      
                         <div class="icon bg"><% if m.emergency == 1 %>
                               <%#= image_tag('/assets/Check_16x16.png')  %>
                                <div class="icon icon-20"> 
@@ -587,9 +647,16 @@
                                 <i class="fa fa-lock"></i>
                               </div>
                             <% end %></div>
-                        <h6 class="title">Emergency Contacts</h6>
+                        <a href="/fticadmin/<%= m.id %>/edit"><h6 class="title">Emergency Contacts</h6></a>
                         <div class="text-small">
-                            <div class="text-warning"><em><b>pending</b></em></div><br>
+                            
+                          <% if @deposit_complete == 1 %>
+                               <div class="text-info"><b>COMPLETED</b></div><br>
+                          <% else %>
+                              <div class="text-danger"><b>INCOMPLETE</b></div><br>
+                          <% end %>
+
+
                             The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
 
                             <br><br>
@@ -607,11 +674,11 @@
 
                             </div>
                         </div>  
-                      </a>
+                    
 
 
                         <div class="col-sm-4 col-md-4 service alert alert-border">
-                      <a href="/fticadmin/<%= m.id %>/edit">
+                      
                         <div class="icon bg"><% if m.faualert == 1 %>
                               <%#= image_tag('/assets/Check_16x16.png')  %>
                                <div class="icon icon-20"> 
@@ -623,9 +690,15 @@
                                 <i class="fa fa-lock"></i>
                               </div>
                             <% end %></div>
-                        <h6 class="title">FAU Alert</h6>
+                        <a href="/fticadmin/<%= m.id %>/edit"><h6 class="title">FAU Alert</h6> </a>
                         <div class="text-small">
-                            <div class="text-warning"><em><b>pending</b></em></div><br>
+
+                          <% if @fau_alert_complete == 1 %>
+                               <div class="text-info"><b>COMPLETED</b></div><br>
+                          <% else %>
+                              <div class="text-danger"><b>INCOMPLETE</b></div><br>
+                          <% end %>
+
                             The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
 
                             <br><br>
@@ -643,11 +716,11 @@
 
                             </div>
                         </div>  
-                      </a>
+                     
 
 
                         <div class="col-sm-4 col-md-4 service alert alert-border">
-                      <a href="/fticadmin/<%= m.id %>/edit">
+                      
                         <div class="icon bg"><% if m.owlcard == 1 %>
                               <%#= image_tag('/assets/Check_16x16.png')  %>
                                <div class="icon icon-20"> 
@@ -659,9 +732,15 @@
                                 <i class="fa fa-lock"></i>
                               </div>
                             <% end %></div>
-                        <h6 class="title">Owl Card</h6>
+                        <a href="/fticadmin/<%= m.id %>/edit"><h6 class="title">Owl Card</h6></a>
                         <div class="text-small">
-                            <div class="text-warning"><em><b>pending</b></em></div><br>
+                          
+                          <% if @owlcard_complete == 1 %>
+                               <div class="text-info"><b>COMPLETED</b></div><br>
+                          <% else %>
+                              <div class="text-danger"><b>INCOMPLETE</b></div><br>
+                          <% end %>
+
                             The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
 
                             <br><br>
@@ -679,10 +758,10 @@
 
                             </div>
                         </div>  
-                      </a>
+                      
 
                       <div class="col-sm-4 col-md-4 service alert alert-border">
-                      <a href="/fticadmin/<%= m.id %>/edit">
+                      
                         <div class="icon bg"><% if m.bookadvance == 1 %>
                               <%#= image_tag('/assets/Check_16x16.png')  %>
                                <div class="icon icon-20"> 
@@ -694,9 +773,15 @@
                                 <i class="fa fa-lock"></i>
                               </div>
                             <% end %></div>
-                        <h6 class="title">Book Advance</h6>
+                        <a href="/fticadmin/<%= m.id %>/edit"><h6 class="title">Book Advance</h6></a>
                         <div class="text-small">
-                            <div class="text-warning"><em><b>pending</b></em></div><br>
+                          
+                          <% if @bookadvance_complete == 1 %>
+                              <div class="text-info"><b>COMPLETED</b></div><br>
+                          <% else %>
+                              <div class="text-danger"><b>INCOMPLETE</b></div><br>
+                          <% end %>
+
                             The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
 
                             <br><br>
@@ -714,11 +799,11 @@
 
                             </div>
                         </div>  
-                      </a>
+                      
 
 
                         <div class="col-sm-4 col-md-4 service alert alert-border">
-                      <a href="/fticadmin/<%= m.id %>/edit">
+                      
                         <div class="icon bg"><% if m.vehiclereg == 1 %>
                               <%#= image_tag('/assets/Check_16x16.png')  %>
                                <div class="icon icon-20"> 
@@ -730,9 +815,15 @@
                                 <i class="fa fa-lock"></i>
                               </div>
                             <% end %></div>
-                        <h6 class="title">Vehicle Registration</h6>
+                        <a href="/fticadmin/<%= m.id %>/edit"><h6 class="title">Vehicle Registration</h6></a>
                         <div class="text-small">
-                            <div class="text-warning"><em><b>pending</b></em></div><br>
+                          
+                          <% if @vehicle_reg_complete == 1 %>
+                              <div class="text-info"><b>COMPLETED</b></div><br>
+                          <% else %>
+                              <div class="text-danger"><b>INCOMPLETE</b></div><br>
+                          <% end %>
+
                             The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
 
                             <br><br>
@@ -750,7 +841,7 @@
 
                             </div>
                         </div>  
-                      </a>
+                      
 
                      
                     </div><!-- END OF ROW -->

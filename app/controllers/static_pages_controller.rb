@@ -270,6 +270,7 @@ class StaticPagesController < ApplicationController
                     @dep_complete_flag = 0
                   end 
 
+                  #this needs to be changed to hit up OIM
                   if o['gobtpac_external_user'].nil?
                     @account_complete = 0
                   else
