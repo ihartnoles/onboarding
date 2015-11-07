@@ -24,8 +24,9 @@ gem 'activerecord-sqlserver-adapter'
 gem 'tiny_tds', '~> 0.6.3.rc1'
 
 #cas adapter
-#gem 'rubycas-client', :git => 'git://github.com/rubycas/rubycas-client.git'
-gem 'rubycas-client'
+#'rubycas-client', :git => 'https://github.com/mp-dhorsak/rubycas-client'
+gem 'rubycas-client', :git => 'git://github.com/rubycas/rubycas-client.git'
+#gem 'rubycas-client'
 
 #httparty - to call API's
 gem 'httparty'
