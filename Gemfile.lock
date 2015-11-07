@@ -69,9 +69,6 @@ GEM
     execjs (2.5.2)
     git-version-bump (0.15.1)
     hike (1.2.3)
-    httparty (0.13.5)
-      json (~> 1.8)
-      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
@@ -96,7 +93,6 @@ GEM
     mimemagic (0.3.0)
     minitest (4.7.5)
     multi_json (1.11.0)
-    multi_xml (0.5.5)
     orm_adapter (0.5.0)
     paperclip (4.3.1)
       activemodel (>= 3.2.0)
@@ -170,7 +166,6 @@ DEPENDENCIES
   activerecord-sqlserver-adapter
   ckeditor!
   coffee-rails (~> 4.0.0)
-  httparty
   jbuilder (~> 1.2)
   jquery-datatables-rails (~> 3.3.0)
   jquery-rails

@@ -29,7 +29,7 @@ gem 'rubycas-client', :git => 'git://github.com/rubycas/rubycas-client.git'
 #gem 'rubycas-client'
 
 #httparty - to call API's
-gem 'httparty'
+#gem 'httparty'
 
 
 # Use SCSS for stylesheets

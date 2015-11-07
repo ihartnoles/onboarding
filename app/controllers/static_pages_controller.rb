@@ -1,4 +1,4 @@
-require 'mapquest_api'
+#require 'mapquest_api'
 
 class StaticPagesController < ApplicationController
       
