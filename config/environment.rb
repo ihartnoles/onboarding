@@ -5,7 +5,7 @@ require File.expand_path('../application', __FILE__)
 Onboarding::Application.initialize!
 
 
-CASClient::Frameworks::Rails::Filter.configure(
-  :cas_base_url => "https://ssot.fau.edu/",
-  :force_ssl_verification => false
-)
+# CASClient::Frameworks::Rails::Filter.configure(
+#   :cas_base_url => "https://ssot.fau.edu/",
+#   :force_ssl_verification => false
+# )
