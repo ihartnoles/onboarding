@@ -25,11 +25,10 @@ gem 'tiny_tds', '~> 0.6.3.rc1'
 
 #cas adapter
 #'rubycas-client', :git => 'https://github.com/mp-dhorsak/rubycas-client'
-#gem 'rubycas-client', :git => 'git://github.com/rubycas/rubycas-client.git'
+gem 'rubycas-client', :git => 'git://github.com/rubycas/rubycas-client.git'
 #gem 'rubycas-client'
 #gem 'rubycas-client-rails'
-
-gem "rubycas-client-rails", :git => "git://github.com/rubycas/rubycas-client-rails.git"
+#gem "rubycas-client-rails", :git => "git://github.com/rubycas/rubycas-client-rails.git"
 
 #httparty - to call API's
 #gem 'httparty'
